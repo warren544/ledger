@@ -9,7 +9,7 @@
     "start": "next start",
     "check": "npm run typecheck && npm run test",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test \"tests/**/*.test.ts\"",
+    "test": "tsx --test \"tests/**/*.test.ts\" \"src/core/**/__tests__/*.test.ts\"",
     "generate-fixtures": "tsx scripts/generate-fixtures.ts",
     "doctor": "tsx scripts/doctor.ts",
     "inspect-fixtures": "tsx scripts/inspect-fixtures.ts",
