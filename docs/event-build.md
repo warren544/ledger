@@ -22,6 +22,8 @@ Use `npm run generate-fixtures` for an explicit reviewed dataset update and `npm
 
 The prebuilt core utility inventory also includes pure USD-cent money helpers and UUID validation/generation in `src/core/money.ts` and `src/core/ids.ts`, with isolated tests under `src/core/__tests__/`. These helpers contain no domain thresholds, adapters, server code, app code, worker code, or I/O.
 
+The generic prebuilt utility inventory also includes `src/core/hash-chain.ts`, a versioned SHA-256 append/verify library with canonical JSON payloads and no persisted audit-log integration. Its trust model is limited to tamper evidence relative to a separately trusted expected head and count; it is not a signature or proof against unanchored truncation.
+
 ## Reused dependencies
 
 The foundation uses Node.js, TypeScript, and the standard Node test runner. Dependency versions and licenses must be reviewed before release.

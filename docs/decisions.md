@@ -19,3 +19,7 @@ Use a fixed seed, reference timestamp, generator version, deterministic UUID der
 ## 2026-10-06 — pure money and ID helpers
 
 Money is represented as safe integer USD cents. Decimal parsing accepts an optional `$`, an optional leading minus, and at most two fractional digits; it rejects whitespace, grouping, exponent notation, alternate signs, fractional cents, and overflow without rounding. Formatting is deterministic and non-grouped (`-$12.34`), and arithmetic checks output bounds. IDs are validated UUID strings, with a per-generator injectable source for tests and no global counters. The test command explicitly discovers both root tests and co-located core tests with `node:test` and `tsx`.
+
+## 2026-10-06 — generic hash-chain utility
+
+Use version-1 entries whose SHA-256 input frames the version, entry index, previous hash, and recursively canonical JSON payload. The documented genesis is 64 zeroes; empty chains verify with that head and count zero. Append returns new arrays and cloned payloads without mutating inputs. Verification recomputes links and hashes and reports only a failure index and structural reason. An unkeyed chain is tamper-evident relative to a separately trusted head/count, not a signature: without those anchors, truncation or whole-chain replacement cannot be detected.
