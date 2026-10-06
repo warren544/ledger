@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rec-invoice-a",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-06T00:00:00.000Z",
+    "kind": "invoice",
+    "customerId": "customer-a",
+    "source": "synthetic",
+    "payload": { "invoiceNumber": "INV-A-001", "amountCents": 12500, "serviceCode": "CONSULT" }
+  },
+  {
+    "id": "rec-invoice-b",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-06T00:00:00.000Z",
+    "kind": "invoice",
+    "customerId": "customer-b",
+    "source": "synthetic",
+    "payload": { "invoiceNumber": "INV-B-001", "amountCents": 8400, "serviceCode": "SUPPORT" }
+  },
+  {
+    "id": "rec-rate-a",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-06T00:00:00.000Z",
+    "kind": "rate_sheet",
+    "customerId": "customer-a",
+    "source": "synthetic",
+    "payload": { "serviceCode": "CONSULT", "rateCents": 12500 }
+  }
+]

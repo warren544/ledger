@@ -1,0 +1,30 @@
+{
+  "name": "ledger",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "check": "npm run typecheck && npm run test",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test \"tests/**/*.test.ts\"",
+    "doctor": "tsx scripts/doctor.ts",
+    "inspect-fixtures": "tsx scripts/inspect-fixtures.ts",
+    "reset-fixtures": "tsx scripts/reset-fixtures.ts"
+  },
+  "engines": { "node": "22.23.3" },
+  "dependencies": {
+    "next": "15.5.27",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.18.13",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "tsx": "4.20.5",
+    "typescript": "5.9.3"
+  }
+}
