@@ -27,3 +27,7 @@ Use version-1 entries whose SHA-256 input frames the version, entry index, previ
 ## 2026-10-06 — immutable generic capability gate
 
 The generic capability gate is constructed once from a trusted, copied allowlist using exact lowercase dotted names such as `sample.read`. It fails closed for absent, malformed, wrong-case, whitespace-altered, and unknown names, returns typed decisions only, and exposes no grant/update, callback, tool-execution, model-text, document-content, or label-driven API. This is a reusable boundary primitive, not Ledger policy or product capability wiring.
+
+## 2026-10-06 — bounded generic redaction
+
+Use `redact(value, options)` for structured diagnostics only. Exact sensitive-key masking and caller-supplied nonempty secret replacement are the reliable contract; conservative Mongo credential and Authorization regexes are best effort, not universal PII/secret removal. Traversal is bounded by depth and entries, preserves safe structure without mutation, and replaces cycles, errors, unsupported values, and limits with explicit markers without stringifying raw values. The utility is pure and does not alter global logging behavior.

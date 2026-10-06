@@ -26,6 +26,8 @@ The generic prebuilt utility inventory also includes `src/core/hash-chain.ts`, a
 
 The generic prebuilt utility inventory also includes `src/core/capabilities.ts`, an immutable default-deny allowlist gate with neutral isolated tests. It defines no Ledger actions, executes no callbacks or tools, and has no runtime grant/update surface.
 
+The generic prebuilt utility inventory also includes `src/core/redaction.ts`, a bounded structured-value sanitizer with sensitive-key and explicit-secret handling. It has no product trace integration and documents that regex masking is only best effort.
+
 ## Reused dependencies
 
 The foundation uses Node.js, TypeScript, and the standard Node test runner. Dependency versions and licenses must be reviewed before release.
