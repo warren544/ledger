@@ -24,6 +24,8 @@ The prebuilt core utility inventory also includes pure USD-cent money helpers an
 
 The generic prebuilt utility inventory also includes `src/core/hash-chain.ts`, a versioned SHA-256 append/verify library with canonical JSON payloads and no persisted audit-log integration. Its trust model is limited to tamper evidence relative to a separately trusted expected head and count; it is not a signature or proof against unanchored truncation.
 
+The generic prebuilt utility inventory also includes `src/core/capabilities.ts`, an immutable default-deny allowlist gate with neutral isolated tests. It defines no Ledger actions, executes no callbacks or tools, and has no runtime grant/update surface.
+
 ## Reused dependencies
 
 The foundation uses Node.js, TypeScript, and the standard Node test runner. Dependency versions and licenses must be reviewed before release.

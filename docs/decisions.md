@@ -23,3 +23,7 @@ Money is represented as safe integer USD cents. Decimal parsing accepts an optio
 ## 2026-10-06 — generic hash-chain utility
 
 Use version-1 entries whose SHA-256 input frames the version, entry index, previous hash, and recursively canonical JSON payload. The documented genesis is 64 zeroes; empty chains verify with that head and count zero. Append returns new arrays and cloned payloads without mutating inputs. Verification recomputes links and hashes and reports only a failure index and structural reason. An unkeyed chain is tamper-evident relative to a separately trusted head/count, not a signature: without those anchors, truncation or whole-chain replacement cannot be detected.
+
+## 2026-10-06 — immutable generic capability gate
+
+The generic capability gate is constructed once from a trusted, copied allowlist using exact lowercase dotted names such as `sample.read`. It fails closed for absent, malformed, wrong-case, whitespace-altered, and unknown names, returns typed decisions only, and exposes no grant/update, callback, tool-execution, model-text, document-content, or label-driven API. This is a reusable boundary primitive, not Ledger policy or product capability wiring.
