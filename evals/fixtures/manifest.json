@@ -1,0 +1,10 @@
+{
+  "datasetId": "ledger-neutral-prebuild-v1",
+  "generatorVersion": "neutral-records-generator-v1",
+  "seed": "ledger-a2-neutral-seed-v1",
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-06T00:00:00.000Z",
+  "records": 12,
+  "datasetHash": "520da190d1bd598f2750b9361536ddf9d339bc61e8185c56ea0d5542bfaaa869",
+  "labelsWithheld": true
+}

@@ -1,32 +1,182 @@
 [
   {
-    "id": "rec-invoice-a",
+    "id": "f9d5aa74-ed3f-4545-9cbd-55eae20fff4c",
     "workspaceId": "demo",
     "schemaVersion": 1,
     "createdAt": "2026-10-06T00:00:00.000Z",
     "kind": "invoice",
-    "customerId": "customer-a",
+    "customerId": "b5dffb20-1338-4c48-b9ac-a0fbe0f82a4d",
     "source": "synthetic",
-    "payload": { "invoiceNumber": "INV-A-001", "amountCents": 12500, "serviceCode": "CONSULT" }
+    "payload": {
+      "ordinal": 1,
+      "token": "invoice-sample-01",
+      "value": 1037,
+      "lane": "north"
+    }
   },
   {
-    "id": "rec-invoice-b",
+    "id": "b9e90d63-8ea5-4b26-b149-31b8304f3db8",
     "workspaceId": "demo",
     "schemaVersion": 1,
-    "createdAt": "2026-10-06T00:00:00.000Z",
-    "kind": "invoice",
-    "customerId": "customer-b",
-    "source": "synthetic",
-    "payload": { "invoiceNumber": "INV-B-001", "amountCents": 8400, "serviceCode": "SUPPORT" }
-  },
-  {
-    "id": "rec-rate-a",
-    "workspaceId": "demo",
-    "schemaVersion": 1,
-    "createdAt": "2026-10-06T00:00:00.000Z",
+    "createdAt": "2026-10-05T18:00:00.000Z",
     "kind": "rate_sheet",
-    "customerId": "customer-a",
+    "customerId": "cb90c0f4-4283-418e-ab48-4935ee666ae2",
     "source": "synthetic",
-    "payload": { "serviceCode": "CONSULT", "rateCents": 12500 }
+    "payload": {
+      "ordinal": 2,
+      "token": "rate_sheet-sample-02",
+      "value": 1074,
+      "lane": "east"
+    }
+  },
+  {
+    "id": "a801401d-5011-41f1-9bb6-03e9bbc15bbf",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-05T12:00:00.000Z",
+    "kind": "service_log",
+    "customerId": "b7cb6efe-fca5-410b-9df4-7e9cebebee3b",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 3,
+      "token": "service_log-sample-03",
+      "value": 1111,
+      "lane": "south"
+    }
+  },
+  {
+    "id": "9482ec47-8857-4909-811f-3c3d75865c9a",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-05T06:00:00.000Z",
+    "kind": "email",
+    "customerId": "1be3acd0-a263-468b-a87b-ca2cd41aae55",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 4,
+      "token": "email-sample-04",
+      "value": 1148,
+      "lane": "west"
+    }
+  },
+  {
+    "id": "17cd8246-b914-4d75-a421-396ec16fa087",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-05T00:00:00.000Z",
+    "kind": "invoice",
+    "customerId": "7956aade-7735-4024-a57c-a02f11685820",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 5,
+      "token": "invoice-sample-05",
+      "value": 1185,
+      "lane": "north"
+    }
+  },
+  {
+    "id": "8d67fba3-63b3-4b95-aa38-580e3939744f",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-04T18:00:00.000Z",
+    "kind": "rate_sheet",
+    "customerId": "eb8b1737-a0ac-42ce-88fd-3063b7c22580",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 6,
+      "token": "rate_sheet-sample-06",
+      "value": 1222,
+      "lane": "east"
+    }
+  },
+  {
+    "id": "0321ae00-63df-46cf-b103-6d045f58a752",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-04T12:00:00.000Z",
+    "kind": "service_log",
+    "customerId": "7d1a81db-40e1-4f26-8921-b12b4bb96f27",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 7,
+      "token": "service_log-sample-07",
+      "value": 1259,
+      "lane": "south"
+    }
+  },
+  {
+    "id": "5c14052e-7478-4f22-bf29-b8bda57b95b9",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-04T06:00:00.000Z",
+    "kind": "email",
+    "customerId": "1a3fef51-0b98-43d1-a3a9-af26670bcf6c",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 8,
+      "token": "email-sample-08",
+      "value": 1296,
+      "lane": "west"
+    }
+  },
+  {
+    "id": "2d130938-e5db-402d-8912-f378ab2aa741",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-04T00:00:00.000Z",
+    "kind": "invoice",
+    "customerId": "cc19837a-cbec-414f-a296-79dd84272993",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 9,
+      "token": "invoice-sample-09",
+      "value": 1333,
+      "lane": "north"
+    }
+  },
+  {
+    "id": "00540bcd-3a1e-4470-b5f4-d90a052f7445",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-03T18:00:00.000Z",
+    "kind": "rate_sheet",
+    "customerId": "3a73966f-2e7c-403c-b626-5715757f6465",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 10,
+      "token": "rate_sheet-sample-10",
+      "value": 1370,
+      "lane": "east"
+    }
+  },
+  {
+    "id": "edb183d0-2577-4cd8-a8cf-85e16b51251a",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-03T12:00:00.000Z",
+    "kind": "service_log",
+    "customerId": "b0b55beb-5d91-4fe8-b657-aa4e92b620c0",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 11,
+      "token": "service_log-sample-11",
+      "value": 1407,
+      "lane": "south"
+    }
+  },
+  {
+    "id": "b7352e64-521c-4f20-b14f-a1926819844f",
+    "workspaceId": "demo",
+    "schemaVersion": 1,
+    "createdAt": "2026-10-03T06:00:00.000Z",
+    "kind": "email",
+    "customerId": "026a27bb-259a-4a65-b995-a597fbd313ca",
+    "source": "synthetic",
+    "payload": {
+      "ordinal": 12,
+      "token": "email-sample-12",
+      "value": 1444,
+      "lane": "west"
+    }
   }
 ]

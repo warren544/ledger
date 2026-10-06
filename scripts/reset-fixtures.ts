@@ -1,6 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { writeCanonicalFixtureSet } from "../src/core/fixture-set.js";
 
-const path = "evals/fixtures/records.json";
-const records = JSON.parse(await readFile(path, "utf8")) as unknown[];
-await writeFile(path, `${JSON.stringify(records, null, 2)}\n`, "utf8");
-console.log(`Reset ${records.length} synthetic records; no labels or product state were changed.`);
+const { records } = await writeCanonicalFixtureSet();
+console.log(`Reset ${records.length} canonical neutral synthetic records from the deterministic recipe.`);

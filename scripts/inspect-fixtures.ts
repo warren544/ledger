@@ -1,7 +1,4 @@
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
-import type { SyntheticRecord } from "../src/core/types.js";
+import { readFixtureData } from "../src/core/fixture-set.js";
 
-const file = resolve("evals/fixtures/records.json");
-const records = JSON.parse(await readFile(file, "utf8")) as SyntheticRecord[];
-console.log(JSON.stringify({ file, records: records.length, kinds: [...new Set(records.map((r) => r.kind))], source: "synthetic", labelsWithheld: true }, null, 2));
+const { records, manifest } = await readFixtureData();
+console.log(JSON.stringify({ records: records.length, datasetId: manifest.datasetId, datasetHash: manifest.datasetHash, labelsWithheld: manifest.labelsWithheld, kinds: [...new Set(records.map((record) => record.kind))] }, null, 2));

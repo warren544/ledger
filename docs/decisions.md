@@ -11,3 +11,7 @@ Pin Node.js to 22.23.3, verified available from the official Windows distributio
 ## 2026-10-06 — environment validation contract
 
 Keep `readEnv(input)` pure and credential-free. Optional blank MongoDB/OpenAI values become `undefined`; nonempty values with surrounding whitespace are rejected without echoing secrets. MongoDB validation follows the official standard and SRV connection-string forms: only `mongodb://` and `mongodb+srv://`, valid host/port structure, and SRV’s single DNS host with no port and at least three labels. This is syntax validation only; it performs no DNS lookup or connection attempt and does not prove reachability.
+
+## 2026-10-06 — frozen neutral fixture identity
+
+Use a fixed seed, reference timestamp, generator version, deterministic UUID derivation, strict Zod schemas, and a manifest hash over the ordered validated record array. Runtime fixtures remain neutral and unlabeled; fixture verification compares against the checked-in manifest and never updates it automatically. Intentional fixture changes require an explicit reviewed generator/manifest change.
