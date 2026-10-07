@@ -30,6 +30,8 @@ The generic prebuilt utility inventory also includes `src/core/redaction.ts`, a 
 
 The prebuilt Mongo inventory is limited to neutral record connectivity, validators, workspace-scoped indexes, a reserved 1536-dimension vector index definition, and CLI setup/smoke seams. It does not include audit collections, findings, rules, change-stream orchestration, replay, or UI. Live Atlas setup/readback is unverified until an explicit synthetic namespace and private configuration are supplied.
 
+The neutral adapter inventory adds the pinned official OpenAI SDK `7.30.0`, injected structured-output and embedding adapters, bounded timeout/retry/cancellation seams, strict `{message: string}` and 1536-finite-vector validation, redacted errors, and `adapters-smoke`. The smoke is cost-gated and performs one tiny request of each type only when `--live --confirm-api-cost` is supplied. Its Atlas vector readback must use the declared `synthetic_embeddings_vector` index and workspace filter; local doubles establish contracts but do not establish live connectivity. No domain prompt, evaluator, findings, labels, or product integration is included.
+
 ## Reused dependencies
 
 The foundation uses Node.js, TypeScript, and the standard Node test runner. Dependency versions and licenses must be reviewed before release.

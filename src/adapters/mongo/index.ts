@@ -8,18 +8,20 @@ export const VECTOR_INDEX_NAME = "synthetic_embeddings_vector";
 export const DEFAULT_MONGO_TIMEOUT_MS = 5000;
 
 export interface MongoConfig { readonly uri: string; readonly database: string; readonly namespace: string; readonly timeoutMs?: number; }
-export interface MongoFilter { readonly workspaceId: string; readonly id: string; }
+export interface MongoFilter { readonly workspaceId: string; readonly id?: string; readonly recordId?: string; }
 export interface SearchIndexDefinition {
   readonly name: string;
   readonly type: "vectorSearch";
   readonly definition: { readonly fields: readonly [{ readonly type: "vector"; readonly path: "embedding"; readonly numDimensions: 1536; readonly similarity: "cosine" }, { readonly type: "filter"; readonly path: "workspaceId" }] };
 }
 export interface MongoCollectionLike {
-  findOne(filter: MongoFilter): Promise<unknown>;
-  replaceOne(filter: MongoFilter, replacement: SyntheticRecord, options: { readonly upsert: true }): Promise<unknown>;
-  deleteOne(filter: MongoFilter): Promise<unknown>;
+  findOne(filter: Readonly<Record<string, unknown>>): Promise<unknown>;
+  replaceOne(filter: Readonly<Record<string, unknown>>, replacement: unknown, options: { readonly upsert: true }): Promise<unknown>;
+  deleteOne(filter: Readonly<Record<string, unknown>>): Promise<unknown>;
   createIndex(keys: Readonly<Record<string, 1 | -1>>, options?: { readonly name?: string; readonly unique?: boolean }): Promise<string>;
   createSearchIndex(model: SearchIndexDefinition): Promise<string>;
+  listSearchIndexes?(name?: string): { toArray(): Promise<readonly unknown[]> };
+  aggregate?(pipeline: readonly unknown[]): { toArray(): Promise<readonly unknown[]> };
 }
 export interface MongoDatabaseLike {
   collection(name: string): MongoCollectionLike;
@@ -96,6 +98,36 @@ export class NeutralRecordStore {
     try { await this.records.replaceOne({ workspaceId: validated.workspaceId, id: validated.id }, validated, { upsert: true }); } catch (error) { throw redactedMongoError(error); }
   }
   async delete(workspaceId: string, id: string): Promise<void> { try { await this.records.deleteOne({ workspaceId, id }); } catch (error) { throw redactedMongoError(error); } }
+  async close(): Promise<void> { await this.client.close(); }
+}
+
+export interface NeutralEmbedding { readonly recordId: string; readonly workspaceId: string; readonly embedding: readonly number[]; }
+
+export class NeutralEmbeddingStore {
+  private readonly embeddings: MongoCollectionLike;
+  constructor(private readonly client: MongoClientLike, database: string, namespace: string) { this.embeddings = client.db(database).collection(collectionNames(namespace).embeddings); }
+  async upsert(value: NeutralEmbedding): Promise<void> {
+    const recordId = parseSyntheticRecords([{ id: value.recordId, workspaceId: value.workspaceId, schemaVersion: 1, createdAt: "2026-10-06T00:00:00.000Z", kind: "email", customerId: value.recordId, source: "synthetic", payload: {} }])[0].id;
+    if (value.embedding.length !== 1536 || value.embedding.some((item) => !Number.isFinite(item))) throw new Error("embedding must contain 1536 finite values");
+    try { await this.embeddings.replaceOne({ workspaceId: value.workspaceId, recordId }, { recordId, workspaceId: value.workspaceId, embedding: [...value.embedding] }, { upsert: true }); } catch (error) { throw redactedMongoError(error); }
+  }
+  async waitForReady(indexName: string, timeoutMs: number, pollMs = 250): Promise<void> {
+    if (!this.embeddings.listSearchIndexes) throw new Error("Mongo vector index readiness is unavailable");
+    const deadline = Date.now() + timeoutMs;
+    while (Date.now() <= deadline) {
+      const indexes = await this.embeddings.listSearchIndexes(indexName).toArray();
+      if (indexes.some((item) => (item as { name?: string; queryable?: boolean }).name === indexName && (item as { queryable?: boolean }).queryable === true)) return;
+      await new Promise((resolve) => setTimeout(resolve, Math.min(pollMs, Math.max(1, deadline - Date.now()))));
+    }
+    throw new Error("Mongo vector index did not become ready before timeout");
+  }
+  async nearest(workspaceId: string, queryVector: readonly number[], limit = 1): Promise<readonly unknown[]> {
+    if (!this.embeddings.aggregate) throw new Error("Mongo vector aggregation is unavailable");
+    if (queryVector.length !== 1536 || queryVector.some((item) => !Number.isFinite(item))) throw new Error("query vector must contain 1536 finite values");
+    if (!Number.isSafeInteger(limit) || limit < 1 || limit > 20) throw new RangeError("vector result limit must be from 1 through 20");
+    return this.embeddings.aggregate([{ $vectorSearch: { index: VECTOR_INDEX_NAME, path: "embedding", queryVector: [...queryVector], numCandidates: Math.max(limit, 10), limit, filter: { workspaceId } } }]).toArray();
+  }
+  async delete(recordId: string, workspaceId: string): Promise<void> { try { await this.embeddings.deleteOne({ recordId, workspaceId }); } catch (error) { throw redactedMongoError(error); } }
   async close(): Promise<void> { await this.client.close(); }
 }
 

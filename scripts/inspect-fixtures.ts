@@ -1,3 +1,4 @@
+import "../src/lib/load-env.js";
 import { readFixtureData } from "../src/core/fixture-set.js";
 
 const { records, manifest } = await readFixtureData();

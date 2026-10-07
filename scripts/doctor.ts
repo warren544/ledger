@@ -1,3 +1,4 @@
+import "../src/lib/load-env.js";
 import { readEnv } from "../src/lib/env.js";
 
 const env = readEnv();

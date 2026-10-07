@@ -16,17 +16,20 @@
     "reset-fixtures": "tsx scripts/reset-fixtures.ts",
     "verify-fixtures": "tsx scripts/verify-fixtures.ts",
     "mongo-setup": "tsx scripts/mongo-setup.ts",
-    "mongo-smoke": "tsx scripts/mongo-smoke.ts"
+    "mongo-smoke": "tsx scripts/mongo-smoke.ts",
+    "adapters-smoke": "tsx scripts/adapters-smoke.ts",
+    "adapters-smoke:live": "tsx scripts/adapters-smoke.ts --live --confirm-api-cost"
   },
   "engines": {
     "node": "22.23.3"
   },
   "dependencies": {
+    "mongodb": "7.1.0",
     "next": "15.5.27",
+    "openai": "7.30.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
-    "zod": "4.1.12",
-    "mongodb": "7.1.0"
+    "zod": "4.1.12"
   },
   "devDependencies": {
     "@types/node": "22.18.13",

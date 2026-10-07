@@ -1,3 +1,4 @@
+import "./load-env.js";
 import { isIP } from "node:net";
 
 export interface Env {

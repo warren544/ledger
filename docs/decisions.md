@@ -35,3 +35,13 @@ Use the official MongoDB Node driver `7.1.0`, pinned and locked. The adapter own
 ## 2026-10-06 — bounded generic redaction
 
 Use `redact(value, options)` for structured diagnostics only. Exact sensitive-key masking and caller-supplied nonempty secret replacement are the reliable contract; conservative Mongo credential and Authorization regexes are best effort, not universal PII/secret removal. Traversal is bounded by depth and entries, preserves safe structure without mutation, and replaces cycles, errors, unsupported values, and limits with explicit markers without stringifying raw values. The utility is pure and does not alter global logging behavior.
+
+## 2026-10-06 — neutral OpenAI and embedding adapters
+
+Use the official OpenAI Node SDK `7.30.0`, pinned and locked. The LLM adapter exposes only an injected, structured neutral `{message: string}` request; the embedding adapter explicitly selects `text-embedding-3-small`, requests 1536 dimensions, and rejects wrong-length or non-finite vectors. Both adapters have bounded per-request timeouts, at most five configured retries (the smoke uses one), caller cancellation, response validation, and redacted errors. No adapter performs work at module import.
+
+The `adapters-smoke` CLI is the only live orchestration surface and requires both `--live` and `--confirm-api-cost`. It performs exactly one structured request and one embedding request, then uses the declared Atlas vector index with a workspace filter for one neutral synthetic record and deletes only that run's record in `finally`. Local tests use SDK and Mongo doubles; mocked vector results never count as Atlas evidence. Live OpenAI, Atlas readiness, readback, and cleanup are separately reported and remain unverified until that explicitly confirmed command succeeds.
+
+## 2026-10-07 — shared local environment loading
+
+Use `src/lib/load-env.ts` as the single local environment-file loader for validation and script entry points. It calls Node's built-in `process.loadEnvFile` for the repository `.env.local`, tolerates a missing file, and restores every value already present in `process.env` so shell/host configuration always takes precedence. It never prints loaded values; `.env.example` remains placeholder-only.
