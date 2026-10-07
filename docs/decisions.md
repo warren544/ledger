@@ -45,3 +45,9 @@ The `adapters-smoke` CLI is the only live orchestration surface and requires bot
 ## 2026-10-07 — shared local environment loading
 
 Use `src/lib/load-env.ts` as the single local environment-file loader for validation and script entry points. It calls Node's built-in `process.loadEnvFile` for the repository `.env.local`, tolerates a missing file, and restores every value already present in `process.env` so shell/host configuration always takes precedence. It never prints loaded values; `.env.example` remains placeholder-only.
+
+## 2026-10-07 — generic durable worker plumbing
+
+Use version-1 workspace-scoped generic jobs with opaque JSON payloads, workspace-plus-dedupe uniqueness, bounded leases, renewal, fencing tokens, checkpoints, exponential retry/backoff bounds, and terminal failure state. Claims and acknowledgements are repository operations and must match the current owner and fencing token; this prevents an expired worker from acknowledging a reclaimed job. Processing is at-least-once and makes no exactly-once side-effect claim, so future handlers must be idempotent.
+
+The prebuild worker has only a neutral echo/ack handler. `worker:dry` is explicitly labeled in-memory and uses no credentials or Mongo connection; deterministic tests use an atomic in-memory double and do not prove live Mongo concurrency. Mongo persistence is isolated in `src/adapters/mongo/worker.ts` and remains unverified under real concurrent workers until an opt-in integration run is performed.

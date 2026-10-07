@@ -18,7 +18,9 @@
     "mongo-setup": "tsx scripts/mongo-setup.ts",
     "mongo-smoke": "tsx scripts/mongo-smoke.ts",
     "adapters-smoke": "tsx scripts/adapters-smoke.ts",
-    "adapters-smoke:live": "tsx scripts/adapters-smoke.ts --live --confirm-api-cost"
+    "adapters-smoke:live": "tsx scripts/adapters-smoke.ts --live --confirm-api-cost",
+    "worker": "tsx worker/index.ts",
+    "worker:dry": "tsx worker/index.ts --dry-run --once"
   },
   "engines": {
     "node": "22.23.3"

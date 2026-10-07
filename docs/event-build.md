@@ -32,6 +32,8 @@ The prebuilt Mongo inventory is limited to neutral record connectivity, validato
 
 The neutral adapter inventory adds the pinned official OpenAI SDK `7.30.0`, injected structured-output and embedding adapters, bounded timeout/retry/cancellation seams, strict `{message: string}` and 1536-finite-vector validation, redacted errors, and `adapters-smoke`. The smoke is cost-gated and performs one tiny request of each type only when `--live --confirm-api-cost` is supplied. Its Atlas vector readback must use the declared `synthetic_embeddings_vector` index and workspace filter; local doubles establish contracts but do not establish live connectivity. No domain prompt, evaluator, findings, labels, or product integration is included.
 
+The generic worker inventory adds versioned workspace-scoped job coordination, Mongo repository seams for atomic dedupe/claim/lease/ack/checkpoint operations, fencing-token checks, bounded retry/backoff and terminal failure state, graceful shutdown, and the neutral echo handler under `worker/`. `npm run worker:dry` identifies its in-memory storage and is not a durable Mongo or live-concurrency proof. No audit, policy, replay, correction, approval, OpenAI, billing, or product change-stream behavior is wired into this worker.
+
 ## Reused dependencies
 
 The foundation uses Node.js, TypeScript, and the standard Node test runner. Dependency versions and licenses must be reviewed before release.
