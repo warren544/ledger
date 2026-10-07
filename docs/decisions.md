@@ -28,6 +28,10 @@ Use version-1 entries whose SHA-256 input frames the version, entry index, previ
 
 The generic capability gate is constructed once from a trusted, copied allowlist using exact lowercase dotted names such as `sample.read`. It fails closed for absent, malformed, wrong-case, whitespace-altered, and unknown names, returns typed decisions only, and exposes no grant/update, callback, tool-execution, model-text, document-content, or label-driven API. This is a reusable boundary primitive, not Ledger policy or product capability wiring.
 
+## 2026-10-06 — neutral Mongo infrastructure
+
+Use the official MongoDB Node driver `7.1.0`, pinned and locked. The adapter owns only fixed synthetic-record and reserved embedding collection names derived from an explicitly configured test namespace; record reads and upserts always include workspace and record IDs. Connection setup is injected, bounded by driver timeouts, has no import-time I/O, and closes explicitly. Remote setup requires `--confirm-synthetic`, `MONGODB_TEST_DATABASE`, and `MONGODB_TEST_NAMESPACE`; no remote setup or smoke run is performed without those explicit inputs. Atlas vector readiness remains unverified until a confirmed live setup succeeds.
+
 ## 2026-10-06 — bounded generic redaction
 
 Use `redact(value, options)` for structured diagnostics only. Exact sensitive-key masking and caller-supplied nonempty secret replacement are the reliable contract; conservative Mongo credential and Authorization regexes are best effort, not universal PII/secret removal. Traversal is bounded by depth and entries, preserves safe structure without mutation, and replaces cycles, errors, unsupported values, and limits with explicit markers without stringifying raw values. The utility is pure and does not alter global logging behavior.

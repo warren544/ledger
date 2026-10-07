@@ -28,6 +28,8 @@ The generic prebuilt utility inventory also includes `src/core/capabilities.ts`,
 
 The generic prebuilt utility inventory also includes `src/core/redaction.ts`, a bounded structured-value sanitizer with sensitive-key and explicit-secret handling. It has no product trace integration and documents that regex masking is only best effort.
 
+The prebuilt Mongo inventory is limited to neutral record connectivity, validators, workspace-scoped indexes, a reserved 1536-dimension vector index definition, and CLI setup/smoke seams. It does not include audit collections, findings, rules, change-stream orchestration, replay, or UI. Live Atlas setup/readback is unverified until an explicit synthetic namespace and private configuration are supplied.
+
 ## Reused dependencies
 
 The foundation uses Node.js, TypeScript, and the standard Node test runner. Dependency versions and licenses must be reviewed before release.
