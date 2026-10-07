@@ -20,7 +20,9 @@
     "adapters-smoke": "tsx scripts/adapters-smoke.ts",
     "adapters-smoke:live": "tsx scripts/adapters-smoke.ts --live --confirm-api-cost",
     "worker": "tsx worker/index.ts",
-    "worker:dry": "tsx worker/index.ts --dry-run --once"
+    "worker:dry": "tsx worker/index.ts --dry-run --once",
+    "eval": "tsx scripts/eval.ts",
+    "eval:smoke": "tsx scripts/eval-smoke.ts"
   },
   "engines": {
     "node": "22.23.3"
