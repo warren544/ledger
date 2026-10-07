@@ -51,3 +51,9 @@ Use `src/lib/load-env.ts` as the single local environment-file loader for valida
 Use version-1 workspace-scoped generic jobs with opaque JSON payloads, workspace-plus-dedupe uniqueness, bounded leases, renewal, fencing tokens, checkpoints, exponential retry/backoff bounds, and terminal failure state. Claims and acknowledgements are repository operations and must match the current owner and fencing token; this prevents an expired worker from acknowledging a reclaimed job. Processing is at-least-once and makes no exactly-once side-effect claim, so future handlers must be idempotent.
 
 The prebuild worker has only a neutral echo/ack handler. `worker:dry` is explicitly labeled in-memory and uses no credentials or Mongo connection; deterministic tests use an atomic in-memory double and do not prove live Mongo concurrency. Mongo persistence is isolated in `src/adapters/mongo/worker.ts` and remains unverified under real concurrent workers until an opt-in integration run is performed.
+
+## 2026-10-07 — lint boundaries and truthful CI
+
+Pin ESLint `9.39.4`, `typescript-eslint` `8.71.1`, and `@next/eslint-plugin-next` `15.5.27`. The flat config enforces runtime import directions for imports and re-exports with a temporary-fixture test; tests and scripts are not given broad layering exemptions. `check` is fail-fast: typecheck, lint, the complete nonzero test suite, frozen-fixture verification, then credential-free eval.
+
+The GitHub Actions workflow is a read-only-permission Ubuntu/Windows matrix using `.nvmrc`, `npm ci`, `npm run check`, `npm run build`, and `npm run eval:smoke`. It uploads only generated `evals/reports/*.json` as prebuild infrastructure evidence. Hosted Actions status is unknown until an actual workflow run is observed; no secrets or remote credentials are required.

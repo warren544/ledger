@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { redact } from "../../core/redaction.js";
-import { genericJobSchema, type GenericJob, type JobClaim, type JobCheckpoint, type RetryPolicy, type WorkerRepository } from "../../server/worker.js";
+import { genericJobSchema, type GenericJob, type JobClaim, type JobCheckpoint, type RetryPolicy, type WorkerRepository } from "../../core/worker-types.js";
 import type { MongoClientLike } from "./index.js";
 
 export const WORKER_JOBS_SUFFIX = "_worker_jobs";

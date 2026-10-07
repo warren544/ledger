@@ -34,6 +34,8 @@ The neutral adapter inventory adds the pinned official OpenAI SDK `7.30.0`, inje
 
 The generic worker inventory adds versioned workspace-scoped job coordination, Mongo repository seams for atomic dedupe/claim/lease/ack/checkpoint operations, fencing-token checks, bounded retry/backoff and terminal failure state, graceful shutdown, and the neutral echo handler under `worker/`. `npm run worker:dry` identifies its in-memory storage and is not a durable Mongo or live-concurrency proof. No audit, policy, replay, correction, approval, OpenAI, billing, or product change-stream behavior is wired into this worker.
 
+The infrastructure CI inventory adds pinned ESLint boundary linting, a temporary import-violation test, fail-fast local `check`, and `.github/workflows/ci.yml` with Ubuntu/Windows Node matrix jobs. The workflow uploads only the generated generic evaluator report from `evals/reports`; it does not upload env files, logs, labels, dependencies, or secrets. Local workflow formatting validation is not a hosted Actions run, and hosted status remains unobserved.
+
 ## Reused dependencies
 
 The foundation uses Node.js, TypeScript, and the standard Node test runner. Dependency versions and licenses must be reviewed before release.

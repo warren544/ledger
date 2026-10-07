@@ -7,8 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check": "npm run typecheck && npm run test",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run verify-fixtures && npm run eval",
     "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
     "test": "tsx --test \"tests/**/*.test.ts\" \"src/core/**/__tests__/*.test.ts\"",
     "generate-fixtures": "tsx scripts/generate-fixtures.ts",
     "doctor": "tsx scripts/doctor.ts",
@@ -36,10 +37,13 @@
     "zod": "4.1.12"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "15.5.27",
     "@types/node": "22.18.13",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
+    "eslint": "9.39.4",
     "tsx": "4.20.5",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.71.1"
   }
 }
