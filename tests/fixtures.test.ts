@@ -4,7 +4,7 @@ import { execFileSync } from "node:child_process";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
-import { resolve } from "node:path";
+import { join, resolve } from "node:path";
 import { FIXTURE_RECIPE, generateSyntheticRecords } from "../src/core/fixture-recipe.js";
 import { hashRecords } from "../src/core/fixture-hash.js";
 import { createManifest, readFixtureData, verifyFixtureData, writeCanonicalFixtureSet, type FixturePaths } from "../src/core/fixture-set.js";
@@ -50,7 +50,7 @@ test("rejects frozen manifest count and hash mismatches", () => {
 });
 
 test("restores corrupted temporary fixtures from the recipe, not current contents", async () => {
-  const temporary = await mkdtemp(`${tmpdir()}\\ledger-fixtures-`);
+  const temporary = await mkdtemp(join(tmpdir(), "ledger-fixtures-"));
   try {
     const paths: FixturePaths = { records: resolve(temporary, "records.json"), manifest: resolve(temporary, "manifest.json") };
     await writeCanonicalFixtureSet(paths);
@@ -66,7 +66,7 @@ test("restores corrupted temporary fixtures from the recipe, not current content
 });
 
 test("fixture inspection resolves paths from its module when launched elsewhere", async () => {
-  const temporary = await mkdtemp(`${tmpdir()}\\ledger-fixtures-cwd-`);
+  const temporary = await mkdtemp(join(tmpdir(), "ledger-fixtures-cwd-"));
   try {
     const output = execFileSync(process.execPath, [resolve(repoRoot, "node_modules/tsx/dist/cli.mjs"), resolve(repoRoot, "scripts/inspect-fixtures.ts")], {
       cwd: temporary,
