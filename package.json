@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check": "npm run typecheck && npm run lint && npm run test && npm run verify-fixtures && npm run eval",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run verify-fixtures && npm run eval && npm run eval:holdout",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "tsx --test \"tests/**/*.test.ts\" \"src/core/**/__tests__/*.test.ts\"",
@@ -23,6 +23,7 @@
     "worker": "tsx worker/index.ts",
     "worker:dry": "tsx worker/index.ts --dry-run --once",
     "eval": "tsx scripts/eval.ts",
+    "eval:holdout": "tsx scripts/eval-holdout.ts",
     "eval:smoke": "tsx scripts/eval-smoke.ts"
   },
   "engines": {

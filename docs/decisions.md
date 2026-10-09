@@ -57,3 +57,15 @@ The prebuild worker has only a neutral echo/ack handler. `worker:dry` is explici
 Pin ESLint `9.39.4`, `typescript-eslint` `8.71.1`, and `@next/eslint-plugin-next` `15.5.27`. The flat config enforces runtime import directions for imports and re-exports with a temporary-fixture test; tests and scripts are not given broad layering exemptions. `check` is fail-fast: typecheck, lint, the complete nonzero test suite, frozen-fixture verification, then credential-free eval.
 
 The GitHub Actions workflow is a read-only-permission Ubuntu/Windows matrix using `.nvmrc`, `npm ci`, `npm run check`, `npm run build`, and `npm run eval:smoke`. It uploads only generated `evals/reports/*.json` as prebuild infrastructure evidence. Hosted Actions status is unknown until an actual workflow run is observed; no secrets or remote credentials are required.
+
+## 2026-10-07 — disclosure and foundation review
+
+The Next App Router TypeScript contract remains `jsx: preserve`, `module: esnext`, `moduleResolution: bundler`, DOM/DOM.Iterable/ES2022 libs, `strict`, and `noEmit`, with Next-generated types and all project TypeScript/TSX included. The Next shell remains intentionally blank.
+
+The evaluator report contract derives counts from actual neutral case results. Domain metrics are nullable and remain null when unimplemented; zero is never used as a substitute for an unmeasured result. The neutral self-test is labeled prebuild plumbing/test-double, and evaluator-only labels cannot enter runtime packets.
+
+The session 13 inventory distinguishes checked-in generated fixtures, reusable generic mechanics, mocked contracts, the specifically authorized synthetic live adapter smoke, and pending work. Hosted Actions, live worker durability, domain behavior, and the organizer clarification remain unresolved.
+
+## 2026-10-09 — labeled frozen baseline holdout
+
+The first explicitly authorized labeled evaluator is isolated under `evals/holdout/`, outside runtime fixture data. It freezes 20 evaluator-only cases and a dataset hash, uses the baseline exact fingerprint rule defined before the run, derives precision/recall and TP/FP/FN/TN from actual predictions, and nulls aggregate metrics when any case cannot run. The one recorded run was based on commit `3da1b907595286efcd0f409782e0ae2c8255b321` with evaluator changes still uncommitted; it is a synthetic baseline, not a learned/product evaluator or approval gate.

@@ -1,12 +1,14 @@
 # Event-build provenance
 
+<!-- Session 13 documentation refresh: concrete inventory and truthful status. -->
+
 ## Prebuilt foundation
 
 Created during the prebuild phase: repository shell, exact Node 22.23.3 runtime pin, Next App Router shell, environment contract, neutral record schemas, synthetic fixture manifest, fixture inspection/reset scripts, and phase-boundary documentation.
 
 ## Explicitly not prebuilt
 
-Audit panels, duplicate/split domain checks, prompts, executable policy/DSL semantics, correction-to-rule behavior, approval workflow, product evaluator, policy-driven rechecks, and product UI are intentionally absent.
+Audit panels, product duplicate/split workflow, prompts, executable policy/DSL semantics, correction-to-rule behavior, approval workflow, learned/product evaluator, policy-driven rechecks, and product UI are intentionally absent. The separately authorized baseline holdout evaluator is evaluator-only plumbing and is not a finished product audit system.
 
 ## Event boundary
 
@@ -28,14 +30,72 @@ The generic prebuilt utility inventory also includes `src/core/capabilities.ts`,
 
 The generic prebuilt utility inventory also includes `src/core/redaction.ts`, a bounded structured-value sanitizer with sensitive-key and explicit-secret handling. It has no product trace integration and documents that regex masking is only best effort.
 
-The prebuilt Mongo inventory is limited to neutral record connectivity, validators, workspace-scoped indexes, a reserved 1536-dimension vector index definition, and CLI setup/smoke seams. It does not include audit collections, findings, rules, change-stream orchestration, replay, or UI. Live Atlas setup/readback is unverified until an explicit synthetic namespace and private configuration are supplied.
+The prebuilt Mongo inventory is limited to neutral record connectivity, validators, workspace-scoped indexes, a reserved 1536-dimension vector index definition, and CLI setup/smoke seams. It does not include audit collections, findings, rules, change-stream orchestration, replay, or UI. The explicitly authorized session-09 synthetic adapter smoke verified one live Atlas setup/readback/cleanup path; other live durability and production readiness remain unverified.
 
 The neutral adapter inventory adds the pinned official OpenAI SDK `7.30.0`, injected structured-output and embedding adapters, bounded timeout/retry/cancellation seams, strict `{message: string}` and 1536-finite-vector validation, redacted errors, and `adapters-smoke`. The smoke is cost-gated and performs one tiny request of each type only when `--live --confirm-api-cost` is supplied. Its Atlas vector readback must use the declared `synthetic_embeddings_vector` index and workspace filter; local doubles establish contracts but do not establish live connectivity. No domain prompt, evaluator, findings, labels, or product integration is included.
 
 The generic worker inventory adds versioned workspace-scoped job coordination, Mongo repository seams for atomic dedupe/claim/lease/ack/checkpoint operations, fencing-token checks, bounded retry/backoff and terminal failure state, graceful shutdown, and the neutral echo handler under `worker/`. `npm run worker:dry` identifies its in-memory storage and is not a durable Mongo or live-concurrency proof. No audit, policy, replay, correction, approval, OpenAI, billing, or product change-stream behavior is wired into this worker.
+
+The separately authorized labeled holdout inventory adds `evals/holdout/cases.json`, `manifest.json`, `evaluator.ts`, `scripts/eval-holdout.ts`, and `tests/holdout-eval.test.ts`. It is a frozen 20-case baseline evaluator with evaluator-only labels and an explicit exact-fingerprint rule; it is not a learned model, product replay, or approval gate.
 
 The infrastructure CI inventory adds pinned ESLint boundary linting, a temporary import-violation test, fail-fast local `check`, and `.github/workflows/ci.yml` with Ubuntu/Windows Node matrix jobs. The workflow uploads only the generated generic evaluator report from `evals/reports`; it does not upload env files, logs, labels, dependencies, or secrets. Local workflow formatting validation is not a hosted Actions run, and hosted status remains unobserved.
 
 ## Reused dependencies
 
 The foundation uses Node.js, TypeScript, and the standard Node test runner. Dependency versions and licenses must be reviewed before release.
+
+## Concrete prebuilt file inventory
+
+Reusable mechanics and schemas:
+
+- `src/core/types.ts`, `fixture-recipe.ts`, `fixture-hash.ts`, and `fixture-set.ts` — strict neutral record schemas, deterministic generation, canonical dataset hashing, and frozen-set validation.
+- `src/core/money.ts` and `ids.ts` — pure USD-cent and UUID helpers.
+- `src/core/hash-chain.ts`, `capabilities.ts`, and `redaction.ts` — generic hash-chain, immutable default-deny gate, and bounded structured redaction utilities.
+- `src/core/eval-report.ts` and `worker-types.ts` — generic report and worker contracts.
+- `src/lib/env.ts` and `load-env.ts` — pure environment validation and non-overriding `.env.local` loading.
+
+Adapters and orchestration:
+
+- `src/adapters/mongo/` — neutral workspace-scoped record access, validators/index definitions, and worker persistence seams.
+- `src/adapters/llm/` and `src/adapters/embeddings/` — injected OpenAI structured-output and embedding adapters.
+- `src/server/mongo.ts`, `adapters.ts`, `worker.ts`, and `eval-runner.ts` — generic server-facing orchestration only.
+- `src/app/layout.tsx` and `page.tsx` — blank Next shell; no product UI.
+- `worker/index.ts` — bounded neutral worker entry point with dry-run support.
+
+Scripts and data:
+
+- `scripts/doctor.ts`, fixture generate/inspect/reset/verify scripts, Mongo setup/smoke scripts, adapter smoke, eval/eval-smoke, and `eslint-boundaries.ts` — explicit operational entry points.
+- `evals/fixtures/records.json` and `evals/fixtures/manifest.json` — checked-in generated neutral data and frozen identity manifest from session 03. They contain no labels or expected domain outcomes.
+- `evals/reports/` — ignored generated generic reports; not prebuilt product evidence.
+- `package.json`, `package-lock.json`, `.nvmrc`, `tsconfig.json`, `next-env.d.ts`, `eslint.config.mjs`, and `.github/workflows/ci.yml` — pinned toolchain, type/lint boundaries, and unobserved CI definition.
+- `tests/` and `src/core/__tests__/` — 75 credential-free tests covering the generic contracts, boundaries, and frozen holdout runner.
+
+## Evidence classification
+
+Verified locally: fixture reset/inspection/verification, typecheck, lint, 75 tests with nonzero discovery, credential-free eval plumbing, the 20-case frozen baseline evaluation, dry-run worker, deterministic reports, and the blank Next build. The generic eval report records 12 actual cases with null domain metrics; the separate holdout report records its measured baseline metrics in `docs/eval-baseline.md`.
+
+Verified with doubles: Mongo lifecycle and workspace isolation, adapter response/vector contracts, worker atomic coordination and lease fencing, evaluator-label isolation, and report atomic-write failure behavior. These are not live-service or real-concurrency proofs.
+
+Live integration verified in the authorized synthetic namespace: the adapter smoke made one structured-output call and one embedding call, produced a 1536-dimensional vector, completed vector readback through `synthetic_embeddings_vector` with a workspace filter, and cleaned up its own test data. This does not establish production readiness or domain accuracy.
+
+Pending: learned/product evaluator behavior, live worker durability/concurrency, event-written audit behavior, hosted Windows/Linux Actions results, and the organizer clarification. The holdout baseline is a measured synthetic baseline, not a production accuracy claim or eligibility proof.
+
+## Event-only mapping
+
+Intentionally empty. No event-only feature, file, or commit mapping exists yet. Future mapping requires Warren's timing and review; this document does not authorize event work.
+
+Future review instructions, not executed commands, are:
+
+```powershell
+git tag prebuild-freeze
+git switch -c event-build
+git tag event-start
+```
+
+Those tags must not be created until the authorized review and timing decision. A tag would record repository history, not prove eligibility.
+
+## Dependency and license review
+
+Direct runtime dependencies: `next@15.5.27` (MIT), `react@19.1.1` (MIT), `react-dom@19.1.1` (MIT), `mongodb@7.1.0` (Apache-2.0), `openai@7.30.0` (Apache-2.0), and `zod@4.1.12` (MIT). Direct development dependencies: `@next/eslint-plugin-next@15.5.27` (MIT), `@types/node@22.18.13` (MIT), `@types/react@19.1.12` (MIT), `@types/react-dom@19.1.9` (MIT), `eslint@9.39.4` (MIT), `tsx@4.20.5` (MIT), `typescript@5.9.3` (Apache-2.0), and `typescript-eslint@8.71.1` (MIT). These values were read from installed package metadata and the lockfile; transitive licenses are not exhaustively summarized here and remain a release-review item. Node.js `22.23.3` and `node:test` are runtime components, not npm dependencies.
+
+Vitest, Tailwind, and Playwright are not implemented in this checkout.

@@ -1,0 +1,8 @@
+{
+  "datasetId": "ledger-frozen-holdout-v1",
+  "evaluatorVersion": "baseline-exact-fingerprint-v1",
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-09T00:00:00.000Z",
+  "cases": 20,
+  "datasetHash": "c281b448bbd59a9356ca9d9b42693a23936ece21cb2b7ebd1fda39794ea569cc"
+}
