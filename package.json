@@ -18,6 +18,7 @@
     "verify-fixtures": "tsx scripts/verify-fixtures.ts",
     "mongo-setup": "tsx scripts/mongo-setup.ts",
     "mongo-smoke": "tsx scripts/mongo-smoke.ts",
+    "import-fixtures": "tsx scripts/import-fixtures.ts",
     "adapters-smoke": "tsx scripts/adapters-smoke.ts",
     "adapters-smoke:live": "tsx scripts/adapters-smoke.ts --live --confirm-api-cost",
     "worker": "tsx worker/index.ts",
