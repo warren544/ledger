@@ -46,6 +46,35 @@ test("rule proposal failures still finish the interaction and preserve the origi
   assert.deepEqual(calls[1], { kind: "finish", value: { output: "operation failed" } });
 });
 
+test("telemetry begin and finish failures do not change the operation result", async () => {
+  const client: RaindropTelemetryClient = {
+    begin() {
+      throw new Error("Invalid X-Raindrop-Project-Id");
+    },
+    trackSignal() {}
+  };
+  assert.equal(await withRuleProposalTelemetry(client, context, async () => "proposal"), "proposal");
+
+  const finishingClient: RaindropTelemetryClient = {
+    begin() {
+      return { async finish() { throw new Error("flush failed"); } };
+    },
+    trackSignal() {}
+  };
+  assert.equal(await withExceptionDraftTelemetry(finishingClient, context, async () => "draft"), "draft");
+});
+
+test("feedback signal failures are swallowed", async () => {
+  const client: RaindropTelemetryClient = {
+    begin: () => ({ finish: async () => {} }),
+    trackSignal() {
+      throw new Error("track_partial failed");
+    }
+  };
+  trackHumanApproval(client, "evt-1");
+  trackHumanCorrection(client, "evt-1", "dummy correction");
+});
+
 test("human feedback is tied to the originating event and correction is a comment", () => {
   const { client, calls } = fakeClient();
   trackHumanApproval(client, "evt-1");

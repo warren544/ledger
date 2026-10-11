@@ -6,7 +6,7 @@ import { createReconRepository } from "./repository.js";
 import { createReconService } from "./service.js";
 import { createRuleService } from "./approval.js";
 import { createLlmRuleProposalGenerator } from "./approval.js";
-import { createRaindropClient } from "../adapters/raindrop.js";
+import { createRaindropClient, warnRaindropTelemetryFailure, type RaindropTelemetryClient } from "../adapters/raindrop.js";
 import { redact } from "../../core/redaction.js";
 
 /** Server-only route seam; app handlers never import the Mongo adapter directly. */
@@ -27,7 +27,9 @@ export function createReconDraftDependencies(): import("./drafter.js").DraftDepe
 export function createReconRuleProposalGenerator(): import("./approval.js").RuleProposalGenerator {
   const env = readEnv();
   if (!env.openaiApiKey) throw new Error("OPENAI_API_KEY is required for rule proposals");
-  return createLlmRuleProposalGenerator(createOpenAIClient({ apiKey: env.openaiApiKey, model: "gpt-5-mini", timeoutMs: 10_000, maxRetries: 1 }), env.openaiApiKey, createRaindropClient());
+  let telemetry: RaindropTelemetryClient | undefined;
+  try { telemetry = createRaindropClient(); } catch (error) { warnRaindropTelemetryFailure("create", error); }
+  return createLlmRuleProposalGenerator(createOpenAIClient({ apiKey: env.openaiApiKey, model: "gpt-5-mini", timeoutMs: 10_000, maxRetries: 1 }), env.openaiApiKey, telemetry);
 }
 
 export async function withConnectedRuleService<T>(work: (service: ReturnType<typeof createRuleService>) => Promise<T>): Promise<T> {
