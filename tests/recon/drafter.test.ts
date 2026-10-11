@@ -32,7 +32,7 @@ test("accepted drafts retain only case evidence and deterministic variance", asy
     assert.match(result.draft.promptHash, /^[a-f0-9]{64}$/);
   }
   assert.equal((request as { model: string }).model, "gpt-5-mini");
-  assert.equal((request as { temperature: number }).temperature, 0.2);
+  assert.equal((request as { temperature?: number }).temperature, undefined);
 });
 
 test("invalid evidence and hallucinated numbers are rejected without changing the exception", async () => {

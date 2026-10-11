@@ -58,6 +58,10 @@ function isAborted(error: unknown, signal?: AbortSignal): boolean {
   return signal?.aborted === true || (error instanceof DOMException && error.name === "AbortError");
 }
 
+function supportsTemperature(model: string): boolean {
+  return !/^gpt-5(?:$|-)/i.test(model);
+}
+
 export function createOpenAIClient(config: LlmConfig, factory: OpenAIClientFactory = (apiKey, options) => new OpenAI({ apiKey, timeout: options.timeout, maxRetries: options.maxRetries }) as unknown as StructuredResponsesClient): StructuredResponsesClient {
   const timeoutMs = timeout(config.timeoutMs);
   const maxRetries = boundedInteger(config.maxRetries, DEFAULT_ADAPTER_RETRIES, "maxRetries");
@@ -105,12 +109,13 @@ export async function requestStructuredOutput<T>(
   for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
     if (config.signal?.aborted) throw new Error("OpenAI request aborted");
     try {
-      const response = await client.responses.parse({
+      const request = {
         model,
         input,
-        temperature,
         text: { format: zodTextFormat(schema, schemaName) }
-      }, { timeout: timeoutMs, maxRetries: 0, signal: config.signal });
+      } as Record<string, unknown>;
+      if (supportsTemperature(model)) request.temperature = temperature;
+      const response = await client.responses.parse(request, { timeout: timeoutMs, maxRetries: 0, signal: config.signal });
       const value = schema.parse(response.output_parsed);
       const usage = response.usage;
       return { value, usage: { inputTokens: usage?.input_tokens ?? null, outputTokens: usage?.output_tokens ?? null, totalTokens: usage?.total_tokens ?? null } };
