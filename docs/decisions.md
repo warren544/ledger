@@ -69,3 +69,7 @@ The session 13 inventory distinguishes checked-in generated fixtures, reusable g
 ## 2026-10-09 — labeled frozen baseline holdout
 
 The first explicitly authorized labeled evaluator is isolated under `evals/holdout/`, outside runtime fixture data. It freezes 20 evaluator-only cases and a dataset hash, uses the baseline exact fingerprint rule defined before the run, derives precision/recall and TP/FP/FN/TN from actual predictions, and nulls aggregate metrics when any case cannot run. The one recorded run was based on commit `3da1b907595286efcd0f409782e0ae2c8255b321` with evaluator changes still uncommitted; it is a synthetic baseline, not a learned/product evaluator or approval gate.
+
+## 2026-10-11 — Step 3 recon persistence, routes, and demo identity
+
+Recon persistence uses fixed workspace-scoped `recon_*` collections and indexes, with the existing Mongo adapter and no import-time connection. Mutations append versioned hash-chain events; event verification is scoped to the authenticated workspace. Route inputs and outputs are strict at the service boundary, request bodies are bounded, and errors expose only sanitized categories. The canonical approval capability is `rule.approve`; the conflicting `rules.approve` spelling is not an alias and is not granted. Demo sessions are HMAC-signed with distinct agent, demo-operator, and human-approver actors; production authentication/SSO/RBAC remains deferred. The Step 3 routes do not add LLM drafting, rule lifecycle, correction, or UI behavior.

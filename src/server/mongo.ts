@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { readEnv } from "../lib/env.js";
 import { createIdGenerator } from "../core/ids.js";
-import { connectMongo, installNeutralMongoInfrastructure, NeutralRecordStore, type MongoClientFactory, type MongoConfig } from "../adapters/mongo/index.js";
+import { connectMongo, installNeutralMongoInfrastructure, installReconMongoInfrastructure, NeutralRecordStore, type MongoClientFactory, type MongoConfig } from "../adapters/mongo/index.js";
 import type { SyntheticRecord } from "../core/types.js";
 
 export interface MongoCliConfig extends MongoConfig { readonly timeoutMs: number; }
@@ -11,11 +11,22 @@ export function readMongoCliConfig(input: Readonly<Record<string, string | undef
   const timeoutMs = input.MONGODB_TIMEOUT_MS === undefined ? 5000 : Number(input.MONGODB_TIMEOUT_MS); if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1) throw new Error("MONGODB_TIMEOUT_MS must be a positive safe integer");
   return { uri: env.mongodbUri, database, namespace, timeoutMs };
 }
+export function readReconMongoConfig(input: Readonly<Record<string, string | undefined>> = process.env): MongoCliConfig {
+  const env = readEnv(input);
+  const database = input.MONGODB_RECON_DATABASE ?? input.MONGODB_TEST_DATABASE;
+  if (!env.mongodbUri) throw new Error("MONGODB_URI is required for reconciliation routes");
+  if (!database) throw new Error("MONGODB_RECON_DATABASE is required for reconciliation routes");
+  const timeoutMs = input.MONGODB_TIMEOUT_MS === undefined ? 5000 : Number(input.MONGODB_TIMEOUT_MS);
+  if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1) throw new Error("MONGODB_TIMEOUT_MS must be a positive safe integer");
+  return { uri: env.mongodbUri, database, namespace: "recon", timeoutMs };
+}
 export async function runMongoSetup(input: Readonly<Record<string, string | undefined>>, confirmSynthetic: boolean, factory?: MongoClientFactory): Promise<void> {
   if (!confirmSynthetic) throw new Error("remote Mongo setup requires --confirm-synthetic"); const config = readMongoCliConfig(input); const client = await connectMongo(config, factory);
   try {
-    const report = await installNeutralMongoInfrastructure(client.db(config.database), config.namespace);
-    console.log(JSON.stringify({ ...report, database: config.database }, null, 2));
+    const database = client.db(config.database);
+    const report = await installNeutralMongoInfrastructure(database, config.namespace);
+    const recon = await installReconMongoInfrastructure(database);
+    console.log(JSON.stringify({ ...report, recon, database: config.database }, null, 2));
   } finally { await client.close(); }
 }
 export async function runMongoSmoke(input: Readonly<Record<string, string | undefined>>, factory?: MongoClientFactory): Promise<void> {

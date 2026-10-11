@@ -1,0 +1,83 @@
+import { createHash } from "node:crypto";
+import { parseUuid } from "../../core/ids.js";
+import { billingRecordSchema } from "../../core/recon/packs/billing.js";
+import { transportRecordSchema } from "../../core/recon/packs/transport.js";
+import { reconCaseStatusSchema, reconPackSchema, type ReconCase, type ReconPack } from "../../core/recon/record-types.js";
+import { exceptionSchema, type ReconException } from "../../core/recon/exception.js";
+import { runReconCase } from "./engine.js";
+import { requireCapability, type ReconActor } from "./auth.js";
+import type { ReconRepository } from "./repository.js";
+
+const packRecords = { transport: transportRecordSchema, billing: billingRecordSchema } as const;
+const bodyRecordLimit = 500;
+
+function caseId(workspaceId: string, pack: ReconPack, key: string) {
+  const digest = createHash("sha256").update(`ledger-recon-case:v2\\0${workspaceId}\\0${pack}\\0${key}`, "utf8").digest("hex").slice(0, 32).split("");
+  digest[12] = "5";
+  digest[16] = ((Number.parseInt(digest[16], 16) & 3) | 8).toString(16);
+  return parseUuid(`${digest.slice(0, 8).join("")}-${digest.slice(8, 12).join("")}-${digest.slice(12, 16).join("")}-${digest.slice(16, 20).join("")}-${digest.slice(20).join("")}`);
+}
+
+function links(record: Record<string, unknown>): string[] {
+  return Object.entries(record).filter(([key, value]) => key !== "recordId" && typeof value === "string" && (key.endsWith("Id") || key === "stopId" || key === "customerId" || key === "manifestId")).map(([, value]) => value as string);
+}
+
+function groupRecords(records: readonly Record<string, unknown>[]): readonly { readonly key: string; readonly records: readonly Record<string, unknown>[] }[] {
+  const groups: Array<{ key: string; records: Record<string, unknown>[]; linkValues: Set<string> }> = [];
+  for (const record of records) {
+    const values = new Set(links(record));
+    const group = groups.find((candidate) => [...values].some((value) => candidate.linkValues.has(value)));
+    if (group) { group.records.push(record); for (const value of values) group.linkValues.add(value); }
+    else groups.push({ key: [...values].sort()[0] ?? String(record.recordId), records: [record], linkValues: values });
+  }
+  return groups.map(({ key, records: grouped }) => ({ key, records: grouped }));
+}
+
+export interface IngestResult { readonly caseIds: readonly string[]; readonly recordCount: number }
+export interface RunResult { readonly caseId: string; readonly status: "clean" | "excepted"; readonly findingCount: number }
+
+export function createReconService(repository: ReconRepository, clock: () => string = () => new Date().toISOString()) {
+  return {
+    async ingest(actor: ReconActor, packInput: unknown, input: unknown): Promise<IngestResult> {
+      requireCapability(actor, "records.ingest");
+      const pack = reconPackSchema.parse(packInput);
+      if (!Array.isArray(input) || input.length < 1 || input.length > bodyRecordLimit) throw new Error("records must be a nonempty array of at most 500 items");
+      const records = packRecords[pack].array().parse(input) as readonly Record<string, unknown>[];
+      if (records.some((record) => record.workspaceId !== actor.workspaceId)) throw new Error("workspace isolation violation");
+      const groups = groupRecords(records);
+      const cases: ReconCase[] = [];
+      for (const group of groups) {
+        const currentCase: ReconCase = { caseId: caseId(actor.workspaceId, pack, group.key), workspaceId: actor.workspaceId, pack, key: group.key, recordIds: group.records.map((record) => parseUuid(String(record.recordId))), status: "open" };
+        cases.push(currentCase);
+        for (const record of group.records) await repository.upsertRecord({ ...record, pack, key: group.key, createdAt: record.recordedAt });
+        await repository.upsertCase(currentCase);
+        await repository.appendEvent({ workspaceId: actor.workspaceId, actorId: actor.actorId, subjectId: currentCase.caseId, type: "records.ingested", payload: { pack, recordIds: currentCase.recordIds } });
+      }
+      return { caseIds: cases.map((value) => value.caseId), recordCount: records.length };
+    },
+    async run(actor: ReconActor, caseIdInput: string): Promise<RunResult> {
+      requireCapability(actor, "case.run");
+      const currentCase = await repository.getCase(actor.workspaceId, parseUuid(caseIdInput));
+      if (!currentCase) throw new Error("case not found");
+      const records = await repository.getRecords(actor.workspaceId, currentCase.recordIds);
+      const result = runReconCase({ caseId: currentCase.caseId, pack: currentCase.pack, records });
+      const updated: ReconCase = { ...currentCase, status: result.status };
+      await repository.updateCase(updated);
+      await repository.appendEvent({ workspaceId: actor.workspaceId, actorId: actor.actorId, subjectId: currentCase.caseId, type: "case.run", payload: { pack: currentCase.pack, status: result.status, findingCount: result.findings.length } });
+      for (const finding of result.findings) {
+        const exception: ReconException = exceptionSchema.parse({ exceptionId: finding.findingId, workspaceId: actor.workspaceId, caseId: currentCase.caseId, code: finding.code, severity: finding.severity, state: "open", evidence: finding.evidence, variance: finding.variance, createdAt: clock(), updatedAt: clock() });
+        await repository.insertException(exception);
+        await repository.appendEvent({ workspaceId: actor.workspaceId, actorId: actor.actorId, subjectId: exception.exceptionId, type: "exception.created", payload: { caseId: currentCase.caseId, code: finding.code } });
+      }
+      return { caseId: currentCase.caseId, status: result.status, findingCount: result.findings.length };
+    },
+    async list(actor: ReconActor, pack?: string, status?: string) { requireCapability(actor, "records.read"); return repository.listCases(actor.workspaceId, pack === undefined ? undefined : reconPackSchema.parse(pack), status === undefined ? undefined : reconCaseStatusSchema.parse(status)); },
+    async get(actor: ReconActor, caseIdInput: string) {
+      requireCapability(actor, "records.read");
+      const currentCase = await repository.getCase(actor.workspaceId, parseUuid(caseIdInput));
+      if (!currentCase) throw new Error("case not found");
+      return { case: currentCase, records: await repository.getRecords(actor.workspaceId, currentCase.recordIds), exceptions: await repository.listExceptions(actor.workspaceId, currentCase.caseId), timeline: await repository.listEvents(actor.workspaceId, currentCase.caseId) };
+    },
+    async verify(actor: ReconActor) { requireCapability(actor, "audit.read"); return repository.verifyEvents(actor.workspaceId); }
+  };
+}
