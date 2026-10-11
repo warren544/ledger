@@ -16,6 +16,10 @@ export interface SearchIndexDefinition {
 }
 export interface MongoCollectionLike {
   findOne(filter: Readonly<Record<string, unknown>>): Promise<unknown>;
+  find?(filter: Readonly<Record<string, unknown>>, options?: Readonly<Record<string, unknown>>): { toArray(): Promise<readonly unknown[]> };
+  insertOne?(document: unknown): Promise<unknown>;
+  updateOne?(filter: Readonly<Record<string, unknown>>, update: unknown, options?: Readonly<Record<string, unknown>>): Promise<unknown>;
+  countDocuments?(filter: Readonly<Record<string, unknown>>): Promise<number>;
   replaceOne(filter: Readonly<Record<string, unknown>>, replacement: unknown, options: { readonly upsert: true }): Promise<unknown>;
   deleteOne(filter: Readonly<Record<string, unknown>>): Promise<unknown>;
   createIndex(keys: Readonly<Record<string, 1 | -1>>, options?: { readonly name?: string; readonly unique?: boolean }): Promise<string>;
@@ -145,4 +149,47 @@ export async function installNeutralMongoInfrastructure(database: MongoDatabaseL
   const indexes = [await records.createIndex(definitions.records[0].keys, definitions.records[0].options), await records.createIndex(definitions.records[1].keys, definitions.records[1].options), await embeddings.createIndex(definitions.embeddings.keys, definitions.embeddings.options)];
   const vectorIndex = await embeddings.createSearchIndex(definitions.vector);
   return { database: "configured-by-caller", collections: names, indexes, vectorIndex };
+}
+
+export const RECON_COLLECTION_NAMES = [
+  "recon_records", "recon_cases", "recon_exceptions", "recon_rules", "recon_corrections", "recon_events", "recon_embeddings"
+] as const;
+
+const reconBaseValidator = {
+  $jsonSchema: {
+    bsonType: "object",
+    required: ["workspaceId", "schemaVersion", "createdAt"],
+    properties: {
+      workspaceId: { bsonType: "string", pattern: WORKSPACE_PATTERN },
+      schemaVersion: { bsonType: "int", enum: [1] },
+      createdAt: { bsonType: "string", pattern: "^\\d{4}-\\d{2}-\\d{2}T.*Z$" }
+    }
+  }
+} as const;
+
+export const reconCollectionValidators = Object.fromEntries(RECON_COLLECTION_NAMES.map((name) => [name, reconBaseValidator])) as Record<typeof RECON_COLLECTION_NAMES[number], typeof reconBaseValidator>;
+
+export function reconIndexDefinitions() {
+  return {
+    records: [{ keys: { workspaceId: 1, recordId: 1 }, options: { name: "recon_records_workspace_record_unique", unique: true } }, { keys: { workspaceId: 1, pack: 1, key: 1 }, options: { name: "recon_records_workspace_pack_key" } }],
+    cases: [{ keys: { workspaceId: 1, caseId: 1 }, options: { name: "recon_cases_workspace_case_unique", unique: true } }, { keys: { workspaceId: 1, pack: 1, key: 1 }, options: { name: "recon_cases_workspace_pack_key" } }],
+    exceptions: [{ keys: { workspaceId: 1, exceptionId: 1 }, options: { name: "recon_exceptions_workspace_exception_unique", unique: true } }, { keys: { workspaceId: 1, caseId: 1, code: 1 }, options: { name: "recon_exceptions_workspace_case_code" } }],
+    rules: [{ keys: { workspaceId: 1, ruleId: 1, version: 1 }, options: { name: "recon_rules_workspace_rule_version_unique", unique: true } }],
+    corrections: [{ keys: { workspaceId: 1, correctionId: 1 }, options: { name: "recon_corrections_workspace_correction_unique", unique: true } }],
+    events: [{ keys: { workspaceId: 1, "chain.index": 1 }, options: { name: "recon_events_workspace_index_unique", unique: true } }, { keys: { workspaceId: 1, subjectId: 1, createdAt: -1 }, options: { name: "recon_events_workspace_subject_created" } }],
+    embeddings: [{ keys: { workspaceId: 1, recordId: 1 }, options: { name: "recon_embeddings_workspace_record_unique", unique: true } }],
+    vector: { name: "recon_embeddings_vector", type: "vectorSearch" as const, definition: { fields: [{ type: "vector" as const, path: "embedding" as const, numDimensions: 1536 as const, similarity: "cosine" as const }, { type: "filter" as const, path: "workspaceId" as const }] } }
+  } as const;
+}
+
+export async function installReconMongoInfrastructure(database: MongoDatabaseLike) {
+  for (const name of RECON_COLLECTION_NAMES) await ensureCollection(database, name, reconCollectionValidators[name]);
+  const definitions = reconIndexDefinitions();
+  const indexes: string[] = [];
+  for (const name of ["records", "cases", "exceptions", "rules", "corrections", "events", "embeddings"] as const) {
+    const collection = database.collection(`recon_${name}`);
+    for (const definition of definitions[name]) indexes.push(await collection.createIndex(definition.keys, definition.options));
+  }
+  const vectorIndex = await database.collection("recon_embeddings").createSearchIndex(definitions.vector);
+  return { collections: RECON_COLLECTION_NAMES, indexes, vectorIndex };
 }

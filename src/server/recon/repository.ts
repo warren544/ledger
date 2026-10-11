@@ -3,6 +3,7 @@ import { appendHashChainEntry, verifyHashChain, type ChainJsonValue, type HashCh
 import { reconCaseSchema, type ReconCase } from "../../core/recon/record-types.js";
 import { exceptionSchema, type ReconException } from "../../core/recon/exception.js";
 import type { MongoCollectionLike, MongoDatabaseLike } from "../../adapters/mongo/index.js";
+import type { StoredDraft } from "./drafter.js";
 
 export interface ReconEventInput {
   readonly workspaceId: string;
@@ -22,6 +23,17 @@ export interface StoredReconEvent {
   readonly chain: HashChainEntry;
 }
 
+export interface ReconCorrection {
+  readonly correctionId: string;
+  readonly workspaceId: string;
+  readonly caseId: string;
+  readonly exceptionId: string;
+  readonly actorId: string;
+  readonly disposition: string;
+  readonly notes: string;
+  readonly createdAt: string;
+}
+
 export interface ReconRepository {
   upsertRecord(record: Record<string, unknown>): Promise<void>;
   upsertCase(reconCase: ReconCase): Promise<void>;
@@ -30,7 +42,12 @@ export interface ReconRepository {
   listCases(workspaceId: string, pack?: string, status?: string): Promise<readonly ReconCase[]>;
   getRecords(workspaceId: string, recordIds: readonly string[]): Promise<readonly Record<string, unknown>[]>;
   insertException(exception: ReconException): Promise<void>;
+  updateException(exception: ReconException): Promise<void>;
+  getException(workspaceId: string, exceptionId: string): Promise<ReconException | null>;
   listExceptions(workspaceId: string, caseId: string): Promise<readonly ReconException[]>;
+  saveDraft(workspaceId: string, exceptionId: string, draft: StoredDraft): Promise<void>;
+  getDraft(workspaceId: string, exceptionId: string): Promise<StoredDraft | null>;
+  insertCorrection(correction: ReconCorrection): Promise<void>;
   listEvents(workspaceId: string, subjectId?: string): Promise<readonly StoredReconEvent[]>;
   appendEvent(input: ReconEventInput): Promise<StoredReconEvent>;
   verifyEvents(workspaceId: string): Promise<{ readonly valid: boolean; readonly count: number; readonly head: string; readonly index: number | null; readonly reason?: string }>;
@@ -81,6 +98,13 @@ function withoutStoredCaseMetadata(value: unknown): unknown {
   return reconCase;
 }
 
+function withoutDraft(value: unknown): unknown {
+  const clean = withoutMongoId(value);
+  if (clean === null || typeof clean !== "object" || Array.isArray(clean)) return clean;
+  const { draft: ignoredDraft, ...exception } = clean as Record<string, unknown>;
+  return exception;
+}
+
 export function createReconRepository(database: MongoDatabaseLike, clock: () => string = () => new Date().toISOString()): ReconRepository {
   return {
     async upsertRecord(record) {
@@ -121,9 +145,31 @@ export function createReconRepository(database: MongoDatabaseLike, clock: () => 
       const collection = requireUpdateCollection(database, "recon_exceptions");
       await collection.updateOne({ workspaceId: exception.workspaceId, exceptionId: exception.exceptionId }, { $set: exception }, { upsert: true });
     },
+    async updateException(exception) {
+      const collection = requireUpdateCollection(database, "recon_exceptions");
+      await collection.updateOne({ workspaceId: exception.workspaceId, exceptionId: exception.exceptionId }, { $set: exception }, { upsert: false });
+    },
+    async getException(workspaceId, exceptionId) {
+      const value = await database.collection("recon_exceptions").findOne({ workspaceId, exceptionId });
+      return value === null ? null : exceptionSchema.parse(withoutDraft(value));
+    },
     async listExceptions(workspaceId, caseId) {
       const collection = requireCollection(database, "recon_exceptions");
-      return (await collection.find({ workspaceId, caseId }, { sort: { createdAt: 1 } }).toArray()).map((value) => exceptionSchema.parse(withoutMongoId(value)));
+      return (await collection.find({ workspaceId, caseId }, { sort: { createdAt: 1 } }).toArray()).map((value) => exceptionSchema.parse(withoutDraft(value)));
+    },
+    async saveDraft(workspaceId, exceptionId, draft) {
+      const collection = requireUpdateCollection(database, "recon_exceptions");
+      await collection.updateOne({ workspaceId, exceptionId }, { $set: { draft } }, { upsert: false });
+    },
+    async getDraft(workspaceId, exceptionId) {
+      const value = await database.collection("recon_exceptions").findOne({ workspaceId, exceptionId });
+      if (value === null || typeof value !== "object" || Array.isArray(value)) return null;
+      const draft = (value as { draft?: unknown }).draft;
+      return draft === undefined ? null : draft as StoredDraft;
+    },
+    async insertCorrection(correction) {
+      const collection = requireUpdateCollection(database, "recon_corrections");
+      await collection.updateOne({ workspaceId: correction.workspaceId, correctionId: correction.correctionId }, { $set: correction }, { upsert: true });
     },
     async listEvents(workspaceId, subjectId) {
       const collection = requireCollection(database, "recon_events");

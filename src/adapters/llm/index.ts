@@ -16,9 +16,16 @@ export interface LlmRequestOptions {
   readonly signal?: AbortSignal;
 }
 
+export interface StructuredRequestOptions {
+  readonly timeout?: number;
+  readonly maxRetries?: number;
+  readonly signal?: AbortSignal;
+  readonly temperature?: number;
+}
+
 export interface StructuredResponsesClient {
   responses: {
-    parse(request: unknown, options?: LlmRequestOptions): Promise<{ readonly output_parsed?: unknown | null }>;
+    parse(request: unknown, options?: LlmRequestOptions | StructuredRequestOptions): Promise<{ readonly output_parsed?: unknown | null; readonly usage?: { readonly input_tokens?: number; readonly output_tokens?: number; readonly total_tokens?: number } | null }>;
   };
 }
 
@@ -73,6 +80,40 @@ export async function requestNeutralMessage(client: StructuredResponsesClient, c
         text: { format: zodTextFormat(neutralMessageSchema, "neutral_message") }
       }, { timeout: timeoutMs, maxRetries: 0, signal: config.signal });
       return neutralMessageSchema.parse(response.output_parsed);
+    } catch (error) {
+      if (isAborted(error, config.signal)) throw new Error("OpenAI request aborted");
+      lastError = error;
+    }
+  }
+  throw redactedError(lastError, [config.apiKey]);
+}
+
+export async function requestStructuredOutput<T>(
+  client: StructuredResponsesClient,
+  config: Pick<LlmConfig, "apiKey" | "model" | "timeoutMs" | "maxRetries"> & { readonly signal?: AbortSignal; readonly temperature?: number },
+  input: string,
+  schema: z.ZodType<T>,
+  schemaName: string,
+): Promise<{ readonly value: T; readonly usage: { readonly inputTokens: number | null; readonly outputTokens: number | null; readonly totalTokens: number | null } }> {
+  const timeoutMs = timeout(config.timeoutMs);
+  const maxRetries = boundedInteger(config.maxRetries, DEFAULT_ADAPTER_RETRIES, "maxRetries");
+  const model = config.model ?? DEFAULT_LLM_MODEL;
+  if (model.trim() === "") throw new Error("LLM model is required");
+  const temperature = config.temperature ?? 0.2;
+  if (!Number.isFinite(temperature) || temperature < 0 || temperature > 2) throw new Error("LLM temperature must be between 0 and 2");
+  let lastError: unknown;
+  for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+    if (config.signal?.aborted) throw new Error("OpenAI request aborted");
+    try {
+      const response = await client.responses.parse({
+        model,
+        input,
+        temperature,
+        text: { format: zodTextFormat(schema, schemaName) }
+      }, { timeout: timeoutMs, maxRetries: 0, signal: config.signal });
+      const value = schema.parse(response.output_parsed);
+      const usage = response.usage;
+      return { value, usage: { inputTokens: usage?.input_tokens ?? null, outputTokens: usage?.output_tokens ?? null, totalTokens: usage?.total_tokens ?? null } };
     } catch (error) {
       if (isAborted(error, config.signal)) throw new Error("OpenAI request aborted");
       lastError = error;
