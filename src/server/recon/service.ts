@@ -118,7 +118,7 @@ export function createReconService(repository: ReconRepository, clock: () => str
       if (!currentCase || !exception || exception.caseId !== currentCase.caseId) throw new Error("case not found");
       const corrected = transitionException(exception, "corrected", clock());
       await repository.updateException(corrected);
-      const correction: ReconCorrection = { correctionId: randomUUID(), workspaceId: actor.workspaceId, caseId: currentCase.caseId, exceptionId: exception.exceptionId, actorId: actor.actorId, disposition: parsed.disposition, notes: parsed.notes, createdAt: clock() };
+      const correction: ReconCorrection = { schemaVersion: 1, correctionId: randomUUID(), workspaceId: actor.workspaceId, caseId: currentCase.caseId, exceptionId: exception.exceptionId, actorId: actor.actorId, disposition: parsed.disposition, notes: parsed.notes, createdAt: clock() };
       await repository.insertCorrection(correction);
       await repository.appendEvent({ workspaceId: actor.workspaceId, actorId: actor.actorId, subjectId: exception.exceptionId, type: "exception.corrected", payload: { caseId: currentCase.caseId, correctionId: correction.correctionId, disposition: parsed.disposition } });
       return { correctionId: correction.correctionId, exceptionId: exception.exceptionId, state: "corrected" };

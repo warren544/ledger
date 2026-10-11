@@ -4,5 +4,6 @@ export * from "./finding.js";
 export * from "./match.js";
 export * from "./record-types.js";
 export * from "./variance.js";
+export * from "./rules.js";
 export * from "./packs/billing.js";
 export * from "./packs/transport.js";

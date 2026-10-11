@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { appendHashChainEntry, verifyHashChain, type ChainJsonValue, type HashChain, type HashChainEntry } from "../../core/hash-chain.js";
 import { reconCaseSchema, type ReconCase } from "../../core/recon/record-types.js";
 import { exceptionSchema, type ReconException } from "../../core/recon/exception.js";
+import { ruleSchema, type ReconRule } from "../../core/recon/rules.js";
 import type { MongoCollectionLike, MongoDatabaseLike } from "../../adapters/mongo/index.js";
 import type { StoredDraft } from "./drafter.js";
 
@@ -14,6 +15,7 @@ export interface ReconEventInput {
 }
 
 export interface StoredReconEvent {
+  readonly schemaVersion: 1;
   readonly workspaceId: string;
   readonly eventId: string;
   readonly actorId: string;
@@ -24,6 +26,7 @@ export interface StoredReconEvent {
 }
 
 export interface ReconCorrection {
+  readonly schemaVersion: 1;
   readonly correctionId: string;
   readonly workspaceId: string;
   readonly caseId: string;
@@ -48,6 +51,11 @@ export interface ReconRepository {
   saveDraft(workspaceId: string, exceptionId: string, draft: StoredDraft): Promise<void>;
   getDraft(workspaceId: string, exceptionId: string): Promise<StoredDraft | null>;
   insertCorrection(correction: ReconCorrection): Promise<void>;
+  getCorrection(workspaceId: string, correctionId: string): Promise<ReconCorrection | null>;
+  insertRule(rule: ReconRule): Promise<void>;
+  updateRule(rule: ReconRule): Promise<void>;
+  getRule(workspaceId: string, ruleId: string, version?: number): Promise<ReconRule | null>;
+  listRules(workspaceId: string): Promise<readonly ReconRule[]>;
   listEvents(workspaceId: string, subjectId?: string): Promise<readonly StoredReconEvent[]>;
   appendEvent(input: ReconEventInput): Promise<StoredReconEvent>;
   verifyEvents(workspaceId: string): Promise<{ readonly valid: boolean; readonly count: number; readonly head: string; readonly index: number | null; readonly reason?: string }>;
@@ -94,14 +102,14 @@ function withoutStoredRecordMetadata(value: unknown): unknown {
 function withoutStoredCaseMetadata(value: unknown): unknown {
   const clean = withoutMongoId(value);
   if (clean === null || typeof clean !== "object" || Array.isArray(clean)) return clean;
-  const { createdAt: ignoredCreatedAt, ...reconCase } = clean as Record<string, unknown>;
+  const { createdAt: ignoredCreatedAt, schemaVersion: ignoredSchemaVersion, ...reconCase } = clean as Record<string, unknown>;
   return reconCase;
 }
 
 function withoutDraft(value: unknown): unknown {
   const clean = withoutMongoId(value);
   if (clean === null || typeof clean !== "object" || Array.isArray(clean)) return clean;
-  const { draft: ignoredDraft, ...exception } = clean as Record<string, unknown>;
+  const { draft: ignoredDraft, schemaVersion: ignoredSchemaVersion, ...exception } = clean as Record<string, unknown>;
   return exception;
 }
 
@@ -113,11 +121,11 @@ export function createReconRepository(database: MongoDatabaseLike, clock: () => 
     },
     async upsertCase(reconCase) {
       const collection = requireUpdateCollection(database, "recon_cases");
-      await collection.updateOne({ workspaceId: reconCase.workspaceId, caseId: reconCase.caseId }, { $set: { ...reconCase, createdAt: clock() } }, { upsert: true });
+      await collection.updateOne({ workspaceId: reconCase.workspaceId, caseId: reconCase.caseId }, { $set: { ...reconCase, schemaVersion: 1, createdAt: clock() } }, { upsert: true });
     },
     async updateCase(reconCase) {
       const collection = requireUpdateCollection(database, "recon_cases");
-      await collection.updateOne({ workspaceId: reconCase.workspaceId, caseId: reconCase.caseId }, { $set: { ...reconCase, createdAt: clock() } }, { upsert: false });
+      await collection.updateOne({ workspaceId: reconCase.workspaceId, caseId: reconCase.caseId }, { $set: { ...reconCase, schemaVersion: 1, createdAt: clock() } }, { upsert: false });
     },
     async getCase(workspaceId, caseId) {
       const collection = database.collection("recon_cases");
@@ -143,11 +151,11 @@ export function createReconRepository(database: MongoDatabaseLike, clock: () => 
     },
     async insertException(exception) {
       const collection = requireUpdateCollection(database, "recon_exceptions");
-      await collection.updateOne({ workspaceId: exception.workspaceId, exceptionId: exception.exceptionId }, { $set: exception }, { upsert: true });
+      await collection.updateOne({ workspaceId: exception.workspaceId, exceptionId: exception.exceptionId }, { $set: { ...exception, schemaVersion: 1, createdAt: exception.createdAt } }, { upsert: true });
     },
     async updateException(exception) {
       const collection = requireUpdateCollection(database, "recon_exceptions");
-      await collection.updateOne({ workspaceId: exception.workspaceId, exceptionId: exception.exceptionId }, { $set: exception }, { upsert: false });
+      await collection.updateOne({ workspaceId: exception.workspaceId, exceptionId: exception.exceptionId }, { $set: { ...exception, schemaVersion: 1, createdAt: exception.createdAt } }, { upsert: false });
     },
     async getException(workspaceId, exceptionId) {
       const value = await database.collection("recon_exceptions").findOne({ workspaceId, exceptionId });
@@ -171,6 +179,31 @@ export function createReconRepository(database: MongoDatabaseLike, clock: () => 
       const collection = requireUpdateCollection(database, "recon_corrections");
       await collection.updateOne({ workspaceId: correction.workspaceId, correctionId: correction.correctionId }, { $set: correction }, { upsert: true });
     },
+    async getCorrection(workspaceId, correctionId) {
+      const value = await database.collection("recon_corrections").findOne({ workspaceId, correctionId });
+      return value === null ? null : withoutMongoId(value) as ReconCorrection;
+    },
+    async insertRule(rule) {
+      const collection = requireUpdateCollection(database, "recon_rules");
+      await collection.updateOne({ workspaceId: rule.workspaceId, ruleId: rule.ruleId, version: rule.version }, { $set: rule }, { upsert: true });
+    },
+    async updateRule(rule) {
+      const collection = requireUpdateCollection(database, "recon_rules");
+      await collection.updateOne({ workspaceId: rule.workspaceId, ruleId: rule.ruleId, version: rule.version }, { $set: rule }, { upsert: false });
+    },
+    async getRule(workspaceId, ruleId, version) {
+      const collection = database.collection("recon_rules");
+      const filter: Record<string, unknown> = { workspaceId, ruleId };
+      if (version !== undefined) filter.version = version;
+      const value = await collection.findOne(filter);
+      if (value === null) return null;
+      const clean = withoutMongoId(value);
+      return ruleSchema.parse(clean);
+    },
+    async listRules(workspaceId) {
+      const collection = requireCollection(database, "recon_rules");
+      return (await collection.find({ workspaceId }, { sort: { ruleId: 1, version: -1 } }).toArray()).map((value) => ruleSchema.parse(withoutMongoId(value)));
+    },
     async listEvents(workspaceId, subjectId) {
       const collection = requireCollection(database, "recon_events");
       const filter = subjectId === undefined ? { workspaceId } : { workspaceId, subjectId };
@@ -183,7 +216,7 @@ export function createReconRepository(database: MongoDatabaseLike, clock: () => 
       const eventId = randomUUID();
       const createdAt = clock();
       const entry = appendHashChainEntry(chain, { eventId, type: input.type, actorId: input.actorId, subjectId: input.subjectId, createdAt, payload: input.payload });
-      const stored: StoredReconEvent = { workspaceId: input.workspaceId, eventId, actorId: input.actorId, subjectId: input.subjectId, type: input.type, createdAt, chain: entry[entry.length - 1] };
+      const stored: StoredReconEvent = { schemaVersion: 1, workspaceId: input.workspaceId, eventId, actorId: input.actorId, subjectId: input.subjectId, type: input.type, createdAt, chain: entry[entry.length - 1] };
       await collection.insertOne(stored);
       return stored;
     },

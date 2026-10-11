@@ -17,8 +17,8 @@ export interface ReconActor {
 
 const roleCapabilities: Record<ReconActorRole, readonly ReconCapability[]> = {
   agent: ["records.read", "case.run", "exception.draft", "rule.propose"],
-  demo_operator: ["records.read", "records.ingest", "correction.write"],
-  human_approver: ["records.read", "audit.read", "rule.approve"]
+  demo_operator: ["records.read", "records.ingest", "correction.write", "rule.evaluate"],
+  human_approver: ["records.read", "audit.read", "rule.approve", "rule.rollback"]
 };
 
 export const DEMO_ACTORS = Object.freeze({

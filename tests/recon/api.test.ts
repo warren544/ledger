@@ -8,6 +8,7 @@ import type { ReconCase } from "../../src/core/recon/record-types.js";
 import type { ReconException } from "../../src/core/recon/exception.js";
 import type { StoredDraft } from "../../src/server/recon/drafter.js";
 import type { ReconCorrection } from "../../src/server/recon/repository.js";
+import type { ReconRule } from "../../src/core/recon/rules.js";
 import { errorResponse, readJsonBody } from "../../src/app/api/_lib/recon.js";
 import type { StructuredResponsesClient } from "../../src/adapters/llm/index.js";
 
@@ -41,6 +42,7 @@ class MemoryRepository implements ReconRepository {
   readonly exceptions = new Map<string, ReconException>();
   readonly drafts = new Map<string, StoredDraft>();
   readonly corrections: ReconCorrection[] = [];
+  readonly rules = new Map<string, ReconRule>();
   readonly events: StoredReconEvent[] = [];
   async upsertRecord(record: Record<string, unknown>) { this.records.set(`${record.workspaceId}:${record.recordId}`, structuredClone(record)); }
   async upsertCase(value: ReconCase) { this.cases.set(`${value.workspaceId}:${value.caseId}`, structuredClone(value)); }
@@ -55,11 +57,16 @@ class MemoryRepository implements ReconRepository {
   async saveDraft(workspaceId: string, exceptionId: string, draft: StoredDraft) { this.drafts.set(`${workspaceId}:${exceptionId}`, structuredClone(draft)); }
   async getDraft(workspaceId: string, exceptionId: string) { return structuredClone(this.drafts.get(`${workspaceId}:${exceptionId}`) ?? null); }
   async insertCorrection(value: ReconCorrection) { this.corrections.push(structuredClone(value)); }
+  async getCorrection(_workspaceId: string, correctionId: string) { return structuredClone(this.corrections.find((value) => value.correctionId === correctionId) ?? null); }
+  async insertRule(value: ReconRule) { this.rules.set(`${value.workspaceId}:${value.ruleId}:${value.version}`, structuredClone(value)); }
+  async updateRule(value: ReconRule) { this.rules.set(`${value.workspaceId}:${value.ruleId}:${value.version}`, structuredClone(value)); }
+  async getRule(workspaceId: string, ruleId: string, version?: number) { return structuredClone([...this.rules.values()].find((value) => value.workspaceId === workspaceId && value.ruleId === ruleId && (version === undefined || value.version === version)) ?? null); }
+  async listRules(workspaceId: string) { return [...this.rules.values()].filter((value) => value.workspaceId === workspaceId); }
   async listEvents(workspaceId: string, subjectId?: string) { return this.events.filter((value) => value.workspaceId === workspaceId && (subjectId === undefined || value.subjectId === subjectId)); }
   async appendEvent(input: ReconEventInput) {
     const chain = this.events.filter((value) => value.workspaceId === input.workspaceId).sort((left, right) => left.chain.index - right.chain.index).map((value) => value.chain);
     const entry = appendHashChainEntry(chain, input.payload);
-    const stored: StoredReconEvent = { workspaceId: input.workspaceId, eventId: `event-${entry[entry.length - 1].hash}`, actorId: input.actorId, subjectId: input.subjectId, type: input.type, createdAt: timestamp, chain: entry[entry.length - 1] };
+    const stored: StoredReconEvent = { schemaVersion: 1, workspaceId: input.workspaceId, eventId: `event-${entry[entry.length - 1].hash}`, actorId: input.actorId, subjectId: input.subjectId, type: input.type, createdAt: timestamp, chain: entry[entry.length - 1] };
     this.events.push(stored);
     return stored;
   }

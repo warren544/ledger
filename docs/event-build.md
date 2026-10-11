@@ -8,7 +8,11 @@ Created during the prebuild phase: repository shell, exact Node 22.23.3 runtime 
 
 ## Explicitly not prebuilt
 
-Audit panels, product duplicate/split workflow, prompts, executable policy/DSL semantics, correction-to-rule behavior, approval workflow, learned/product evaluator, policy-driven rechecks, and product UI are intentionally absent. The separately authorized baseline holdout evaluator is evaluator-only plumbing and is not a finished product audit system.
+At the prebuild boundary, audit panels, product duplicate/split workflow, executable policy/DSL semantics, correction-to-rule behavior, approval workflow, learned/product evaluator, policy-driven rechecks, and product UI were intentionally absent. The separately authorized baseline holdout evaluator is evaluator-only plumbing and is not a finished product audit system.
+
+## Current event-scope Step 5 work
+
+The current uncommitted event-scope change adds the closed pack-specific Rule DSL and pure evaluator in `src/core/recon/rules.ts`, rule proposal/evaluation/approval/rollback services in `src/server/recon/approval.ts`, deterministic replay reporting in `src/server/recon/replay.ts`, evaluation-only frozen holdout loading, and the corresponding API routes and tests. This is working-tree event code, not a prebuilt claim or a commit record.
 
 ## Event boundary
 
