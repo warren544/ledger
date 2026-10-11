@@ -5,6 +5,9 @@ const nextConfig = {
   // `npm run check` owns these pinned checks; avoid Next's auto-install path
   // during production bundling on this Windows workspace.
   typescript: { ignoreBuildErrors: true },
+  outputFileTracingIncludes: {
+    "/api/rules/[id]/evaluate": ["./evals/**"]
+  },
   webpack(config) {
     config.resolve.extensionAlias = {
       ...(config.resolve.extensionAlias ?? {}),
