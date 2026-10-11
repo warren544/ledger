@@ -101,7 +101,7 @@ export function createReconService(repository: ReconRepository, clock: () => str
       if (result.ok) {
         await repository.saveDraft(actor.workspaceId, exception.exceptionId, result.draft);
         await repository.updateException({ ...exception, state: "drafted", updatedAt: dependencies.now?.() ?? clock() });
-        await repository.appendEvent({ workspaceId: actor.workspaceId, actorId: actor.actorId, subjectId: exception.exceptionId, type: "exception.drafted", payload: { caseId: currentCase.caseId, promptHash: result.draft.promptHash, redactedInputHash: result.draft.redactedInputHash, model: result.draft.model } });
+        await repository.appendEvent({ workspaceId: actor.workspaceId, actorId: actor.actorId, subjectId: exception.exceptionId, type: "exception.drafted", payload: { caseId: currentCase.caseId, promptHash: result.draft.promptHash, redactedInputHash: result.draft.redactedInputHash, model: result.draft.model, fallback: result.draft.fallback } });
       } else {
         const next = exception.state === "open" ? "needs_human" : exception.state === "drafted" ? "needs_human" : exception.state;
         if (next !== exception.state) await repository.updateException(transitionException(exception, next, dependencies.now?.() ?? clock()));

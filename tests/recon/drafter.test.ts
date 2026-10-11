@@ -49,3 +49,23 @@ test("malformed or hostile model output fails closed and never becomes an approv
   assert.equal(result.ok, false);
   if (!result.ok) assert.equal(result.reason, "draft variance does not match deterministic variance");
 });
+
+test("falls back to an evidence-based draft and logs the redacted OpenAI failure", async () => {
+  let logged: unknown;
+  const result = await draftException(input, {
+    client: { responses: { parse: async () => { throw new Error("upstream failed for dummy-key"); } } },
+    apiKey: "dummy-key",
+    now: () => timestamp,
+    logError: (entry) => { logged = entry; }
+  });
+  assert.equal(result.ok, true);
+  if (result.ok) {
+    assert.equal(result.draft.fallback, true);
+    assert.equal(result.draft.model, "deterministic-fallback");
+    assert.deepEqual(result.draft.evidenceIds, [ids.record]);
+    assert.equal(result.draft.varianceCents, 200);
+    assert.doesNotMatch(result.draft.narrative, /dummy-secret|dummy-key/);
+  }
+  assert.equal((logged as { caseId: string }).caseId, ids.case);
+  assert.equal(JSON.stringify(logged).includes("dummy-key"), false);
+});

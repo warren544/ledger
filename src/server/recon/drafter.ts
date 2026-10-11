@@ -36,6 +36,7 @@ export interface StoredDraft extends ExceptionDraft {
   readonly promptHash: string;
   readonly redactedInputHash: string;
   readonly model: string;
+  readonly fallback: boolean;
   readonly usage: DraftUsage;
   readonly createdAt: string;
 }
@@ -60,6 +61,7 @@ export interface DraftDependencies {
   readonly eventId?: string;
   readonly actorId?: string;
   readonly log?: DraftLog;
+  readonly logError?: (entry: { readonly error: unknown; readonly caseId: string; readonly exceptionId: string }) => void;
 }
 
 export type DraftResult =
@@ -100,6 +102,28 @@ function redactedInput(input: DraftInput): RedactedValue {
   return redact({ case: input.case, records: input.records, exception: input.exception }, { maxDepth: 8, maxEntries: 5000 });
 }
 
+function deterministicFallback(input: DraftInput, eventId: string, promptHash: string, redactedInputHash: string, now: string): StoredDraft {
+  const evidenceIds = [...new Set(input.exception.evidence.map((item) => String(item.recordId)))];
+  const evidenceSummary = input.exception.evidence.map((item) => `${item.kind}.${item.field}`).join(", ") || "the supplied case evidence";
+  return {
+    narrative: `Deterministic fallback for ${input.exception.code} (${input.exception.severity}); review ${evidenceSummary}.`,
+    disposition: "investigate",
+    evidenceIds,
+    varianceCents: input.exception.variance?.varianceCents ?? null,
+    eventId,
+    promptHash,
+    redactedInputHash,
+    model: "deterministic-fallback",
+    fallback: true,
+    usage: { inputTokens: null, outputTokens: null, totalTokens: null },
+    createdAt: now
+  };
+}
+
+function safeError(error: unknown, secret: string): RedactedValue {
+  return redact({ name: error instanceof Error ? error.name : "unknown", message: error instanceof Error ? error.message : String(error), code: error && typeof error === "object" && "code" in error ? (error as { code?: unknown }).code : undefined }, { secrets: [secret] });
+}
+
 /** Drafts only narrative/disposition; deterministic findings remain authoritative. */
 export async function draftException(input: DraftInput, dependencies: DraftDependencies): Promise<DraftResult> {
   if (dependencies.client === undefined) throw new Error("structured LLM client is required");
@@ -123,10 +147,11 @@ export async function draftException(input: DraftInput, dependencies: DraftDepen
     const latencyMs = Math.max(0, Date.now() - started);
     dependencies.log?.({ caseId: input.case.caseId, ruleVersion: null, actor: dependencies.actorId ?? input.exception.workspaceId, latencyMs, model: DRAFT_MODEL, tokenCounts: usage, validatorResult: reason === null ? "accepted" : "rejected" });
     if (reason !== null) return { ok: false, reason, promptHash, redactedInputHash, usage };
-    const stored = { ...output, eventId, promptHash, redactedInputHash, model: DRAFT_MODEL, usage, createdAt: dependencies.now?.() ?? new Date().toISOString() } satisfies StoredDraft;
+    const stored = { ...output, eventId, promptHash, redactedInputHash, model: DRAFT_MODEL, fallback: false, usage, createdAt: dependencies.now?.() ?? new Date().toISOString() } satisfies StoredDraft;
     return { ok: true, draft: stored };
-  } catch {
+  } catch (error) {
+    dependencies.logError?.({ error: safeError(error, dependencies.apiKey), caseId: input.case.caseId, exceptionId: input.exception.exceptionId });
     dependencies.log?.({ caseId: input.case.caseId, ruleVersion: null, actor: dependencies.actorId ?? input.exception.workspaceId, latencyMs: Math.max(0, Date.now() - started), model: DRAFT_MODEL, tokenCounts: usage, validatorResult: "rejected" });
-    return { ok: false, reason: "draft generation failed", promptHash, redactedInputHash, usage };
+    return { ok: true, draft: deterministicFallback(input, eventId, promptHash, redactedInputHash, dependencies.now?.() ?? new Date().toISOString()) };
   }
 }
