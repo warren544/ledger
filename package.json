@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check": "npm run typecheck && npm run lint && npm run test && npm run verify-fixtures && npm run eval && npm run eval:holdout",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run verify-fixtures && npm run eval && npm run eval:holdout && npm run verify-recon-fixtures && npm run eval:recon",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "tsx --test \"tests/**/*.test.ts\" \"src/core/**/__tests__/*.test.ts\"",
@@ -16,6 +16,8 @@
     "inspect-fixtures": "tsx scripts/inspect-fixtures.ts",
     "reset-fixtures": "tsx scripts/reset-fixtures.ts",
     "verify-fixtures": "tsx scripts/verify-fixtures.ts",
+    "generate-recon-fixtures": "tsx scripts/generate-recon-fixtures.ts",
+    "verify-recon-fixtures": "tsx scripts/verify-recon-fixtures.ts",
     "mongo-setup": "tsx scripts/mongo-setup.ts",
     "mongo-smoke": "tsx scripts/mongo-smoke.ts",
     "import-fixtures": "tsx scripts/import-fixtures.ts",
@@ -25,6 +27,7 @@
     "worker:dry": "tsx worker/index.ts --dry-run --once",
     "eval": "tsx scripts/eval.ts",
     "eval:holdout": "tsx scripts/eval-holdout.ts",
+    "eval:recon": "tsx scripts/eval-recon.ts",
     "eval:smoke": "tsx scripts/eval-smoke.ts"
   },
   "engines": {
@@ -34,6 +37,7 @@
     "mongodb": "7.1.0",
     "next": "15.5.27",
     "openai": "7.30.0",
+    "raindrop-ai": "1.0.1",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "zod": "4.1.12"

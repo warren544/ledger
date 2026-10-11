@@ -1,0 +1,3461 @@
+[
+  {
+    "caseId": "b5e8dd25-cbd6-4ea0-b832-cbe2d5997c74",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "b3629d68-7db4-46cd-bcf6-c3a269609f79",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-01T09:00:00.000Z",
+        "contentHash": "41757488ac2caf2a537fc019bfc6547dd8da8f91e7f86412f3cad930d8b3407d",
+        "recordType": "invoice",
+        "invoiceId": "b8badc54-a975-4bc5-8eca-65260320b154",
+        "customerId": "aa1c8a2b-8f69-4de4-b8cb-af51c4dfa017",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-0-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-0-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-01T09:00:00.000Z",
+        "periodEnd": "2026-10-02T23:00:00.000Z"
+      },
+      {
+        "recordId": "e55eb477-aa56-4b69-a999-9f3050bc7d38",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-01T09:00:00.000Z",
+        "contentHash": "ac41c66adb25d663a05ba7a008f84f00e8401412142f6741d9604d43f6c224ae",
+        "recordType": "contract_rate",
+        "customerId": "aa1c8a2b-8f69-4de4-b8cb-af51c4dfa017",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-01T09:00:00.000Z",
+        "effectiveTo": "2026-10-03T23:00:00.000Z"
+      },
+      {
+        "recordId": "866926a4-5075-4a4f-a736-9f45196b1ea8",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-01T09:00:00.000Z",
+        "contentHash": "1b67f4afb0a85591230e8dcd7463c3ac3888e0c1c7d9ee22be1d9d900595610b",
+        "recordType": "contract_rate",
+        "customerId": "aa1c8a2b-8f69-4de4-b8cb-af51c4dfa017",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-01T09:00:00.000Z",
+        "effectiveTo": "2026-10-03T23:00:00.000Z"
+      },
+      {
+        "recordId": "5a359291-67a4-47ec-84ee-df7b3bc81d7c",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-01T09:00:00.000Z",
+        "contentHash": "5152f50760830254111cd9ebe39d8a08c766f46c9e964ae698f703173ae89e3b",
+        "recordType": "contract_rate",
+        "customerId": "aa1c8a2b-8f69-4de4-b8cb-af51c4dfa017",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-01T09:00:00.000Z",
+        "effectiveTo": "2026-10-03T23:00:00.000Z"
+      },
+      {
+        "recordId": "2f1e5428-f423-4d00-8165-0abf996cbd53",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-01T09:00:00.000Z",
+        "contentHash": "bd609dfa3c748ee8fce235b6700d0ba5d1bd07ad74a7870035165ee99b18329c",
+        "recordType": "service_event",
+        "eventId": "04065438-92bd-4b95-9a65-ef93c88ac2fe",
+        "customerId": "aa1c8a2b-8f69-4de4-b8cb-af51c4dfa017",
+        "kind": "service",
+        "stopId": "stop-0-1",
+        "performedAt": "2026-10-01T10:00:00.000Z"
+      },
+      {
+        "recordId": "9e2a896c-77a3-4b02-a8f9-4e08fe547817",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-01T09:00:00.000Z",
+        "contentHash": "08d2a4ade5a03bdf288bec8fa958a5099b64bcc1ad3f20a56555fbf8b273ed58",
+        "recordType": "service_event",
+        "eventId": "e9983a1e-79e6-445f-aed3-8806732aa4a7",
+        "customerId": "aa1c8a2b-8f69-4de4-b8cb-af51c4dfa017",
+        "kind": "handling",
+        "stopId": "stop-0-2",
+        "performedAt": "2026-10-01T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "15cb8676-77e2-4079-a5ae-003a894de431",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "1b10c6a6-f400-4056-aa92-ea76791d8aa6",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-02T09:00:00.000Z",
+        "contentHash": "36d25f2209f474f37397d60b0f759e3955d8bed3ebc74713aa8cad86404d5c68",
+        "recordType": "invoice",
+        "invoiceId": "79d1cab3-3d95-486e-b2f3-b20edc1d33f0",
+        "customerId": "414bf42f-41dd-4087-be4a-4b9b0ee0d0d6",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1001,
+            "totalCents": 1001,
+            "stopId": "stop-1-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-1-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1551,
+        "periodStart": "2026-10-02T09:00:00.000Z",
+        "periodEnd": "2026-10-03T23:00:00.000Z"
+      },
+      {
+        "recordId": "7e99cba9-f386-4eff-98e6-8dbd5bc3b246",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-02T09:00:00.000Z",
+        "contentHash": "f2d1cae63293bbead5547455ba27d5939ddfce6fdbba9773b0355f8c5bc4c00a",
+        "recordType": "contract_rate",
+        "customerId": "414bf42f-41dd-4087-be4a-4b9b0ee0d0d6",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-02T09:00:00.000Z",
+        "effectiveTo": "2026-10-04T23:00:00.000Z"
+      },
+      {
+        "recordId": "d425ccd7-f0a9-4ad2-beee-b1980fdb82e6",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-02T09:00:00.000Z",
+        "contentHash": "09472c880071dd643b1e826841c6dc9af27a7f5bf006f280ee7fd09183017617",
+        "recordType": "contract_rate",
+        "customerId": "414bf42f-41dd-4087-be4a-4b9b0ee0d0d6",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-02T09:00:00.000Z",
+        "effectiveTo": "2026-10-04T23:00:00.000Z"
+      },
+      {
+        "recordId": "19ce2d5f-fb42-4189-b060-eb523c583a6a",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-02T09:00:00.000Z",
+        "contentHash": "63e77036980eadfc5b10b939a3213a619108b908e91a91a8ffd67f03a31adf2f",
+        "recordType": "contract_rate",
+        "customerId": "414bf42f-41dd-4087-be4a-4b9b0ee0d0d6",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-02T09:00:00.000Z",
+        "effectiveTo": "2026-10-04T23:00:00.000Z"
+      },
+      {
+        "recordId": "a0569965-4ac5-4575-8948-ac23b71aff22",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-02T09:00:00.000Z",
+        "contentHash": "5eacc0920e4efb6e4c97097bf925bbd6e45c549a71744ee92e30270ce6c5c805",
+        "recordType": "service_event",
+        "eventId": "2d161cb5-21d0-4e08-9d69-0f66d2efd1cb",
+        "customerId": "414bf42f-41dd-4087-be4a-4b9b0ee0d0d6",
+        "kind": "service",
+        "stopId": "stop-1-1",
+        "performedAt": "2026-10-02T10:00:00.000Z"
+      },
+      {
+        "recordId": "9477e845-3ee5-4201-8917-de3bfe55e117",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-02T09:00:00.000Z",
+        "contentHash": "d66f8b9e58e98f993ba451a9306457b35d9395bba5c2c096f5b2ca1fa6ae53ae",
+        "recordType": "service_event",
+        "eventId": "2d6d9be9-ecf4-493f-9936-0eb6532c3929",
+        "customerId": "414bf42f-41dd-4087-be4a-4b9b0ee0d0d6",
+        "kind": "handling",
+        "stopId": "stop-1-2",
+        "performedAt": "2026-10-02T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "e6fe3d5f-24d1-40a6-a908-298734d54b1a",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "d38d2729-c2db-44bf-9142-81ae937ff673",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-03T09:00:00.000Z",
+        "contentHash": "fabf4d5038251c0a62c0795214f36401a3c63f5a91e3447d3c864c06dbb5314a",
+        "recordType": "invoice",
+        "invoiceId": "030a487c-ad9b-4049-b59e-fc2f3fdb40b6",
+        "customerId": "a51f93ee-beba-432f-b874-068db5c69675",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-2-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-2-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-03T09:00:00.000Z",
+        "periodEnd": "2026-10-04T23:00:00.000Z"
+      },
+      {
+        "recordId": "ed463eeb-77a6-40b0-8c5f-d6bce51de8bd",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-03T09:00:00.000Z",
+        "contentHash": "a3fb4bb9f0286aa231bb669a6337e61bf94420f9e8c886b1431b1b78b4077ffb",
+        "recordType": "contract_rate",
+        "customerId": "a51f93ee-beba-432f-b874-068db5c69675",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-03T09:00:00.000Z",
+        "effectiveTo": "2026-10-05T23:00:00.000Z"
+      },
+      {
+        "recordId": "748ee06b-d6cb-4b0b-b52f-147da8e6c161",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-03T09:00:00.000Z",
+        "contentHash": "959e809d22852d190a9910963fbc4a01296e867fa99b39368b9075b8ea38e2f9",
+        "recordType": "contract_rate",
+        "customerId": "a51f93ee-beba-432f-b874-068db5c69675",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-03T09:00:00.000Z",
+        "effectiveTo": "2026-10-05T23:00:00.000Z"
+      },
+      {
+        "recordId": "c9bdbb6d-5035-4b13-a90c-4dcb326ae252",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-03T09:00:00.000Z",
+        "contentHash": "acd8d57800cb0238004e73bc117127c97c0858af8971756117a5670b5b8a8280",
+        "recordType": "contract_rate",
+        "customerId": "a51f93ee-beba-432f-b874-068db5c69675",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-03T09:00:00.000Z",
+        "effectiveTo": "2026-10-05T23:00:00.000Z"
+      },
+      {
+        "recordId": "08fe350f-6e12-46f8-980b-3b67810f4e6d",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-03T09:00:00.000Z",
+        "contentHash": "071ab09d20c65d77075adc1c093c7a262b1a229cc0f5e11ec67dea8e92b330ca",
+        "recordType": "service_event",
+        "eventId": "51d0a35c-b34b-45ed-ad6e-1076e5be0f64",
+        "customerId": "a51f93ee-beba-432f-b874-068db5c69675",
+        "kind": "service",
+        "stopId": "stop-2-1",
+        "performedAt": "2026-10-03T10:00:00.000Z"
+      },
+      {
+        "recordId": "7cfd509d-9979-44f1-9ee8-a4816e1114cf",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-03T09:00:00.000Z",
+        "contentHash": "390ae1dcec08988f6b50b0f1ad65a4b4bc13e8d73225055f5bf74a408df0ebdc",
+        "recordType": "service_event",
+        "eventId": "d262f261-fd96-46c2-a043-0d227e23ea10",
+        "customerId": "a51f93ee-beba-432f-b874-068db5c69675",
+        "kind": "handling",
+        "stopId": "stop-2-2",
+        "performedAt": "2026-10-03T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "20621409-231a-48e2-be5d-5b57602963f2",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "0482597d-fcc9-4fae-86ce-1971eec96b17",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-04T09:00:00.000Z",
+        "contentHash": "71fae9364cedb9bdff6fa7d550a1a7a9b785aa3f0b6951e2b70c805a2f37c117",
+        "recordType": "invoice",
+        "invoiceId": "9ee33bb1-c52a-41a2-803b-8e1b68964b01",
+        "customerId": "a3eda290-3875-457a-816c-e4976cb6dd69",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-3-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-3-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-04T09:00:00.000Z",
+        "periodEnd": "2026-10-05T23:00:00.000Z"
+      },
+      {
+        "recordId": "f424906d-3ffe-44a3-ab0c-2317de2e6d4f",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-04T09:00:00.000Z",
+        "contentHash": "fbac63e270438361e498278e1bf57a523bee7a725988dab688d69b1a96d4ab18",
+        "recordType": "contract_rate",
+        "customerId": "a3eda290-3875-457a-816c-e4976cb6dd69",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-04T09:00:00.000Z",
+        "effectiveTo": "2026-10-06T23:00:00.000Z"
+      },
+      {
+        "recordId": "ffd25e2b-cd10-4120-8d9b-549c464c2bee",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-04T09:00:00.000Z",
+        "contentHash": "649b3ebd1c2a063a15999c614c90ead3d7e4dc572e430ef9e9b31aff356f0381",
+        "recordType": "contract_rate",
+        "customerId": "a3eda290-3875-457a-816c-e4976cb6dd69",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-04T09:00:00.000Z",
+        "effectiveTo": "2026-10-06T23:00:00.000Z"
+      },
+      {
+        "recordId": "05c85eea-4717-4cc2-b344-63ae74ddb765",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-04T09:00:00.000Z",
+        "contentHash": "9ca3a867892ba49e21e2b72c7dda889b56f5bfc620dfe5b3d46ddac6579fbc96",
+        "recordType": "contract_rate",
+        "customerId": "a3eda290-3875-457a-816c-e4976cb6dd69",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-04T09:00:00.000Z",
+        "effectiveTo": "2026-10-06T23:00:00.000Z"
+      },
+      {
+        "recordId": "47b3e844-8841-47f8-a2e5-5543ad3debca",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-04T09:00:00.000Z",
+        "contentHash": "e87e2b8f6883be8a96f29a3457528f2ac7b98445a6199370306771be2bdd1d6f",
+        "recordType": "service_event",
+        "eventId": "6ee678cb-8aa0-4a8b-8d6f-548ad867b15f",
+        "customerId": "a3eda290-3875-457a-816c-e4976cb6dd69",
+        "kind": "service",
+        "stopId": "stop-3-1",
+        "performedAt": "2026-10-04T10:00:00.000Z"
+      },
+      {
+        "recordId": "9292fd2f-c023-4cd9-be95-270cc8cd977e",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-04T09:00:00.000Z",
+        "contentHash": "8c0159f0a03bb9facce526476ab7170d922f82e209354da0ba8934967ee2acbb",
+        "recordType": "service_event",
+        "eventId": "eb6fd1b9-dd00-4957-88b7-d36d9c6dd082",
+        "customerId": "a3eda290-3875-457a-816c-e4976cb6dd69",
+        "kind": "handling",
+        "stopId": "stop-3-2",
+        "performedAt": "2026-10-04T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "d3fe049d-6d2c-48a1-9ac9-78af9fba7608",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "d8602e04-f042-4a7b-95d7-72453239622f",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-05T09:00:00.000Z",
+        "contentHash": "4821efc76b65e1ee301e85f269bc746b42ba47a55c1f179b2e7f8b451715f59c",
+        "recordType": "invoice",
+        "invoiceId": "6745c9f3-96d3-407b-af06-41200c06d1d4",
+        "customerId": "085d293a-1b01-4a20-bf15-6b11f27c2871",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-4-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-4-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-05T09:00:00.000Z",
+        "periodEnd": "2026-10-06T23:00:00.000Z"
+      },
+      {
+        "recordId": "971f63eb-9873-48db-aab9-9c1e3937af8d",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-05T09:00:00.000Z",
+        "contentHash": "f9a8c0be697d48b3710f836a773f83304f548288cecc5fb239cac9ab08d7466c",
+        "recordType": "contract_rate",
+        "customerId": "085d293a-1b01-4a20-bf15-6b11f27c2871",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-05T09:00:00.000Z",
+        "effectiveTo": "2026-10-07T23:00:00.000Z"
+      },
+      {
+        "recordId": "68d661f9-2138-4704-a794-4d4f6f94521f",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-05T09:00:00.000Z",
+        "contentHash": "bf50b821c3e0bdbc4ac8a382d175bc57b3ffc9c85e426522109d5ed964fd1592",
+        "recordType": "contract_rate",
+        "customerId": "085d293a-1b01-4a20-bf15-6b11f27c2871",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-05T09:00:00.000Z",
+        "effectiveTo": "2026-10-07T23:00:00.000Z"
+      },
+      {
+        "recordId": "abb79e46-8630-4e97-b7f2-4de6081de7d3",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-05T09:00:00.000Z",
+        "contentHash": "e24328a36839d970d582a3e776238d33dd650957c29fc7de9a6244091d3cca64",
+        "recordType": "contract_rate",
+        "customerId": "085d293a-1b01-4a20-bf15-6b11f27c2871",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-05T09:00:00.000Z",
+        "effectiveTo": "2026-10-07T23:00:00.000Z"
+      },
+      {
+        "recordId": "4d27e87a-2c75-4799-a60a-06bbf4bff225",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-05T09:00:00.000Z",
+        "contentHash": "1107cbfd0c64df1c8df6fb101ec4985e885880b667d9b4b4684e3165977ac690",
+        "recordType": "service_event",
+        "eventId": "e2e65087-8c73-4018-be7f-22102fb6d344",
+        "customerId": "085d293a-1b01-4a20-bf15-6b11f27c2871",
+        "kind": "service",
+        "stopId": "stop-4-1",
+        "performedAt": "2026-10-05T10:00:00.000Z"
+      },
+      {
+        "recordId": "f7006e7e-7b8a-44d2-acf0-ec3555f8e5e1",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-05T09:00:00.000Z",
+        "contentHash": "bb3fe24ea93ee5116709962a8390e3677fe7421f28e8d0cc48778e973fbac910",
+        "recordType": "service_event",
+        "eventId": "6e0448e5-091f-4171-a7a9-bda99a737dae",
+        "customerId": "085d293a-1b01-4a20-bf15-6b11f27c2871",
+        "kind": "handling",
+        "stopId": "stop-4-2",
+        "performedAt": "2026-10-05T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "d0d75d95-3942-46a3-8c57-ad2470d3ead4",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "dc6c8d15-dd87-4024-93fb-21b42805e6e8",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-06T09:00:00.000Z",
+        "contentHash": "927d4f2d70929c387c75dadfa8492c0a84747933cfcdcf6ac97e9d387b9fd5a9",
+        "recordType": "invoice",
+        "invoiceId": "f7ea6bce-f7b9-4ec2-a2c5-bdeb93056524",
+        "customerId": "963578f4-4ef8-4239-a473-c3e51ccf26fe",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-5-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-5-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-06T09:00:00.000Z",
+        "periodEnd": "2026-10-07T23:00:00.000Z"
+      },
+      {
+        "recordId": "12a2127d-1ee6-4dc7-9a79-106435dad17e",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-06T09:00:00.000Z",
+        "contentHash": "090033ef864bf70a9f5aa39d8ffde55ea418856658bd413139fdaebf14484161",
+        "recordType": "contract_rate",
+        "customerId": "963578f4-4ef8-4239-a473-c3e51ccf26fe",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-06T09:00:00.000Z",
+        "effectiveTo": "2026-10-08T23:00:00.000Z"
+      },
+      {
+        "recordId": "52835e04-be2a-416e-9db0-6eea0b415650",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-06T09:00:00.000Z",
+        "contentHash": "95b9d7e6688979e2c745854fab508050c48ee48460412b8a2e14e3d37867bb37",
+        "recordType": "contract_rate",
+        "customerId": "963578f4-4ef8-4239-a473-c3e51ccf26fe",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-06T09:00:00.000Z",
+        "effectiveTo": "2026-10-08T23:00:00.000Z"
+      },
+      {
+        "recordId": "e0772d99-ba2e-4c02-b116-5947532137b3",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-06T09:00:00.000Z",
+        "contentHash": "e66fd866ae10fc56a7a0c2ba0eddca9cd275c958bbe29c0891e677b01eb4562a",
+        "recordType": "contract_rate",
+        "customerId": "963578f4-4ef8-4239-a473-c3e51ccf26fe",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-06T09:00:00.000Z",
+        "effectiveTo": "2026-10-08T23:00:00.000Z"
+      },
+      {
+        "recordId": "1c4c0dd3-2b2e-4899-9135-7c9420d528b1",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-06T09:00:00.000Z",
+        "contentHash": "04d8c2eeb0549cd545e8c96b3d3eb1f20ba90b03140daab5dffb8b3e88171113",
+        "recordType": "service_event",
+        "eventId": "a0463681-f3d6-43be-9830-815e4622a946",
+        "customerId": "963578f4-4ef8-4239-a473-c3e51ccf26fe",
+        "kind": "service",
+        "stopId": "stop-5-1",
+        "performedAt": "2026-10-06T10:00:00.000Z"
+      },
+      {
+        "recordId": "d14fd0d2-d686-4d90-853f-66089645255e",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-06T09:00:00.000Z",
+        "contentHash": "b486f806843d9948faf6b5ecdf236c63e4d6c9d6653b78cc6a7246fe86857f1e",
+        "recordType": "service_event",
+        "eventId": "de38a737-6fb1-43ff-9611-ea1737aeb2af",
+        "customerId": "963578f4-4ef8-4239-a473-c3e51ccf26fe",
+        "kind": "handling",
+        "stopId": "stop-5-2",
+        "performedAt": "2026-10-06T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "2600d08e-fa3c-4b03-a0a6-225806fdddf3",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "a16ee63f-7d47-4ac6-a34c-c409b228f2a5",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-07T09:00:00.000Z",
+        "contentHash": "1dd26c7058fe9f67da0f852cab82a2c6e4e33e426288a3ca0bbeef55ba14c1cc",
+        "recordType": "invoice",
+        "invoiceId": "33a31ae9-b2fd-46c6-8559-064f6e0c69a6",
+        "customerId": "c0e07b5d-9a5d-4bea-9c11-d6fe07950034",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-6-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-6-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-07T09:00:00.000Z",
+        "periodEnd": "2026-10-08T23:00:00.000Z"
+      },
+      {
+        "recordId": "eec01d24-57b9-4c65-8598-28ec2b47e45d",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-07T09:00:00.000Z",
+        "contentHash": "2b47ed261717e908ca9601fd952e162e7f84ef2d81de4db7c6c3b7808d466cff",
+        "recordType": "contract_rate",
+        "customerId": "c0e07b5d-9a5d-4bea-9c11-d6fe07950034",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-07T09:00:00.000Z",
+        "effectiveTo": "2026-10-09T23:00:00.000Z"
+      },
+      {
+        "recordId": "5d4ef2f1-54e2-4406-a923-7600bae56394",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-07T09:00:00.000Z",
+        "contentHash": "170d1902442b8dcb1e95e57ac22d8bcde0a9cf86dcb8ebda9c962b855e0e5a2f",
+        "recordType": "contract_rate",
+        "customerId": "c0e07b5d-9a5d-4bea-9c11-d6fe07950034",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-07T09:00:00.000Z",
+        "effectiveTo": "2026-10-09T23:00:00.000Z"
+      },
+      {
+        "recordId": "28d51d05-970a-425d-8be8-6981245b5606",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-07T09:00:00.000Z",
+        "contentHash": "277ef9128391f9faf741917cf6518605ab07a4ed908a00efcd2031eee154c78b",
+        "recordType": "contract_rate",
+        "customerId": "c0e07b5d-9a5d-4bea-9c11-d6fe07950034",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-07T09:00:00.000Z",
+        "effectiveTo": "2026-10-09T23:00:00.000Z"
+      },
+      {
+        "recordId": "89953609-a810-4eca-90dc-05ba1c3338df",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-07T09:00:00.000Z",
+        "contentHash": "3cc8c6be6a2851faf4e9501e10933beb59424c4a4724ba336451af4bc0d7137d",
+        "recordType": "service_event",
+        "eventId": "16a9b60b-8559-4314-8323-c3169e1f67e6",
+        "customerId": "c0e07b5d-9a5d-4bea-9c11-d6fe07950034",
+        "kind": "service",
+        "stopId": "stop-6-1",
+        "performedAt": "2026-10-07T10:00:00.000Z"
+      },
+      {
+        "recordId": "bb237ddf-cd14-4c8c-bb16-7e77006e07c6",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-07T09:00:00.000Z",
+        "contentHash": "78811a5530fc06c38f2da5e7c240ae44cd6c5aea647ab0ced5b05d717a95c676",
+        "recordType": "service_event",
+        "eventId": "44dfa89d-6010-405f-9068-3d1fc818696b",
+        "customerId": "c0e07b5d-9a5d-4bea-9c11-d6fe07950034",
+        "kind": "handling",
+        "stopId": "stop-6-2",
+        "performedAt": "2026-10-07T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "b62b1e45-f9fa-4bf5-b4b4-fe3a3dca6a97",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "8e5b2d03-107b-4bab-8dd3-3aee95329ee3",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-08T09:00:00.000Z",
+        "contentHash": "58de2d6bdbe427cf1ddaa9cde13e90a7c12f15b1be64733ca10a1b783875a58b",
+        "recordType": "invoice",
+        "invoiceId": "87288975-b15e-44ae-9540-389e31c8a69d",
+        "customerId": "96640199-bde9-45fa-aeec-39070f0c74bd",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-7-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-7-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-08T09:00:00.000Z",
+        "periodEnd": "2026-10-09T23:00:00.000Z"
+      },
+      {
+        "recordId": "320a1fce-8fbc-4ca6-b5b5-a210dc99d54e",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-08T09:00:00.000Z",
+        "contentHash": "50325854a778d92045c58ab3319b2d3602dfd4fcb9f269df2a09e56a2e5a6406",
+        "recordType": "contract_rate",
+        "customerId": "96640199-bde9-45fa-aeec-39070f0c74bd",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-08T09:00:00.000Z",
+        "effectiveTo": "2026-10-10T23:00:00.000Z"
+      },
+      {
+        "recordId": "86c5d68b-02b7-43a9-98b8-7bc37a291e1f",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-08T09:00:00.000Z",
+        "contentHash": "d7e45a9b253a5cb64ef0356ea9938d9212e172db77310a07fd740e758fb269f9",
+        "recordType": "contract_rate",
+        "customerId": "96640199-bde9-45fa-aeec-39070f0c74bd",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-08T09:00:00.000Z",
+        "effectiveTo": "2026-10-10T23:00:00.000Z"
+      },
+      {
+        "recordId": "7af0c4d3-ff0b-4a69-9c27-d094c9296753",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-08T09:00:00.000Z",
+        "contentHash": "a37cfc75dcb4a56b29adb7a844b083c4c88822ad145ad3d36587e8950b093166",
+        "recordType": "contract_rate",
+        "customerId": "96640199-bde9-45fa-aeec-39070f0c74bd",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-08T09:00:00.000Z",
+        "effectiveTo": "2026-10-10T23:00:00.000Z"
+      },
+      {
+        "recordId": "e5ef1824-1785-4f47-97c7-f45d5d7cc2f7",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-08T09:00:00.000Z",
+        "contentHash": "4c89ea2448adc0eb2ef605944ccd13c2e4fa32caae3430741c6489d25fd113c2",
+        "recordType": "service_event",
+        "eventId": "cbb1e120-d197-46b7-bbd3-de023300deef",
+        "customerId": "96640199-bde9-45fa-aeec-39070f0c74bd",
+        "kind": "service",
+        "stopId": "stop-7-1",
+        "performedAt": "2026-10-08T10:00:00.000Z"
+      },
+      {
+        "recordId": "ab9cbbb4-f338-4f6e-9590-df81e5196193",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-08T09:00:00.000Z",
+        "contentHash": "f6232c2a59b461e517aa3398746ec660ceb39c528e73007f595d76d02b7dc9cc",
+        "recordType": "service_event",
+        "eventId": "410b7eee-055f-4614-b9a2-b9359d089649",
+        "customerId": "96640199-bde9-45fa-aeec-39070f0c74bd",
+        "kind": "handling",
+        "stopId": "stop-7-2",
+        "performedAt": "2026-10-08T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "795ea440-2d92-4000-8e7a-3f560bd293b7",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "2b567d7e-d02b-4914-9ee8-306c7fbb7945",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-09T09:00:00.000Z",
+        "contentHash": "f2410488859f01aee997790c00ae616d5845c66497013f6422c8b0facb9bcfd0",
+        "recordType": "invoice",
+        "invoiceId": "5eae2cd8-c736-4d80-affa-9c4a3e0f522a",
+        "customerId": "4e6eb217-af24-4a41-99dd-c1dcdec4e307",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-8-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-8-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-09T09:00:00.000Z",
+        "periodEnd": "2026-10-10T23:00:00.000Z"
+      },
+      {
+        "recordId": "00a907ec-faa9-4fd9-be2a-8e37756f363c",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-09T09:00:00.000Z",
+        "contentHash": "8796a22f8156a976cc432c58417ddc6a0329efb81d91821049c268e613f72339",
+        "recordType": "contract_rate",
+        "customerId": "4e6eb217-af24-4a41-99dd-c1dcdec4e307",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-09T09:00:00.000Z",
+        "effectiveTo": "2026-10-11T23:00:00.000Z"
+      },
+      {
+        "recordId": "d6fc103d-69bf-4b32-87b9-245e31d94ee5",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-09T09:00:00.000Z",
+        "contentHash": "e842234bdc528ca77a94e28fa38318ce9847cb4408677d4bb659d5a994eef14c",
+        "recordType": "contract_rate",
+        "customerId": "4e6eb217-af24-4a41-99dd-c1dcdec4e307",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-09T09:00:00.000Z",
+        "effectiveTo": "2026-10-11T23:00:00.000Z"
+      },
+      {
+        "recordId": "21574f89-46dd-4df2-9100-5353a050c9ac",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-09T09:00:00.000Z",
+        "contentHash": "fa499cc4e1e85df3ed20acbdb72b986e986247d53578470f5c2daefbaa96d766",
+        "recordType": "contract_rate",
+        "customerId": "4e6eb217-af24-4a41-99dd-c1dcdec4e307",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-09T09:00:00.000Z",
+        "effectiveTo": "2026-10-11T23:00:00.000Z"
+      },
+      {
+        "recordId": "318e1b1c-560c-4eec-aaf3-faf499fe0096",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-09T09:00:00.000Z",
+        "contentHash": "d8f05a86440773a8e6fe5b9255c557fc02618e885e1ee4bcefb0eaa799140f24",
+        "recordType": "service_event",
+        "eventId": "609f593d-f554-4a8f-8f3f-32f2ad9f2722",
+        "customerId": "4e6eb217-af24-4a41-99dd-c1dcdec4e307",
+        "kind": "service",
+        "stopId": "stop-8-1",
+        "performedAt": "2026-10-09T10:00:00.000Z"
+      },
+      {
+        "recordId": "f8168ee3-b059-4ad9-9606-0741974c6e3b",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-09T09:00:00.000Z",
+        "contentHash": "3dee9360ee0cc77a625f27029ae3ae15574bc81f2bd9948bd9c39e7269e74304",
+        "recordType": "service_event",
+        "eventId": "728a05b0-8e9c-4e10-a011-89c13ba793aa",
+        "customerId": "4e6eb217-af24-4a41-99dd-c1dcdec4e307",
+        "kind": "handling",
+        "stopId": "stop-8-2",
+        "performedAt": "2026-10-09T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "1b8165dc-06b7-4579-85b4-69924406a5f0",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "b42057a1-4e3d-4e5b-bfe1-8c2e050bd4a4",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-10T09:00:00.000Z",
+        "contentHash": "62660be0bdb10200709703c1b8be1dcfbd4e51153e42e78404b8628514f31e65",
+        "recordType": "invoice",
+        "invoiceId": "668cbeae-a180-4968-a1d6-9bd7c030efb5",
+        "customerId": "4b430461-e322-4075-a791-fb537592d6a5",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-9-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-9-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-10T09:00:00.000Z",
+        "periodEnd": "2026-10-11T23:00:00.000Z"
+      },
+      {
+        "recordId": "35ad0b12-6432-497a-aae0-f38816dce2a0",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-10T09:00:00.000Z",
+        "contentHash": "de127c2fd629a198edf0d15b1021e5031466c8a7584f53cc579e23a686ac7aec",
+        "recordType": "contract_rate",
+        "customerId": "4b430461-e322-4075-a791-fb537592d6a5",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-10T09:00:00.000Z",
+        "effectiveTo": "2026-10-12T23:00:00.000Z"
+      },
+      {
+        "recordId": "f5a9979c-b8ec-4320-a6e6-3c26b7de2d86",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-10T09:00:00.000Z",
+        "contentHash": "80f62b46407d2f5e43a6fea05f1328f8e2654af0df8985faa16b67429208d886",
+        "recordType": "contract_rate",
+        "customerId": "4b430461-e322-4075-a791-fb537592d6a5",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-10T09:00:00.000Z",
+        "effectiveTo": "2026-10-12T23:00:00.000Z"
+      },
+      {
+        "recordId": "37ff2209-0908-455d-b4a7-19331f4ff1aa",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-10T09:00:00.000Z",
+        "contentHash": "9bbf08a82d3cdef609aa3d95808f3fa2af147931f6d368fe0c12da212b433f00",
+        "recordType": "contract_rate",
+        "customerId": "4b430461-e322-4075-a791-fb537592d6a5",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-10T09:00:00.000Z",
+        "effectiveTo": "2026-10-12T23:00:00.000Z"
+      },
+      {
+        "recordId": "1928c08d-1649-45ba-b4c8-516600b57069",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-10T09:00:00.000Z",
+        "contentHash": "8cceae35ddc56076fbacc72b46e93b964c3cca269a42c5261adeff461130ce90",
+        "recordType": "service_event",
+        "eventId": "69884bc9-45e8-4ea0-95e4-9516fff6bfb4",
+        "customerId": "4b430461-e322-4075-a791-fb537592d6a5",
+        "kind": "service",
+        "stopId": "stop-9-1",
+        "performedAt": "2026-10-10T10:00:00.000Z"
+      },
+      {
+        "recordId": "cddb7b80-b674-4934-bf8d-b89c58f5a0a5",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-10T09:00:00.000Z",
+        "contentHash": "bd4b4ad27e23031c0da6f4a8275e312970a482955742cfa6a1a48a36b0126d77",
+        "recordType": "service_event",
+        "eventId": "c35f3ff8-5e88-4b1a-98a3-9713e38d66ae",
+        "customerId": "4b430461-e322-4075-a791-fb537592d6a5",
+        "kind": "handling",
+        "stopId": "stop-9-2",
+        "performedAt": "2026-10-10T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "9532d444-1c83-4a44-8c69-2a7e5f9590e2",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "222c2a3d-905c-490e-b689-a79248f65b68",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-11T09:00:00.000Z",
+        "contentHash": "54f0c527afafc37713f53135a8030111cd783939350ce99e1ddfc079c06b62f5",
+        "recordType": "invoice",
+        "invoiceId": "825ec632-806f-4e42-ae09-2bf61343f587",
+        "customerId": "f4f96b24-81c9-4ad4-9531-b67256f2d10d",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-10-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-10-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-11T09:00:00.000Z",
+        "periodEnd": "2026-10-12T23:00:00.000Z"
+      },
+      {
+        "recordId": "b5552bd2-d6af-4909-959b-2a3fd8d14b40",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-11T09:00:00.000Z",
+        "contentHash": "0edf13e1744c0f6d9c34737265f06f9fe09fe09f3b80e18eec7d1bd203e961db",
+        "recordType": "contract_rate",
+        "customerId": "f4f96b24-81c9-4ad4-9531-b67256f2d10d",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-11T09:00:00.000Z",
+        "effectiveTo": "2026-10-13T23:00:00.000Z"
+      },
+      {
+        "recordId": "443c6877-fd32-4d20-b82c-b0179a6c981a",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-11T09:00:00.000Z",
+        "contentHash": "4449212d84fb9fb832301cc87b2db460b22722af792f949b30a67ea1aeb48585",
+        "recordType": "contract_rate",
+        "customerId": "f4f96b24-81c9-4ad4-9531-b67256f2d10d",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-11T09:00:00.000Z",
+        "effectiveTo": "2026-10-13T23:00:00.000Z"
+      },
+      {
+        "recordId": "1f882129-8a46-4e44-bb71-343a57f476bc",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-11T09:00:00.000Z",
+        "contentHash": "bea5680092d1ee1a7ec5619a363a07e648d634b0684336d9fe16baf50bfb513e",
+        "recordType": "contract_rate",
+        "customerId": "f4f96b24-81c9-4ad4-9531-b67256f2d10d",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-11T09:00:00.000Z",
+        "effectiveTo": "2026-10-13T23:00:00.000Z"
+      },
+      {
+        "recordId": "1ff835e0-e9e1-41b8-8158-a93cb1c869cf",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-11T09:00:00.000Z",
+        "contentHash": "6022b0c2fec9bb3b825dc8aa6e211a1342c215d3be4def768b1a74ac12fb0d11",
+        "recordType": "service_event",
+        "eventId": "7373e14f-c6c3-4fb5-96f6-0218a8da7498",
+        "customerId": "f4f96b24-81c9-4ad4-9531-b67256f2d10d",
+        "kind": "service",
+        "stopId": "stop-10-1",
+        "performedAt": "2026-10-11T10:00:00.000Z"
+      },
+      {
+        "recordId": "e17be4d0-e704-4e10-9c22-22b8423e0ba3",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-11T09:00:00.000Z",
+        "contentHash": "a9d7f069b10a2c1cea397b21a0893b3ba9516de1982eb6959bcbdf7376893086",
+        "recordType": "service_event",
+        "eventId": "63fd90cd-d419-4299-ae76-1318dd6f521f",
+        "customerId": "f4f96b24-81c9-4ad4-9531-b67256f2d10d",
+        "kind": "handling",
+        "stopId": "stop-10-2",
+        "performedAt": "2026-10-11T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "db0f537d-9ae4-4dc5-8255-4e5795918eca",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "51aec4ad-22dc-4c0c-93fd-f0ae0c3c7148",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-12T09:00:00.000Z",
+        "contentHash": "fac3a6d40cd0f1d1f32fca5922e197e449ac2eb2e506294e831d7ef661467f88",
+        "recordType": "invoice",
+        "invoiceId": "e10dd041-165a-458d-9944-4374ac22eed9",
+        "customerId": "7cf18cdf-1870-440f-8ade-977d81ffe2ba",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-11-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-11-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-12T09:00:00.000Z",
+        "periodEnd": "2026-10-13T23:00:00.000Z"
+      },
+      {
+        "recordId": "3d2da502-689c-4dce-84ef-f25c3f258883",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-12T09:00:00.000Z",
+        "contentHash": "f57feaea7133bec1945771cee14692ddb284f2b616d2323cdc4939bb5a4fdb5e",
+        "recordType": "contract_rate",
+        "customerId": "7cf18cdf-1870-440f-8ade-977d81ffe2ba",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-12T09:00:00.000Z",
+        "effectiveTo": "2026-10-14T23:00:00.000Z"
+      },
+      {
+        "recordId": "86b1a77d-0eaa-4217-876a-1ef7aa3a31fb",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-12T09:00:00.000Z",
+        "contentHash": "75ce6c2970d959c8d2304daa81e296e65989b56bba3f29517ec6ae10246f8ece",
+        "recordType": "contract_rate",
+        "customerId": "7cf18cdf-1870-440f-8ade-977d81ffe2ba",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-12T09:00:00.000Z",
+        "effectiveTo": "2026-10-14T23:00:00.000Z"
+      },
+      {
+        "recordId": "35fcf3d2-eda9-4d29-af78-dac468353009",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-12T09:00:00.000Z",
+        "contentHash": "9aedadde8df05314260ee3972b2f74cb6c7617a339cb0c8600bf4faedda6a153",
+        "recordType": "contract_rate",
+        "customerId": "7cf18cdf-1870-440f-8ade-977d81ffe2ba",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-12T09:00:00.000Z",
+        "effectiveTo": "2026-10-14T23:00:00.000Z"
+      },
+      {
+        "recordId": "cdd5687a-da8a-4b05-bf41-a6cb72c6423a",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-12T09:00:00.000Z",
+        "contentHash": "b5e4d83402b60c18f632d39c90864c3604e248a410e8bb8edbd1a4e91f59d949",
+        "recordType": "service_event",
+        "eventId": "4c02d9ad-d885-433f-ab86-2717fec0059d",
+        "customerId": "7cf18cdf-1870-440f-8ade-977d81ffe2ba",
+        "kind": "service",
+        "stopId": "stop-11-1",
+        "performedAt": "2026-10-12T10:00:00.000Z"
+      },
+      {
+        "recordId": "41cbd153-4997-4571-9fab-3ddfca52ce46",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-12T09:00:00.000Z",
+        "contentHash": "f9b83328289d2bd2a6d40c6a0d1ddac4c8285a1c40909cae83a0ed742f6be77b",
+        "recordType": "service_event",
+        "eventId": "25429869-dde2-40df-af37-05a5651ea59b",
+        "customerId": "7cf18cdf-1870-440f-8ade-977d81ffe2ba",
+        "kind": "handling",
+        "stopId": "stop-11-2",
+        "performedAt": "2026-10-12T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "4fb73b3f-fb47-430a-b334-2699d33a8403",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "cee1246c-d596-4685-a093-c2ea56b24e55",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-13T09:00:00.000Z",
+        "contentHash": "8ec0c6ac6b8ec1d3366cf90eb8cbd6c95bbf889da691695bd3dc3289a4a74712",
+        "recordType": "invoice",
+        "invoiceId": "75b0492f-357c-49c9-8d4c-00bd93289c8d",
+        "customerId": "1d58c551-b848-4f93-ab14-4bb4faf5a0ff",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-12-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-12-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-13T09:00:00.000Z",
+        "periodEnd": "2026-10-14T23:00:00.000Z"
+      },
+      {
+        "recordId": "fef22107-0582-4f66-b73f-cce2b7084f45",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-13T09:00:00.000Z",
+        "contentHash": "c734b357a369e1b9756794c95418559e31a3b3e647d2dd11b683a8881d8a64d2",
+        "recordType": "contract_rate",
+        "customerId": "1d58c551-b848-4f93-ab14-4bb4faf5a0ff",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-13T09:00:00.000Z",
+        "effectiveTo": "2026-10-15T23:00:00.000Z"
+      },
+      {
+        "recordId": "60e70194-5aae-4a20-b2bf-0d3935205f64",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-13T09:00:00.000Z",
+        "contentHash": "5788e3dfd7cce8025bd56e4ad6cde3ac8962453c23e8ef1fad95ebdcae84889b",
+        "recordType": "contract_rate",
+        "customerId": "1d58c551-b848-4f93-ab14-4bb4faf5a0ff",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-13T09:00:00.000Z",
+        "effectiveTo": "2026-10-15T23:00:00.000Z"
+      },
+      {
+        "recordId": "f662d562-14d6-499c-a002-374fa2505a25",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-13T09:00:00.000Z",
+        "contentHash": "df6508c87a4d36fef9cd5197688d101166d8a42021b7dcaaff3f5fd03da5d961",
+        "recordType": "contract_rate",
+        "customerId": "1d58c551-b848-4f93-ab14-4bb4faf5a0ff",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-13T09:00:00.000Z",
+        "effectiveTo": "2026-10-15T23:00:00.000Z"
+      },
+      {
+        "recordId": "13bd31de-5ac2-46e7-85b1-1ee59116c6b2",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-13T09:00:00.000Z",
+        "contentHash": "f44ceeaa0473dcb8bf2dc8d6e4b6444a2ecddbd59b0e3fdebf19b584cf452dea",
+        "recordType": "service_event",
+        "eventId": "64affa95-36b7-4d65-aad9-c0efbbc9877e",
+        "customerId": "1d58c551-b848-4f93-ab14-4bb4faf5a0ff",
+        "kind": "service",
+        "stopId": "stop-12-1",
+        "performedAt": "2026-10-13T10:00:00.000Z"
+      },
+      {
+        "recordId": "e78eb446-a382-46c2-8b47-b6bc07edd542",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-13T09:00:00.000Z",
+        "contentHash": "bd71595e20c977d943e9389a204b175330273f88666bd8f0704ef29981293772",
+        "recordType": "service_event",
+        "eventId": "8476c222-0a5a-4736-a35f-9f0697de1562",
+        "customerId": "1d58c551-b848-4f93-ab14-4bb4faf5a0ff",
+        "kind": "handling",
+        "stopId": "stop-12-2",
+        "performedAt": "2026-10-13T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "4da2a6ac-a5ca-4bd5-b44a-b351db0c118f",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "72d9a099-83fc-4fea-aaf6-11d05a5e7720",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-14T09:00:00.000Z",
+        "contentHash": "f4c0861723f90de5802337dae70d178748d424ce36178ca10760cb004787ccac",
+        "recordType": "invoice",
+        "invoiceId": "1c33f11d-024c-4080-8c94-99313c76cb2f",
+        "customerId": "bad3b493-6d9c-493c-adaa-e6c770e209fc",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-13-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-13-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-14T09:00:00.000Z",
+        "periodEnd": "2026-10-15T23:00:00.000Z"
+      },
+      {
+        "recordId": "45a359e0-0924-4ef6-a10d-723269fcc312",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-14T09:00:00.000Z",
+        "contentHash": "023e0f17540757beec9d6ece277f69636d1f093fbe0555865340b2044580ec95",
+        "recordType": "contract_rate",
+        "customerId": "bad3b493-6d9c-493c-adaa-e6c770e209fc",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-14T09:00:00.000Z",
+        "effectiveTo": "2026-10-16T23:00:00.000Z"
+      },
+      {
+        "recordId": "c4236b51-58d6-4b88-a447-e7a18168ae48",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-14T09:00:00.000Z",
+        "contentHash": "eca7884480ab8ff498e0dd515a3e855cf80848b439baf9a233ebdb5aff3bcabe",
+        "recordType": "contract_rate",
+        "customerId": "bad3b493-6d9c-493c-adaa-e6c770e209fc",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-14T09:00:00.000Z",
+        "effectiveTo": "2026-10-16T23:00:00.000Z"
+      },
+      {
+        "recordId": "f9fa0f40-7079-4702-b6bd-477f31006b62",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-14T09:00:00.000Z",
+        "contentHash": "6d1e90a6bbdea4f94b18cdffb1432cefd7409a35177666e4410f2ef7b00c37b9",
+        "recordType": "contract_rate",
+        "customerId": "bad3b493-6d9c-493c-adaa-e6c770e209fc",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-14T09:00:00.000Z",
+        "effectiveTo": "2026-10-16T23:00:00.000Z"
+      },
+      {
+        "recordId": "8521162d-a017-4c57-a1d0-94f10ba948a4",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-14T09:00:00.000Z",
+        "contentHash": "e653b30f883b3210de137a4aa5d3512dcba7bedeca5edef0ce1c5a38c619ec34",
+        "recordType": "service_event",
+        "eventId": "ab9b4440-44e3-4b51-ad8d-08581de26aa1",
+        "customerId": "bad3b493-6d9c-493c-adaa-e6c770e209fc",
+        "kind": "service",
+        "stopId": "stop-13-1",
+        "performedAt": "2026-10-14T10:00:00.000Z"
+      },
+      {
+        "recordId": "fbf35d6a-e7af-408b-a2e8-ba73cf493907",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-14T09:00:00.000Z",
+        "contentHash": "31c2c03e810e3c797105829f5636a4c9bfbc474798708493f007e7e63487e143",
+        "recordType": "service_event",
+        "eventId": "3e691aec-273b-4231-b0ea-368ffad8e273",
+        "customerId": "bad3b493-6d9c-493c-adaa-e6c770e209fc",
+        "kind": "handling",
+        "stopId": "stop-13-2",
+        "performedAt": "2026-10-14T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "c3128d79-99bc-4163-8831-04c053610da7",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "99de8188-40aa-4473-8cda-4450b97dd4e7",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-15T09:00:00.000Z",
+        "contentHash": "edb92b11653bc9d13ba1d101ed0c38889dfc9dfd3264b63535fb2d3479b4665b",
+        "recordType": "invoice",
+        "invoiceId": "0659df17-04a9-4432-b8ef-10224d07e391",
+        "customerId": "a7536ae1-319a-41d4-abf7-a9ff18818515",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-14-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-14-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-15T09:00:00.000Z",
+        "periodEnd": "2026-10-16T23:00:00.000Z"
+      },
+      {
+        "recordId": "a1828591-a34b-4bd6-a474-9f2b5e3c83d6",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-15T09:00:00.000Z",
+        "contentHash": "4e2f59c44a5eeb5a043721b203312c4d2b39e6cc9e67f2f71803f60b56ec4d2b",
+        "recordType": "contract_rate",
+        "customerId": "a7536ae1-319a-41d4-abf7-a9ff18818515",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-15T09:00:00.000Z",
+        "effectiveTo": "2026-10-17T23:00:00.000Z"
+      },
+      {
+        "recordId": "f03c825b-8721-446f-9c4b-2fbeef2f2e08",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-15T09:00:00.000Z",
+        "contentHash": "6e97cdc7a58ae20bacc14a5a80c35d3ff6a220e0003845f6942ecb690b84c1a3",
+        "recordType": "contract_rate",
+        "customerId": "a7536ae1-319a-41d4-abf7-a9ff18818515",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-15T09:00:00.000Z",
+        "effectiveTo": "2026-10-17T23:00:00.000Z"
+      },
+      {
+        "recordId": "838fa7fe-b7a3-4f3b-b1da-40c6a1be006a",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-15T09:00:00.000Z",
+        "contentHash": "42033d1a67a9624b0db701e58779a24c14363da6e5f3b994dbab75607ad1ea13",
+        "recordType": "contract_rate",
+        "customerId": "a7536ae1-319a-41d4-abf7-a9ff18818515",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-15T09:00:00.000Z",
+        "effectiveTo": "2026-10-17T23:00:00.000Z"
+      },
+      {
+        "recordId": "7a4ca6e7-f4b9-4aae-b373-8ef81a578b92",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-15T09:00:00.000Z",
+        "contentHash": "de760b17b15de5bcba5bccf63ab2614e30214ffe7b161384d3d4cf8b5713fb7c",
+        "recordType": "service_event",
+        "eventId": "04f8a7f0-e8f2-462d-99ea-8924e0043b58",
+        "customerId": "a7536ae1-319a-41d4-abf7-a9ff18818515",
+        "kind": "service",
+        "stopId": "stop-14-1",
+        "performedAt": "2026-10-15T10:00:00.000Z"
+      },
+      {
+        "recordId": "974eb4a7-2650-43e4-8d9d-1a1e04eeb125",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-15T09:00:00.000Z",
+        "contentHash": "f3af84254aa027b61065e9815b1442a5c3a9f6b161e66ef933a38be062a0f7b7",
+        "recordType": "service_event",
+        "eventId": "39ce9efe-36cd-4e9f-82c9-307ee647f91f",
+        "customerId": "a7536ae1-319a-41d4-abf7-a9ff18818515",
+        "kind": "handling",
+        "stopId": "stop-14-2",
+        "performedAt": "2026-10-15T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "d99fd62a-c630-435e-b1c8-129ae9566475",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "49620729-b5c0-48ad-b682-41d4a3e82249",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-16T09:00:00.000Z",
+        "contentHash": "6433062dd6a4833a14fdbeaae6481e6eff21a5b8901f9ff7ccaa4952650ab229",
+        "recordType": "invoice",
+        "invoiceId": "e5e908ff-5229-4522-85d6-5d392edd5e52",
+        "customerId": "f3859e18-5706-4895-b9f6-1ba192937fc5",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-15-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-15-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-16T09:00:00.000Z",
+        "periodEnd": "2026-10-17T23:00:00.000Z"
+      },
+      {
+        "recordId": "774b592b-7b4c-4651-9303-db57a1998848",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-16T09:00:00.000Z",
+        "contentHash": "f68e03b15c482af67291c94a1438fce48a78a32a601e546491ea1d1ddd778382",
+        "recordType": "contract_rate",
+        "customerId": "f3859e18-5706-4895-b9f6-1ba192937fc5",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-16T09:00:00.000Z",
+        "effectiveTo": "2026-10-18T23:00:00.000Z"
+      },
+      {
+        "recordId": "adf328e9-8188-4ffa-b3a3-5361d55639f6",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-16T09:00:00.000Z",
+        "contentHash": "ff83f7d9b027e85012ced13e492ac9dc8643c3454281afc120acb644317a0498",
+        "recordType": "contract_rate",
+        "customerId": "f3859e18-5706-4895-b9f6-1ba192937fc5",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-16T09:00:00.000Z",
+        "effectiveTo": "2026-10-18T23:00:00.000Z"
+      },
+      {
+        "recordId": "873d31a8-1038-4294-9c74-b183c0fd75ce",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-16T09:00:00.000Z",
+        "contentHash": "bb470cb3b28dcd13b417492ce3661d9f4832bae17eba89646b3ddb154892d982",
+        "recordType": "contract_rate",
+        "customerId": "f3859e18-5706-4895-b9f6-1ba192937fc5",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-16T09:00:00.000Z",
+        "effectiveTo": "2026-10-18T23:00:00.000Z"
+      },
+      {
+        "recordId": "59c18518-05bf-4c6e-9d2d-d0e369181281",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-16T09:00:00.000Z",
+        "contentHash": "98e736ec5fce9e5541ce8c8294fd5822a5130a0eac623f1719991767825031c1",
+        "recordType": "service_event",
+        "eventId": "bd496306-437e-4e08-9f81-5e2662706e7f",
+        "customerId": "f3859e18-5706-4895-b9f6-1ba192937fc5",
+        "kind": "service",
+        "stopId": "stop-15-1",
+        "performedAt": "2026-10-16T10:00:00.000Z"
+      },
+      {
+        "recordId": "9ef97805-9853-4101-9008-8c5854c46772",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-16T09:00:00.000Z",
+        "contentHash": "f104b54009690c04dc927b84424befeaa7aad8578409139cdb9d45ce7d165353",
+        "recordType": "service_event",
+        "eventId": "0b072bb4-8c65-435e-aebd-4acfe92e8fbc",
+        "customerId": "f3859e18-5706-4895-b9f6-1ba192937fc5",
+        "kind": "handling",
+        "stopId": "stop-15-2",
+        "performedAt": "2026-10-16T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "8441773c-eb67-4347-b85b-d7c400044f4a",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "52f62c51-ec7c-4dae-ba11-161e08a6aa7b",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-17T09:00:00.000Z",
+        "contentHash": "c320108b3bb4e57259ab4baa47b2ec2fec1d7a1b0c907efe67810c4ec01c4ff3",
+        "recordType": "invoice",
+        "invoiceId": "10009b48-74d7-4134-89d5-78417478eba6",
+        "customerId": "f7a157f3-3eaf-4f74-b42c-5692f5c407db",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-16-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-16-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-17T09:00:00.000Z",
+        "periodEnd": "2026-10-18T23:00:00.000Z"
+      },
+      {
+        "recordId": "93395f3a-7a08-4159-9f64-dd43a3f3ae60",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-17T09:00:00.000Z",
+        "contentHash": "cf1d53fd3a101df6ee538e2413954fb9f8bc3b17b4ce89dfa36076f4e0aa491e",
+        "recordType": "contract_rate",
+        "customerId": "f7a157f3-3eaf-4f74-b42c-5692f5c407db",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-17T09:00:00.000Z",
+        "effectiveTo": "2026-10-19T23:00:00.000Z"
+      },
+      {
+        "recordId": "337fdf63-8f58-429e-8633-89f8a61dc267",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-17T09:00:00.000Z",
+        "contentHash": "4cec721b899adf0fe6639bc6f34c5f615c7765dfe79aa526aa8dd9b08f37e601",
+        "recordType": "contract_rate",
+        "customerId": "f7a157f3-3eaf-4f74-b42c-5692f5c407db",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-17T09:00:00.000Z",
+        "effectiveTo": "2026-10-19T23:00:00.000Z"
+      },
+      {
+        "recordId": "64776977-3bee-4dd8-b18d-d7455d2fbc41",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-17T09:00:00.000Z",
+        "contentHash": "11d6a20ae924b502d15c120dedbd083afb77f8beb8c8461bac1eb671293830a0",
+        "recordType": "contract_rate",
+        "customerId": "f7a157f3-3eaf-4f74-b42c-5692f5c407db",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-17T09:00:00.000Z",
+        "effectiveTo": "2026-10-19T23:00:00.000Z"
+      },
+      {
+        "recordId": "0f78592e-c7ea-4127-8167-15752e86ffb6",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-17T09:00:00.000Z",
+        "contentHash": "44695f772e7dfb385499f912b6d324cb738fcdb2136065da1cb0027f93172075",
+        "recordType": "service_event",
+        "eventId": "941bd44b-3bec-45f4-941a-eea1409c498e",
+        "customerId": "f7a157f3-3eaf-4f74-b42c-5692f5c407db",
+        "kind": "service",
+        "stopId": "stop-16-1",
+        "performedAt": "2026-10-17T10:00:00.000Z"
+      },
+      {
+        "recordId": "bcdb16a1-c2ad-4bd0-a994-667df48d7d4a",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-17T09:00:00.000Z",
+        "contentHash": "9d37b453cda2f0b19c0605b94dfd4ee3eddf03bde030536ab1cec9f0608ff96e",
+        "recordType": "service_event",
+        "eventId": "f17c55a0-3595-4082-ad22-789f4d284ff2",
+        "customerId": "f7a157f3-3eaf-4f74-b42c-5692f5c407db",
+        "kind": "handling",
+        "stopId": "stop-16-2",
+        "performedAt": "2026-10-17T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "5c171b52-cc82-4bb3-8b58-224172276a9b",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "7c02402e-a76c-4091-be59-dc4fad0fcc18",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-18T09:00:00.000Z",
+        "contentHash": "52652934a1fde71e4b2268d871ecc60c0362baf79999249f08318c7e43f79ddf",
+        "recordType": "invoice",
+        "invoiceId": "0247b608-f512-4ebb-a095-6ac2e639caca",
+        "customerId": "74793958-65b0-4663-9e5b-ce7dd2a1ad4a",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-17-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-17-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-18T09:00:00.000Z",
+        "periodEnd": "2026-10-19T23:00:00.000Z"
+      },
+      {
+        "recordId": "7327eda8-adb4-4359-8f43-989544ec4303",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-18T09:00:00.000Z",
+        "contentHash": "70ca4bcbe951e0809f9b2541faf447b2ba2dbd292c2fa83afd194fca52c272d4",
+        "recordType": "contract_rate",
+        "customerId": "74793958-65b0-4663-9e5b-ce7dd2a1ad4a",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-18T09:00:00.000Z",
+        "effectiveTo": "2026-10-20T23:00:00.000Z"
+      },
+      {
+        "recordId": "f4d2f065-b45c-433d-9094-0f2caa1db900",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-18T09:00:00.000Z",
+        "contentHash": "7b7d0a6e0c6cb110f0356251cd0b79531ed69c2321bf23dc579540d12e04edbb",
+        "recordType": "contract_rate",
+        "customerId": "74793958-65b0-4663-9e5b-ce7dd2a1ad4a",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-18T09:00:00.000Z",
+        "effectiveTo": "2026-10-20T23:00:00.000Z"
+      },
+      {
+        "recordId": "4d3b6416-b4c6-44a8-b3d7-3d5f61b268d8",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-18T09:00:00.000Z",
+        "contentHash": "11e9660520ed2b723c77abc9f31a6289f3e84349888704c443de5f181a3d2d4c",
+        "recordType": "contract_rate",
+        "customerId": "74793958-65b0-4663-9e5b-ce7dd2a1ad4a",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-18T09:00:00.000Z",
+        "effectiveTo": "2026-10-20T23:00:00.000Z"
+      },
+      {
+        "recordId": "d9aea334-1899-4869-a314-6ed1f37f8954",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-18T09:00:00.000Z",
+        "contentHash": "f940eb70b0435f1f4116918f1b57cf8a46d80ac32b3cab957a496d764b73bffc",
+        "recordType": "service_event",
+        "eventId": "50261a1a-0aeb-49ff-aa88-dacae8af2dd1",
+        "customerId": "74793958-65b0-4663-9e5b-ce7dd2a1ad4a",
+        "kind": "service",
+        "stopId": "stop-17-1",
+        "performedAt": "2026-10-18T10:00:00.000Z"
+      },
+      {
+        "recordId": "212b2836-054f-4aa3-8ee6-08f05571f69f",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-18T09:00:00.000Z",
+        "contentHash": "2a140197875d171160f78e509dd5ebf882ed4c5cbe14c61176f2d355d9052c0e",
+        "recordType": "service_event",
+        "eventId": "a04c063a-8583-4043-9457-91d47d19314e",
+        "customerId": "74793958-65b0-4663-9e5b-ce7dd2a1ad4a",
+        "kind": "handling",
+        "stopId": "stop-17-2",
+        "performedAt": "2026-10-18T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": []
+  },
+  {
+    "caseId": "27c80c21-7535-4e7d-80d2-ef17745c9a49",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "a2aa4dc2-9e1e-48de-a85f-e29ced3eee6e",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-19T09:00:00.000Z",
+        "contentHash": "47e089275219af233114ba70fba720ccbbd149b8285d100251ccdc9b2ab11b4a",
+        "recordType": "invoice",
+        "invoiceId": "1b8fe1b7-c7c8-4611-bdac-b0404cee976b",
+        "customerId": "c26e8b70-4801-45b1-9028-d11bd3fc73f5",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1100,
+            "totalCents": 1100,
+            "stopId": "stop-18-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-18-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1650,
+        "periodStart": "2026-10-19T09:00:00.000Z",
+        "periodEnd": "2026-10-20T23:00:00.000Z"
+      },
+      {
+        "recordId": "8c3263df-d724-4bb8-ad2c-3af144b195c6",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-19T09:00:00.000Z",
+        "contentHash": "7a2fd43f0de2aa72664062b6047c69ade25a2d48a236ce687be0e7736d58ae60",
+        "recordType": "contract_rate",
+        "customerId": "c26e8b70-4801-45b1-9028-d11bd3fc73f5",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-19T09:00:00.000Z",
+        "effectiveTo": "2026-10-21T23:00:00.000Z"
+      },
+      {
+        "recordId": "188c03d6-d3af-4259-9fb6-773d1d4a9b63",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-19T09:00:00.000Z",
+        "contentHash": "8f9e390d506643d4161a4d3d9fb406e06681f44fed9bfee3d0324420e52286ae",
+        "recordType": "contract_rate",
+        "customerId": "c26e8b70-4801-45b1-9028-d11bd3fc73f5",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-19T09:00:00.000Z",
+        "effectiveTo": "2026-10-21T23:00:00.000Z"
+      },
+      {
+        "recordId": "eb1385b7-4a41-4aba-83e9-a7cf4d5be69b",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-19T09:00:00.000Z",
+        "contentHash": "a26e6c1e381b0b9040f01bba9a3bac24fc7acfcb253bf48cd5f9818de06d0d4b",
+        "recordType": "contract_rate",
+        "customerId": "c26e8b70-4801-45b1-9028-d11bd3fc73f5",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-19T09:00:00.000Z",
+        "effectiveTo": "2026-10-21T23:00:00.000Z"
+      },
+      {
+        "recordId": "7eaa18d4-eea8-407d-93d2-07c74ee07091",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-19T09:00:00.000Z",
+        "contentHash": "0c9a0de050f41ce31291085c13da77e49117185d56892a6485e0dadba81671fa",
+        "recordType": "service_event",
+        "eventId": "9a5f1472-f66e-4b16-9b26-8f3fe3abcd7c",
+        "customerId": "c26e8b70-4801-45b1-9028-d11bd3fc73f5",
+        "kind": "service",
+        "stopId": "stop-18-1",
+        "performedAt": "2026-10-19T10:00:00.000Z"
+      },
+      {
+        "recordId": "3622960b-cdfe-44ac-b71d-9b8b842fb2ce",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-19T09:00:00.000Z",
+        "contentHash": "8c785f1f313ca599d24bd2f6d970fc133d300c91bb6cb67786cdacffa422ca87",
+        "recordType": "service_event",
+        "eventId": "29be276e-1e85-4f2a-aa96-92b3e59f33e4",
+        "customerId": "c26e8b70-4801-45b1-9028-d11bd3fc73f5",
+        "kind": "handling",
+        "stopId": "stop-18-2",
+        "performedAt": "2026-10-19T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "RATE_MISMATCH"
+    ]
+  },
+  {
+    "caseId": "7f8969c9-7731-4b84-a269-73941c4ffcd0",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "3561f005-f5d8-4610-b6be-34828a38e597",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-20T09:00:00.000Z",
+        "contentHash": "1b2983c2d8d642d026c138b42c33b3d2e42ef83b2454d9ecaf7c4bdacfc9f0c0",
+        "recordType": "invoice",
+        "invoiceId": "00fbd4f1-31e1-4850-b48c-e97b6a73da5d",
+        "customerId": "edbd2cf4-722d-4046-9258-a4258825cb2a",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-19-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-19-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-20T09:00:00.000Z",
+        "periodEnd": "2026-10-21T23:00:00.000Z"
+      },
+      {
+        "recordId": "51a6c3bc-e7ec-4a83-83d0-bf5ba10be522",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-20T09:00:00.000Z",
+        "contentHash": "e514cb8c29a8fa9acf0b836f637e2797dc61cef120131ef5c12a40e59ef073df",
+        "recordType": "contract_rate",
+        "customerId": "edbd2cf4-722d-4046-9258-a4258825cb2a",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-20T09:00:00.000Z",
+        "effectiveTo": "2026-10-22T23:00:00.000Z"
+      },
+      {
+        "recordId": "00f14331-137b-415b-9894-6cad5a7c8dd7",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-20T09:00:00.000Z",
+        "contentHash": "8de4619aa2bea923b30b63b6c1e9e0e5ac0e566a1f1c1f2fe90fc09e382ace31",
+        "recordType": "contract_rate",
+        "customerId": "edbd2cf4-722d-4046-9258-a4258825cb2a",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-20T09:00:00.000Z",
+        "effectiveTo": "2026-10-22T23:00:00.000Z"
+      },
+      {
+        "recordId": "81dca2d7-7c61-4955-aa5e-85c906d8af76",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-20T09:00:00.000Z",
+        "contentHash": "2eb6a248edc772cbefe01d3456d0155a14dc8fe0515dbc9362fa3cebb951c3ad",
+        "recordType": "contract_rate",
+        "customerId": "edbd2cf4-722d-4046-9258-a4258825cb2a",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-20T09:00:00.000Z",
+        "effectiveTo": "2026-10-22T23:00:00.000Z"
+      },
+      {
+        "recordId": "835d4d55-4baa-4d53-85f0-0e6d4b979d0c",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-20T09:00:00.000Z",
+        "contentHash": "662e023f8d466a4269aa69825a20ed523d5d48861f997149d7d9e33a495a3c62",
+        "recordType": "service_event",
+        "eventId": "9eae62cf-a50f-4cb1-9079-9c480009b2cf",
+        "customerId": "edbd2cf4-722d-4046-9258-a4258825cb2a",
+        "kind": "service",
+        "stopId": "stop-19-1",
+        "performedAt": "2026-10-20T10:00:00.000Z"
+      },
+      {
+        "recordId": "25148fc5-d80a-4b82-87e1-990f1aa2227c",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-20T09:00:00.000Z",
+        "contentHash": "1a348465fd6faf8ad442485f8b35eb5d7d64bc3a672c761eb470449b9b265bb6",
+        "recordType": "service_event",
+        "eventId": "bb02d9b6-5aae-4799-bd82-905450a9eab0",
+        "customerId": "edbd2cf4-722d-4046-9258-a4258825cb2a",
+        "kind": "handling",
+        "stopId": "stop-19-2",
+        "performedAt": "2026-10-20T11:00:00.000Z"
+      },
+      {
+        "recordId": "86e33344-4774-4bf3-b235-28d62d22929f",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-20T09:00:00.000Z",
+        "contentHash": "a6e4f28da60388d06bc79bea7ffc0c5d1e6d0bcf078dfff07836d9249eafa7fd",
+        "recordType": "service_event",
+        "eventId": "91744f26-b9c1-4182-b653-9ed96c965528",
+        "customerId": "edbd2cf4-722d-4046-9258-a4258825cb2a",
+        "kind": "service",
+        "stopId": "stop-19-3",
+        "performedAt": "2026-10-20T12:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "UNBILLED_STOP"
+    ]
+  },
+  {
+    "caseId": "9e0a6389-294e-45a0-bdbc-e9920d27add0",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "c309ce98-c923-49f6-b268-f72ee9920bbe",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-21T09:00:00.000Z",
+        "contentHash": "b99641edaf9224329d0f91a3c2f7a8d85bd898395deadf647cda79b232454300",
+        "recordType": "invoice",
+        "invoiceId": "3bd7f03b-1fa5-4cfa-a539-309057239075",
+        "customerId": "c177a4f0-3920-4302-917c-fbc6f994bee4",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-20-1"
+          },
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-20-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-20-2"
+          }
+        ],
+        "totalCents": 2500,
+        "periodStart": "2026-10-21T09:00:00.000Z",
+        "periodEnd": "2026-10-22T23:00:00.000Z"
+      },
+      {
+        "recordId": "bdbb9f87-9e7a-4e4f-985c-e932daeb2994",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-21T09:00:00.000Z",
+        "contentHash": "ed7ad68b49801f6afac396658a89ac9ad507d46a755c31a5a3aca61e1ee97afe",
+        "recordType": "contract_rate",
+        "customerId": "c177a4f0-3920-4302-917c-fbc6f994bee4",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-21T09:00:00.000Z",
+        "effectiveTo": "2026-10-23T23:00:00.000Z"
+      },
+      {
+        "recordId": "743d43c9-8367-48aa-aadb-09fe615853d5",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-21T09:00:00.000Z",
+        "contentHash": "d9cab652722a5cb15d35da9701ccc13abb9b2122b75454c03e9da93f65ac6a14",
+        "recordType": "contract_rate",
+        "customerId": "c177a4f0-3920-4302-917c-fbc6f994bee4",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-21T09:00:00.000Z",
+        "effectiveTo": "2026-10-23T23:00:00.000Z"
+      },
+      {
+        "recordId": "e1f64fc6-cbd8-404a-9db5-b40f539542aa",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-21T09:00:00.000Z",
+        "contentHash": "81a38045e59b70d3f1428adcab3b7e1e81c2c370a049d31b256994da52be4adb",
+        "recordType": "contract_rate",
+        "customerId": "c177a4f0-3920-4302-917c-fbc6f994bee4",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-21T09:00:00.000Z",
+        "effectiveTo": "2026-10-23T23:00:00.000Z"
+      },
+      {
+        "recordId": "496182b7-c84a-4fa6-a2b5-f8559c903500",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-21T09:00:00.000Z",
+        "contentHash": "36d834f8009f1e89eb3d23a6089c3cdec6047709362f1309724e5f5501709760",
+        "recordType": "service_event",
+        "eventId": "f664458c-5a5b-4b40-8a77-687cb921b2ce",
+        "customerId": "c177a4f0-3920-4302-917c-fbc6f994bee4",
+        "kind": "service",
+        "stopId": "stop-20-1",
+        "performedAt": "2026-10-21T10:00:00.000Z"
+      },
+      {
+        "recordId": "e39350a7-5fef-44ae-a778-5b477bf9924f",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-21T09:00:00.000Z",
+        "contentHash": "cee3716bfdea752ccd09ac8f8c287d60919a98dee9ca92ef4a2bb6e52ac772cb",
+        "recordType": "service_event",
+        "eventId": "716427f1-13fb-4e27-a9c4-1c533a7e73ce",
+        "customerId": "c177a4f0-3920-4302-917c-fbc6f994bee4",
+        "kind": "handling",
+        "stopId": "stop-20-2",
+        "performedAt": "2026-10-21T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "DOUBLE_BILLED_STOP"
+    ]
+  },
+  {
+    "caseId": "6c73fa79-2b31-4149-9e29-f0243577f101",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "28cca9e0-067c-41cf-900d-6b0251ed1b27",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-22T09:00:00.000Z",
+        "contentHash": "1a546610ae398a526f99b1f7ab5c4d485ac65c9c23a8eb6812ca91425d087f45",
+        "recordType": "invoice",
+        "invoiceId": "17094256-c5da-4a9e-83aa-b87ef1d20820",
+        "customerId": "b07b84be-07d0-4d29-af0f-8ec4e2cca379",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-21-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-21-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 300,
+            "totalCents": 300
+          }
+        ],
+        "totalCents": 1800,
+        "periodStart": "2026-10-22T09:00:00.000Z",
+        "periodEnd": "2026-10-23T23:00:00.000Z"
+      },
+      {
+        "recordId": "59755fcd-42a4-4f31-a7e2-9502e4874417",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-22T09:00:00.000Z",
+        "contentHash": "398cac7cbe52509657db2c75eadeb989192da90338d6540183ba6381bef605d7",
+        "recordType": "contract_rate",
+        "customerId": "b07b84be-07d0-4d29-af0f-8ec4e2cca379",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-22T09:00:00.000Z",
+        "effectiveTo": "2026-10-24T23:00:00.000Z"
+      },
+      {
+        "recordId": "86c07667-ad00-4a80-ad3b-9f260d088f48",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-22T09:00:00.000Z",
+        "contentHash": "555d33738704a94db63c827148cd8b75b6eaf659dd9646a99e9c10bc7491b26d",
+        "recordType": "contract_rate",
+        "customerId": "b07b84be-07d0-4d29-af0f-8ec4e2cca379",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-22T09:00:00.000Z",
+        "effectiveTo": "2026-10-24T23:00:00.000Z"
+      },
+      {
+        "recordId": "e7764ea9-7e63-438b-86f4-78246ec2a4ee",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-22T09:00:00.000Z",
+        "contentHash": "c3f339ac16e467b7b698575fc96888140ec8a428da0759bd4586afc88139f9f7",
+        "recordType": "contract_rate",
+        "customerId": "b07b84be-07d0-4d29-af0f-8ec4e2cca379",
+        "kind": "fuel_surcharge",
+        "unitCents": 300,
+        "effectiveFrom": "2026-10-22T09:00:00.000Z",
+        "effectiveTo": "2026-10-24T23:00:00.000Z"
+      },
+      {
+        "recordId": "dce38da2-750b-4c50-98ad-7aef8a633cd3",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-22T09:00:00.000Z",
+        "contentHash": "fecdaab030732b61ba11e2efae06265b08f89da3c6e2897f99ee49121de021c9",
+        "recordType": "service_event",
+        "eventId": "e1e88ebf-f88f-468e-83b3-3348b545e92a",
+        "customerId": "b07b84be-07d0-4d29-af0f-8ec4e2cca379",
+        "kind": "service",
+        "stopId": "stop-21-1",
+        "performedAt": "2026-10-22T10:00:00.000Z"
+      },
+      {
+        "recordId": "77f9a7cd-9ab2-4bc0-a721-447b16449901",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-22T09:00:00.000Z",
+        "contentHash": "489ccb6226d12d1ea0bb420e499a669a15adfbcfbf2ef9729b437aa3964b1508",
+        "recordType": "service_event",
+        "eventId": "891e7044-9a4e-4823-b756-581e57f7fea6",
+        "customerId": "b07b84be-07d0-4d29-af0f-8ec4e2cca379",
+        "kind": "handling",
+        "stopId": "stop-21-2",
+        "performedAt": "2026-10-22T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "FUEL_SURCHARGE_OVER"
+    ]
+  },
+  {
+    "caseId": "bf4ecf4c-bb01-4106-aca8-1ddf88842141",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "3025c429-ff2e-4f8d-8a0e-0afab188a4d8",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-23T09:00:00.000Z",
+        "contentHash": "6d8e0b1d8c1141a45fd32ea239e2b25db9143f18cceebf01bddd7c1b50f29090",
+        "recordType": "invoice",
+        "invoiceId": "71249653-67a9-4757-bbf6-9ae1403b579e",
+        "customerId": "24016dca-9037-4bb5-a8de-30c2053f9c99",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1100,
+            "totalCents": 1100,
+            "stopId": "stop-22-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-22-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1650,
+        "periodStart": "2026-10-23T09:00:00.000Z",
+        "periodEnd": "2026-10-24T23:00:00.000Z"
+      },
+      {
+        "recordId": "ee5f3cfc-cd7d-4b50-9109-61f119ab2c3e",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-23T09:00:00.000Z",
+        "contentHash": "2f9cd4b5a379ec6e87053173e5e455e85b7c01e578763b3ddf2ca084baa987dc",
+        "recordType": "contract_rate",
+        "customerId": "24016dca-9037-4bb5-a8de-30c2053f9c99",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-23T09:00:00.000Z",
+        "effectiveTo": "2026-10-25T23:00:00.000Z"
+      },
+      {
+        "recordId": "6fd33933-3ad4-4e1b-988b-3e89af616363",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-23T09:00:00.000Z",
+        "contentHash": "73335215f08306db02c2f5a1b15095d41744e016a73af39086bff428239d97b1",
+        "recordType": "contract_rate",
+        "customerId": "24016dca-9037-4bb5-a8de-30c2053f9c99",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-23T09:00:00.000Z",
+        "effectiveTo": "2026-10-25T23:00:00.000Z"
+      },
+      {
+        "recordId": "1e831a4e-ee9b-47e8-8397-510e9316f803",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-23T09:00:00.000Z",
+        "contentHash": "b1c3c647dbcad3b82eb338bb5d43bde2c5f2fa16491cbb2799213e617232d58e",
+        "recordType": "contract_rate",
+        "customerId": "24016dca-9037-4bb5-a8de-30c2053f9c99",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-23T09:00:00.000Z",
+        "effectiveTo": "2026-10-25T23:00:00.000Z"
+      },
+      {
+        "recordId": "13d58dbc-fd53-47bd-93da-143fcd57b316",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-23T09:00:00.000Z",
+        "contentHash": "dac98be50a5a9d5bd23748ab36d082e894801b6264e7e714bdcc183b1b5babb7",
+        "recordType": "service_event",
+        "eventId": "3b7e6843-13d2-46fc-bfb8-d925986d82c6",
+        "customerId": "24016dca-9037-4bb5-a8de-30c2053f9c99",
+        "kind": "service",
+        "stopId": "stop-22-1",
+        "performedAt": "2026-10-23T10:00:00.000Z"
+      },
+      {
+        "recordId": "f8330f3e-96ae-48da-b7eb-58d4e2a0cd84",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-23T09:00:00.000Z",
+        "contentHash": "d4c45ebd08c52b42a63ad2f102984264747b8b0338e8c208703b7236763a7baf",
+        "recordType": "service_event",
+        "eventId": "a09d5dbf-f8ea-4b6d-9e63-c85dff26e30c",
+        "customerId": "24016dca-9037-4bb5-a8de-30c2053f9c99",
+        "kind": "handling",
+        "stopId": "stop-22-2",
+        "performedAt": "2026-10-23T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "RATE_MISMATCH"
+    ]
+  },
+  {
+    "caseId": "4712a534-4541-4be3-8208-9c0ba40dcaf1",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "6da28644-8674-487f-bf58-42d4e0cdf5ca",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-24T09:00:00.000Z",
+        "contentHash": "d0d1e7ab946a4514186b064fde22f447f7a03f12eadfa9be6d89cbc8842137b3",
+        "recordType": "invoice",
+        "invoiceId": "4f19a133-dd0a-4bc0-8320-3abc660b048a",
+        "customerId": "38198fbf-28d7-404e-8c04-b28636f615ab",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-23-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-23-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-24T09:00:00.000Z",
+        "periodEnd": "2026-10-25T23:00:00.000Z"
+      },
+      {
+        "recordId": "5b9e55f6-a511-42e7-8032-b59e601ff160",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-24T09:00:00.000Z",
+        "contentHash": "4a9f3613a06f72c4a10282ba471a8db9fc808a6c19cfc9c77327380204b9ebec",
+        "recordType": "contract_rate",
+        "customerId": "38198fbf-28d7-404e-8c04-b28636f615ab",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-24T09:00:00.000Z",
+        "effectiveTo": "2026-10-26T23:00:00.000Z"
+      },
+      {
+        "recordId": "e6cd3fda-01af-4990-a2a9-e033ff53aea6",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-24T09:00:00.000Z",
+        "contentHash": "c1676019371b23096a0a97adbcca8f5e967dcea12a812c4a92b73fb73bf52d59",
+        "recordType": "contract_rate",
+        "customerId": "38198fbf-28d7-404e-8c04-b28636f615ab",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-24T09:00:00.000Z",
+        "effectiveTo": "2026-10-26T23:00:00.000Z"
+      },
+      {
+        "recordId": "9ebbf6aa-a574-4bc0-935e-b25639949ed8",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-24T09:00:00.000Z",
+        "contentHash": "5e2a7c046178e148bfeabfc2b9284230ebb353c187bd22d9a161cd062f498874",
+        "recordType": "contract_rate",
+        "customerId": "38198fbf-28d7-404e-8c04-b28636f615ab",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-24T09:00:00.000Z",
+        "effectiveTo": "2026-10-26T23:00:00.000Z"
+      },
+      {
+        "recordId": "29c85f0a-fa68-4bf3-ba45-47af64582681",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-24T09:00:00.000Z",
+        "contentHash": "8348cbaf875c1e677d74af1c156e863c845ec651277488b6f78d94a30d3da893",
+        "recordType": "service_event",
+        "eventId": "2ea27e6f-ad85-4f13-aff3-a6e91eef817b",
+        "customerId": "38198fbf-28d7-404e-8c04-b28636f615ab",
+        "kind": "service",
+        "stopId": "stop-23-1",
+        "performedAt": "2026-10-24T10:00:00.000Z"
+      },
+      {
+        "recordId": "0dd92ddc-1cea-4d46-bf75-82dc82c3da3b",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-24T09:00:00.000Z",
+        "contentHash": "41ccfb705b376bb439e5a02dc909234d3dcacef6c58c28ef5ece0765717c9ebc",
+        "recordType": "service_event",
+        "eventId": "95f744aa-3be0-4b01-8062-71bf0986385e",
+        "customerId": "38198fbf-28d7-404e-8c04-b28636f615ab",
+        "kind": "handling",
+        "stopId": "stop-23-2",
+        "performedAt": "2026-10-24T11:00:00.000Z"
+      },
+      {
+        "recordId": "82e0ccb7-6e1c-4b01-8548-c650b97e56b3",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-24T09:00:00.000Z",
+        "contentHash": "70052fb814bb785168a6e61c525bb53532e4cf69079f04ef6a3843e924addb72",
+        "recordType": "service_event",
+        "eventId": "67b2ffce-fd66-4c3f-b757-9629909b3465",
+        "customerId": "38198fbf-28d7-404e-8c04-b28636f615ab",
+        "kind": "service",
+        "stopId": "stop-23-3",
+        "performedAt": "2026-10-24T12:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "UNBILLED_STOP"
+    ]
+  },
+  {
+    "caseId": "5469e32d-e787-4bfd-ae3a-30fe85570b5d",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "39c52420-22fe-46c8-a1ce-357eae0206be",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-25T09:00:00.000Z",
+        "contentHash": "18bb9d3afacf8b0325eb35a286091a71bfad7c73a61e54882dc3a4834d133212",
+        "recordType": "invoice",
+        "invoiceId": "8fe45547-2e27-4822-8f68-337eceea0321",
+        "customerId": "189416e3-b978-4385-a254-f754f428d699",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-24-1"
+          },
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-24-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-24-2"
+          }
+        ],
+        "totalCents": 2500,
+        "periodStart": "2026-10-25T09:00:00.000Z",
+        "periodEnd": "2026-10-26T23:00:00.000Z"
+      },
+      {
+        "recordId": "8cba5ef7-24ae-4b4c-8e95-ae47985ebe0f",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-25T09:00:00.000Z",
+        "contentHash": "135c6c5a2bd59736ba1cd98cbd01093e600a869aeb4a3e62f1270211e5b910d2",
+        "recordType": "contract_rate",
+        "customerId": "189416e3-b978-4385-a254-f754f428d699",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-25T09:00:00.000Z",
+        "effectiveTo": "2026-10-27T23:00:00.000Z"
+      },
+      {
+        "recordId": "c2e95e4a-52bc-4cc5-b27f-2506f6c2150d",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-25T09:00:00.000Z",
+        "contentHash": "49c89a565d17fa4a1fe7b08a4190dc892b72139a110f6457ff11fb50baf89800",
+        "recordType": "contract_rate",
+        "customerId": "189416e3-b978-4385-a254-f754f428d699",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-25T09:00:00.000Z",
+        "effectiveTo": "2026-10-27T23:00:00.000Z"
+      },
+      {
+        "recordId": "df3cc06c-955a-4aef-9701-f14d8cd30902",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-25T09:00:00.000Z",
+        "contentHash": "f79cf4240edd48cca8b6c83323d9cb1d0b17c49fb4da39d928cf1562bac8d080",
+        "recordType": "contract_rate",
+        "customerId": "189416e3-b978-4385-a254-f754f428d699",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-25T09:00:00.000Z",
+        "effectiveTo": "2026-10-27T23:00:00.000Z"
+      },
+      {
+        "recordId": "f6fee76a-df4e-46de-91d8-0caaa194d3a6",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-25T09:00:00.000Z",
+        "contentHash": "45b009eb1e785daf2dac55d9d91adad4ee88a820be3c2f410ca2b9b2412f5abc",
+        "recordType": "service_event",
+        "eventId": "34cc1074-a738-4102-a401-b9b188235f38",
+        "customerId": "189416e3-b978-4385-a254-f754f428d699",
+        "kind": "service",
+        "stopId": "stop-24-1",
+        "performedAt": "2026-10-25T10:00:00.000Z"
+      },
+      {
+        "recordId": "5d51ef99-8e29-4351-8225-156a9f528b1e",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-25T09:00:00.000Z",
+        "contentHash": "730f964688681ceb52a076b6659786988daf5d9e4c40c6a15e4c57a9acd53380",
+        "recordType": "service_event",
+        "eventId": "de12dddf-bd71-4182-9c72-b3f4b48fe2e6",
+        "customerId": "189416e3-b978-4385-a254-f754f428d699",
+        "kind": "handling",
+        "stopId": "stop-24-2",
+        "performedAt": "2026-10-25T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "DOUBLE_BILLED_STOP"
+    ]
+  },
+  {
+    "caseId": "c88eca6e-0acb-4aac-8ad1-df8cfd3bdaf8",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "bbb6ade8-9984-4478-bbad-140289f80b49",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-26T09:00:00.000Z",
+        "contentHash": "e5579679910f3adf9c6d7f22de6b2e12e0658b0ddf2d6d5511890a3e34674de0",
+        "recordType": "invoice",
+        "invoiceId": "b444e1eb-f1ac-4f74-8d28-860220590526",
+        "customerId": "7d2ca6de-6814-4125-b9b9-a348f7cf009e",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-25-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-25-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 300,
+            "totalCents": 300
+          }
+        ],
+        "totalCents": 1800,
+        "periodStart": "2026-10-26T09:00:00.000Z",
+        "periodEnd": "2026-10-27T23:00:00.000Z"
+      },
+      {
+        "recordId": "843ccc1a-ac63-457e-b299-54295e98ce65",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-26T09:00:00.000Z",
+        "contentHash": "6a7a8818536194be9a8efb8efb6f8d0a69708a617e227e3073fee2bd2b01fcfe",
+        "recordType": "contract_rate",
+        "customerId": "7d2ca6de-6814-4125-b9b9-a348f7cf009e",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-26T09:00:00.000Z",
+        "effectiveTo": "2026-10-28T23:00:00.000Z"
+      },
+      {
+        "recordId": "05332e0d-5320-467d-9846-5c60151c2b6d",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-26T09:00:00.000Z",
+        "contentHash": "9b09635603aa0d5810f8d8137ef319a73301517dcb80e3aa3c1289d2b9554d6b",
+        "recordType": "contract_rate",
+        "customerId": "7d2ca6de-6814-4125-b9b9-a348f7cf009e",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-26T09:00:00.000Z",
+        "effectiveTo": "2026-10-28T23:00:00.000Z"
+      },
+      {
+        "recordId": "f2eb5381-e367-494e-9887-18ad1e3e57d5",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-26T09:00:00.000Z",
+        "contentHash": "72dfb6385d3e5a498f3a0b44fc215bf1134d44c36717d192a2f485db70bbbb41",
+        "recordType": "contract_rate",
+        "customerId": "7d2ca6de-6814-4125-b9b9-a348f7cf009e",
+        "kind": "fuel_surcharge",
+        "unitCents": 300,
+        "effectiveFrom": "2026-10-26T09:00:00.000Z",
+        "effectiveTo": "2026-10-28T23:00:00.000Z"
+      },
+      {
+        "recordId": "a1bde50d-6d16-4498-a4c7-ebde1f6dc5a0",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-26T09:00:00.000Z",
+        "contentHash": "34c6425e9b918ede0b71f4a412113c292eec87c33408ef9ab99f179898ebad1c",
+        "recordType": "service_event",
+        "eventId": "70ffbaa3-da53-4d12-9947-91f7c53be0dc",
+        "customerId": "7d2ca6de-6814-4125-b9b9-a348f7cf009e",
+        "kind": "service",
+        "stopId": "stop-25-1",
+        "performedAt": "2026-10-26T10:00:00.000Z"
+      },
+      {
+        "recordId": "fe4e9878-1c8f-47a6-995a-4a437eaa73ca",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-26T09:00:00.000Z",
+        "contentHash": "62b87ccb2281b515ff7dfef693e25563a6f68029f162f0e9aba39cfd689788c2",
+        "recordType": "service_event",
+        "eventId": "7b526444-593d-44c8-9ebf-14c721d620ff",
+        "customerId": "7d2ca6de-6814-4125-b9b9-a348f7cf009e",
+        "kind": "handling",
+        "stopId": "stop-25-2",
+        "performedAt": "2026-10-26T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "FUEL_SURCHARGE_OVER"
+    ]
+  },
+  {
+    "caseId": "1267a6cc-e765-4902-90e1-2ca6b3c9e68c",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "389f806a-6ab3-47fc-8873-3a2e576ed1df",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-27T09:00:00.000Z",
+        "contentHash": "17e48ef77422a2862d86459c462dec4a8c59f1716a6fffb8e909783a868620ef",
+        "recordType": "invoice",
+        "invoiceId": "3c030b63-fbe1-464e-9663-658420ff6745",
+        "customerId": "4583ef7f-6124-49ae-b6c1-fdc68427e793",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1100,
+            "totalCents": 1100,
+            "stopId": "stop-26-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-26-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1650,
+        "periodStart": "2026-10-27T09:00:00.000Z",
+        "periodEnd": "2026-10-28T23:00:00.000Z"
+      },
+      {
+        "recordId": "84ba1310-422a-4b8b-8f37-4b7f6220ff91",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-27T09:00:00.000Z",
+        "contentHash": "4270d11fc7a9c2bd26f1d406952033d1201b2f9415f53dee557a4770776eaf6d",
+        "recordType": "contract_rate",
+        "customerId": "4583ef7f-6124-49ae-b6c1-fdc68427e793",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-27T09:00:00.000Z",
+        "effectiveTo": "2026-10-29T23:00:00.000Z"
+      },
+      {
+        "recordId": "d11d6943-1bd1-472e-8042-e4ea161633e1",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-27T09:00:00.000Z",
+        "contentHash": "ad4119f4ab4d85821e1c66af3eb3300579a7223741a3c31e4b49312e580a22b1",
+        "recordType": "contract_rate",
+        "customerId": "4583ef7f-6124-49ae-b6c1-fdc68427e793",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-27T09:00:00.000Z",
+        "effectiveTo": "2026-10-29T23:00:00.000Z"
+      },
+      {
+        "recordId": "da10864b-266b-4d90-b887-f812820657b3",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-27T09:00:00.000Z",
+        "contentHash": "67dbd78f16feb9df458acd065c6eab2849f54fbbd43ec1f224caf1c67818ddee",
+        "recordType": "contract_rate",
+        "customerId": "4583ef7f-6124-49ae-b6c1-fdc68427e793",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-27T09:00:00.000Z",
+        "effectiveTo": "2026-10-29T23:00:00.000Z"
+      },
+      {
+        "recordId": "f2c34ac0-2f3f-4d62-b2f9-614b760d4119",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-27T09:00:00.000Z",
+        "contentHash": "48c826bf9895e6abf7fa3ed281b719f2c725063066ebea0f1e09d57e111fd753",
+        "recordType": "service_event",
+        "eventId": "f35d7e6c-62b9-4ade-b1f4-fc29dd5a0d84",
+        "customerId": "4583ef7f-6124-49ae-b6c1-fdc68427e793",
+        "kind": "service",
+        "stopId": "stop-26-1",
+        "performedAt": "2026-10-27T10:00:00.000Z"
+      },
+      {
+        "recordId": "f2ad49c2-46f0-4883-8dc4-fcdcbf080901",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-27T09:00:00.000Z",
+        "contentHash": "5f2e5779af370c5b2317a6b8f5378690fed66c1c0aebf497434fb6e3487269be",
+        "recordType": "service_event",
+        "eventId": "1176a449-47c3-4fc2-9310-7afd402accf3",
+        "customerId": "4583ef7f-6124-49ae-b6c1-fdc68427e793",
+        "kind": "handling",
+        "stopId": "stop-26-2",
+        "performedAt": "2026-10-27T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "RATE_MISMATCH"
+    ]
+  },
+  {
+    "caseId": "8ffe0ac9-d96f-47f8-80d9-18fea3e22fc3",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "0258e335-8e3f-436b-b150-1926b1bc1e86",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-28T09:00:00.000Z",
+        "contentHash": "68de219bdbd84055800cbe70596ee23c6e7ada1a65e097f0dce3b1f47304b340",
+        "recordType": "invoice",
+        "invoiceId": "53aa857f-5d0d-4f2e-bbbf-dce1caa5b1aa",
+        "customerId": "03b13043-64cf-4219-af4e-3f1708b8a8b9",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-27-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-27-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 50,
+            "totalCents": 50
+          }
+        ],
+        "totalCents": 1550,
+        "periodStart": "2026-10-28T09:00:00.000Z",
+        "periodEnd": "2026-10-29T23:00:00.000Z"
+      },
+      {
+        "recordId": "a242dba8-09a4-440e-a046-cf9d1635939c",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-28T09:00:00.000Z",
+        "contentHash": "6a7a35f396ad4442bdde4dcd6e228b92dda3e678f848fbd0b68d6d2fe04b3d3e",
+        "recordType": "contract_rate",
+        "customerId": "03b13043-64cf-4219-af4e-3f1708b8a8b9",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-28T09:00:00.000Z",
+        "effectiveTo": "2026-10-30T23:00:00.000Z"
+      },
+      {
+        "recordId": "d562ac60-e986-4758-ada2-6767298af564",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-28T09:00:00.000Z",
+        "contentHash": "c3ec4e8a4552d1fac30b1f75e579188ad5929f98c214197eabe1ae48617651c1",
+        "recordType": "contract_rate",
+        "customerId": "03b13043-64cf-4219-af4e-3f1708b8a8b9",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-28T09:00:00.000Z",
+        "effectiveTo": "2026-10-30T23:00:00.000Z"
+      },
+      {
+        "recordId": "dc76c5b7-c25f-4a3b-b62c-0d2ae3a69f4d",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-28T09:00:00.000Z",
+        "contentHash": "db8fea510e07ef58affa61644735a63363c3148b2c559eb75814e041c9b011fe",
+        "recordType": "contract_rate",
+        "customerId": "03b13043-64cf-4219-af4e-3f1708b8a8b9",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-28T09:00:00.000Z",
+        "effectiveTo": "2026-10-30T23:00:00.000Z"
+      },
+      {
+        "recordId": "5b319b24-0c7f-4994-8602-943d1bbba29f",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-28T09:00:00.000Z",
+        "contentHash": "ca85274df00864f442c09ad51057a39dc8b45fb296846e7dfb5a07d30e848928",
+        "recordType": "service_event",
+        "eventId": "b37d5ce7-d2c6-4942-abf5-695e93d0b64d",
+        "customerId": "03b13043-64cf-4219-af4e-3f1708b8a8b9",
+        "kind": "service",
+        "stopId": "stop-27-1",
+        "performedAt": "2026-10-28T10:00:00.000Z"
+      },
+      {
+        "recordId": "99d779b5-406f-49b0-81fb-48f67f1b11eb",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-28T09:00:00.000Z",
+        "contentHash": "788f439455de0791f1aceca66c07ac2bd7eec71bc70406b9a02de4f2e00f7821",
+        "recordType": "service_event",
+        "eventId": "7b3d998a-c3d4-4823-8bca-fc7b7cd4f312",
+        "customerId": "03b13043-64cf-4219-af4e-3f1708b8a8b9",
+        "kind": "handling",
+        "stopId": "stop-27-2",
+        "performedAt": "2026-10-28T11:00:00.000Z"
+      },
+      {
+        "recordId": "8a209008-e88f-4f46-9f7a-4c5b027e4113",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-28T09:00:00.000Z",
+        "contentHash": "86f4c6d649874893ba3d35a4b743a7aa4fdae82baaf6b585ea0b16179dc6b1bf",
+        "recordType": "service_event",
+        "eventId": "2116c1a1-be4f-4e4d-a8f9-4d56290b1e0d",
+        "customerId": "03b13043-64cf-4219-af4e-3f1708b8a8b9",
+        "kind": "service",
+        "stopId": "stop-27-3",
+        "performedAt": "2026-10-28T12:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "UNBILLED_STOP"
+    ]
+  },
+  {
+    "caseId": "60f6c1e4-d6ff-4e87-9204-a09ab5c83559",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "e2ff0de7-be07-4e98-8559-c6993b90c513",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-29T09:00:00.000Z",
+        "contentHash": "0381a41f5c2bf940e89bf75eb75dd5ee5169cb18ecf15ed938b4275c91df57ff",
+        "recordType": "invoice",
+        "invoiceId": "f97ab181-9d94-47cf-b2cb-8dfd92e51d23",
+        "customerId": "72499863-069c-4654-b911-2b771aa55e6f",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-28-1"
+          },
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-28-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-28-2"
+          }
+        ],
+        "totalCents": 2500,
+        "periodStart": "2026-10-29T09:00:00.000Z",
+        "periodEnd": "2026-10-30T23:00:00.000Z"
+      },
+      {
+        "recordId": "f85f8701-7f66-4edf-aef3-4351881699ee",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-29T09:00:00.000Z",
+        "contentHash": "db8e8703e9c55060db69ea21c4b097fa72f5a4f2fb0041b6b52f2864bf792759",
+        "recordType": "contract_rate",
+        "customerId": "72499863-069c-4654-b911-2b771aa55e6f",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-29T09:00:00.000Z",
+        "effectiveTo": "2026-10-31T23:00:00.000Z"
+      },
+      {
+        "recordId": "a8a0bcef-dcd2-4959-b870-f3b7528c060c",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-29T09:00:00.000Z",
+        "contentHash": "e709ccedf2de0af9e6e6f3edc1d779a3bc0294ba0835c9bb10cf0252931284e6",
+        "recordType": "contract_rate",
+        "customerId": "72499863-069c-4654-b911-2b771aa55e6f",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-29T09:00:00.000Z",
+        "effectiveTo": "2026-10-31T23:00:00.000Z"
+      },
+      {
+        "recordId": "3cebb1bf-47ad-404c-902a-fb3b220716c2",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-29T09:00:00.000Z",
+        "contentHash": "ac233a003db9c768f2b612567770567e7332a878cd936e706241a41c6e71e12b",
+        "recordType": "contract_rate",
+        "customerId": "72499863-069c-4654-b911-2b771aa55e6f",
+        "kind": "fuel_surcharge",
+        "unitCents": 50,
+        "effectiveFrom": "2026-10-29T09:00:00.000Z",
+        "effectiveTo": "2026-10-31T23:00:00.000Z"
+      },
+      {
+        "recordId": "63134272-aa28-4826-8761-c91d3afb17d7",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-29T09:00:00.000Z",
+        "contentHash": "a2c469686b1729921e5b5328386cff6bb2dc41da4cf186a6c3b682ed97676d02",
+        "recordType": "service_event",
+        "eventId": "59495cf8-536d-41c7-a846-8324ec9a8c89",
+        "customerId": "72499863-069c-4654-b911-2b771aa55e6f",
+        "kind": "service",
+        "stopId": "stop-28-1",
+        "performedAt": "2026-10-29T10:00:00.000Z"
+      },
+      {
+        "recordId": "924607da-d71d-4a2f-ba54-ec05ef106498",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-29T09:00:00.000Z",
+        "contentHash": "3b5c07bdf867037910bbee18eb8b3f31d9233913a3f269b7de6b1650792307d4",
+        "recordType": "service_event",
+        "eventId": "755826ba-e2cf-4f31-a58b-7c6d5c0cbd43",
+        "customerId": "72499863-069c-4654-b911-2b771aa55e6f",
+        "kind": "handling",
+        "stopId": "stop-28-2",
+        "performedAt": "2026-10-29T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "DOUBLE_BILLED_STOP"
+    ]
+  },
+  {
+    "caseId": "ce2b14be-edd5-44e5-9047-a1a3643bea48",
+    "pack": "billing",
+    "records": [
+      {
+        "recordId": "0057d0a5-ec75-4477-b1da-9a835eab7427",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-30T09:00:00.000Z",
+        "contentHash": "5093d9580f3acb35d727ee9ebc01f087b8f8d5be325b7c4130b231632734f52d",
+        "recordType": "invoice",
+        "invoiceId": "974abe55-03ab-4b18-b699-2ab7b6b244e0",
+        "customerId": "1ee233ed-e3c7-4ba9-9864-f0d13594a7fb",
+        "lines": [
+          {
+            "kind": "service",
+            "qty": 1,
+            "unitCents": 1000,
+            "totalCents": 1000,
+            "stopId": "stop-29-1"
+          },
+          {
+            "kind": "handling",
+            "qty": 1,
+            "unitCents": 500,
+            "totalCents": 500,
+            "stopId": "stop-29-2"
+          },
+          {
+            "kind": "fuel_surcharge",
+            "qty": 1,
+            "unitCents": 300,
+            "totalCents": 300
+          }
+        ],
+        "totalCents": 1800,
+        "periodStart": "2026-10-30T09:00:00.000Z",
+        "periodEnd": "2026-10-31T23:00:00.000Z"
+      },
+      {
+        "recordId": "ab3302b7-1f3f-4df0-8773-8c2ee34cfa01",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-30T09:00:00.000Z",
+        "contentHash": "ae7f8adfb5aeff2bb66759a67a496e9685e74746e9ade9a3cd7fae4b46eb605c",
+        "recordType": "contract_rate",
+        "customerId": "1ee233ed-e3c7-4ba9-9864-f0d13594a7fb",
+        "kind": "service",
+        "unitCents": 1000,
+        "effectiveFrom": "2026-10-30T09:00:00.000Z",
+        "effectiveTo": "2026-11-01T23:00:00.000Z"
+      },
+      {
+        "recordId": "3d7ca61a-beef-481a-bb53-db6ca5040a07",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-30T09:00:00.000Z",
+        "contentHash": "1983a0e3b9ea09b84716a62d821457d99435b131bb2f257dfc904afbcd3089b3",
+        "recordType": "contract_rate",
+        "customerId": "1ee233ed-e3c7-4ba9-9864-f0d13594a7fb",
+        "kind": "handling",
+        "unitCents": 500,
+        "effectiveFrom": "2026-10-30T09:00:00.000Z",
+        "effectiveTo": "2026-11-01T23:00:00.000Z"
+      },
+      {
+        "recordId": "3b97c5bf-ec11-4fe6-9a7e-fad903ebe2b0",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-30T09:00:00.000Z",
+        "contentHash": "a761b323ff6f726490500b83db525af4720a7de3d3b7f663a37d19f9149635e9",
+        "recordType": "contract_rate",
+        "customerId": "1ee233ed-e3c7-4ba9-9864-f0d13594a7fb",
+        "kind": "fuel_surcharge",
+        "unitCents": 300,
+        "effectiveFrom": "2026-10-30T09:00:00.000Z",
+        "effectiveTo": "2026-11-01T23:00:00.000Z"
+      },
+      {
+        "recordId": "440d92f8-29e5-4cc1-bac6-963fd3665416",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-30T09:00:00.000Z",
+        "contentHash": "3adf0b77a9b0dce43c2c45ec53bffcd140140dbecb6e86223715380933039e75",
+        "recordType": "service_event",
+        "eventId": "446eafd4-773b-49b6-a15d-211f6ca2d12d",
+        "customerId": "1ee233ed-e3c7-4ba9-9864-f0d13594a7fb",
+        "kind": "service",
+        "stopId": "stop-29-1",
+        "performedAt": "2026-10-30T10:00:00.000Z"
+      },
+      {
+        "recordId": "97ba3655-6b81-4568-b618-dd6ee46f4535",
+        "workspaceId": "demo",
+        "schemaVersion": 1,
+        "sourceSystem": "synthetic-cash-logistics",
+        "recordedAt": "2026-10-30T09:00:00.000Z",
+        "contentHash": "399a3c5ce298c1a99b786ddf3f5f9537517e26e40fcfb7a82d543c8156ca222e",
+        "recordType": "service_event",
+        "eventId": "0342b600-9945-424b-958a-dd3fb0f52d5f",
+        "customerId": "1ee233ed-e3c7-4ba9-9864-f0d13594a7fb",
+        "kind": "handling",
+        "stopId": "stop-29-2",
+        "performedAt": "2026-10-30T11:00:00.000Z"
+      }
+    ],
+    "expectedFindings": [
+      "FUEL_SURCHARGE_OVER"
+    ]
+  }
+]

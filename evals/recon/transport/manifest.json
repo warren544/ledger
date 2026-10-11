@@ -1,0 +1,16 @@
+{
+  "datasetId": "ledger-recon-transport-v1",
+  "pack": "transport",
+  "generatorVersion": "recon-fixtures-v1",
+  "seed": "ledger-recon-transport-seed-v1",
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-11T09:00:00.000Z",
+  "regressionCases": 30,
+  "holdoutCases": 20,
+  "holdoutFloor": {
+    "precision": 1,
+    "recall": 1
+  },
+  "regressionHash": "78c110ae4e6bb828a235fc4cca16edfc496b6160b3321dc7424b75ff3e58ccbe",
+  "holdoutHash": "d29746ff4cfc700d08694840e1bba6284f8a5a52ce88e4bb3806ee8fb93f462e"
+}

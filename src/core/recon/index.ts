@@ -1,5 +1,6 @@
 export * from "./audit-event.js";
 export * from "./exception.js";
+export * from "./finding.js";
 export * from "./match.js";
 export * from "./record-types.js";
 export * from "./variance.js";

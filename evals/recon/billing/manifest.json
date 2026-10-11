@@ -1,0 +1,16 @@
+{
+  "datasetId": "ledger-recon-billing-v1",
+  "pack": "billing",
+  "generatorVersion": "recon-fixtures-v1",
+  "seed": "ledger-recon-billing-seed-v1",
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-11T09:00:00.000Z",
+  "regressionCases": 30,
+  "holdoutCases": 20,
+  "holdoutFloor": {
+    "precision": 1,
+    "recall": 1
+  },
+  "regressionHash": "aa7040a72077d6c6e1059db544c05d101daf974616166f1c6e94da2b02262c60",
+  "holdoutHash": "f590f106d1b180c3a2658fea983765221c3b328344104bcdc8d25667c25c9a0b"
+}

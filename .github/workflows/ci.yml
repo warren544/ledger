@@ -28,8 +28,16 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Check
         run: npm run check
+      - name: Verify reconciliation fixtures
+        run: npm run verify-recon-fixtures
+      - name: Evaluate reconciliation packs
+        run: npm run eval:recon
       - name: Build blank shell
         run: npm run build
       - name: Generate prebuild evaluator evidence
