@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { actorFromRequest } from "../../../server/recon/auth.js";
-import { withConnectedReconService } from "../../../server/recon/runtime.js";
-import type { createReconService } from "../../../server/recon/service.js";
+import { actorFromRequest } from "../../../server/recon/auth";
+import { withConnectedReconService } from "../../../server/recon/runtime";
+import type { createReconService } from "../../../server/recon/service";
 
 export const MAX_RECON_BODY_BYTES = 256 * 1024;
 

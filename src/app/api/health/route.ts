@@ -1,4 +1,4 @@
-import { readEnv } from "../../../lib/env.js";
+import { readEnv } from "../../../lib/env";
 
 export async function GET() {
   try {

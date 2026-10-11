@@ -1,6 +1,6 @@
-import { withConnectedRuleService, createReconRuleProposalGenerator } from "../../../../server/recon/runtime.js";
-import { actorFromRequest } from "../../../../server/recon/auth.js";
-import { errorResponse, readJsonBody } from "../../_lib/recon.js";
+import { withConnectedRuleService, createReconRuleProposalGenerator } from "../../../../server/recon/runtime";
+import { actorFromRequest } from "../../../../server/recon/auth";
+import { errorResponse, readJsonBody } from "../../_lib/recon";
 
 export async function POST(request: Request) {
   try {

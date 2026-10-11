@@ -1,6 +1,6 @@
-import { withConnectedRuleService } from "../../../../../server/recon/runtime.js";
-import { actorFromRequest } from "../../../../../server/recon/auth.js";
-import { errorResponse } from "../../../_lib/recon.js";
+import { withConnectedRuleService } from "../../../../../server/recon/runtime";
+import { actorFromRequest } from "../../../../../server/recon/auth";
+import { errorResponse } from "../../../_lib/recon";
 
 export async function POST(request: Request, context: { params: Promise<{ id: string }> }) {
   try {

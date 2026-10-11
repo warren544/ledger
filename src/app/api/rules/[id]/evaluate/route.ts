@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { withConnectedRuleService } from "../../../../../server/recon/runtime.js";
-import { actorFromRequest } from "../../../../../server/recon/auth.js";
-import { errorResponse, readJsonBody } from "../../../_lib/recon.js";
-import { readFrozenRuleSet } from "../../../../../server/recon/holdout.js";
+import { withConnectedRuleService } from "../../../../../server/recon/runtime";
+import { actorFromRequest } from "../../../../../server/recon/auth";
+import { errorResponse, readJsonBody } from "../../../_lib/recon";
+import { readFrozenRuleSet } from "../../../../../server/recon/holdout";
 
 const inputSchema = z.object({ pack: z.enum(["transport", "billing"]) }).strict();
 

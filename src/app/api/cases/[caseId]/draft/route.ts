@@ -1,6 +1,6 @@
-import { actorFromRequest } from "../../../../../server/recon/auth.js";
-import { createReconDraftDependencies, withConnectedReconService } from "../../../../../server/recon/runtime.js";
-import { errorResponse, readJsonBody } from "../../../_lib/recon.js";
+import { actorFromRequest } from "../../../../../server/recon/auth";
+import { createReconDraftDependencies, withConnectedReconService } from "../../../../../server/recon/runtime";
+import { errorResponse, readJsonBody } from "../../../_lib/recon";
 
 export async function POST(request: Request, context: { params: Promise<{ caseId: string }> }) {
   try {

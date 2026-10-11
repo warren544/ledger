@@ -10,9 +10,9 @@ Created during the prebuild phase: repository shell, exact Node 22.23.3 runtime 
 
 At the prebuild boundary, audit panels, product duplicate/split workflow, executable policy/DSL semantics, correction-to-rule behavior, approval workflow, learned/product evaluator, policy-driven rechecks, and product UI were intentionally absent. The separately authorized baseline holdout evaluator is evaluator-only plumbing and is not a finished product audit system.
 
-## Current event-scope Step 5 work
+## Current event-scope Step 6 work
 
-The current uncommitted event-scope change adds the closed pack-specific Rule DSL and pure evaluator in `src/core/recon/rules.ts`, rule proposal/evaluation/approval/rollback services in `src/server/recon/approval.ts`, deterministic replay reporting in `src/server/recon/replay.ts`, evaluation-only frozen holdout loading, and the corresponding API routes and tests. This is working-tree event code, not a prebuilt claim or a commit record.
+The current event-scope change adds the closed pack-specific Rule DSL and pure evaluator in `src/core/recon/rules.ts`, rule proposal/evaluation/approval/rollback services in `src/server/recon/approval.ts`, deterministic replay reporting in `src/server/recon/replay.ts`, evaluation-only frozen holdout loading, the corresponding API routes and tests, and a minimal P1/P5 UI under `src/app/(ui)`. This is working-tree event code, not a prebuilt claim or a commit record.
 
 ## Event boundary
 
@@ -63,7 +63,7 @@ Adapters and orchestration:
 - `src/adapters/mongo/` — neutral workspace-scoped record access, validators/index definitions, and worker persistence seams.
 - `src/adapters/llm/` and `src/adapters/embeddings/` — injected OpenAI structured-output and embedding adapters.
 - `src/server/mongo.ts`, `adapters.ts`, `worker.ts`, and `eval-runner.ts` — generic server-facing orchestration only.
-- `src/app/layout.tsx` and `page.tsx` — blank Next shell; no product UI.
+- `src/app/layout.tsx`, `page.tsx`, and `(ui)/` — minimal P1/P5 event-scope UI pages for queue, case detail, correction, rule lifecycle, and replay; client code uses only same-origin API calls.
 - `worker/index.ts` — bounded neutral worker entry point with dry-run support.
 
 Scripts and data:
@@ -76,13 +76,13 @@ Scripts and data:
 
 ## Evidence classification
 
-Verified locally: fixture reset/inspection/verification, typecheck, lint, 75 tests with nonzero discovery, credential-free eval plumbing, the 20-case frozen baseline evaluation, dry-run worker, deterministic reports, and the blank Next build. The generic eval report records 12 actual cases with null domain metrics; the separate holdout report records its measured baseline metrics in `docs/eval-baseline.md`.
+Verified locally: fixture reset/inspection/verification, typecheck, lint, the nonzero TypeScript suite, credential-free eval plumbing, the 20-case frozen baseline evaluation, dry-run worker, deterministic reports, and the Next build. The generic eval report records 12 actual cases with null domain metrics; the separate holdout report records its measured baseline metrics in `docs/eval-baseline.md`. UI state and chain-badge behavior are covered by isolated tests; browser interaction and live Atlas-backed UI are not claimed.
 
 Verified with doubles: Mongo lifecycle and workspace isolation, adapter response/vector contracts, worker atomic coordination and lease fencing, evaluator-label isolation, and report atomic-write failure behavior. These are not live-service or real-concurrency proofs.
 
 Live integration verified in the authorized synthetic namespace: the adapter smoke made one structured-output call and one embedding call, produced a 1536-dimensional vector, completed vector readback through `synthetic_embeddings_vector` with a workspace filter, and cleaned up its own test data. This does not establish production readiness or domain accuracy.
 
-Pending: learned/product evaluator behavior, live worker durability/concurrency, event-written audit behavior, hosted Windows/Linux Actions results, and the organizer clarification. The holdout baseline is a measured synthetic baseline, not a production accuracy claim or eligibility proof.
+Pending: learned/product evaluator behavior, live worker durability/concurrency, event-written audit behavior, live Atlas-backed UI/API verification in this step, hosted Windows/Linux Actions results, and the organizer clarification. The holdout baseline is a measured synthetic baseline, not a production accuracy claim or eligibility proof.
 
 ## Event-only mapping
 
