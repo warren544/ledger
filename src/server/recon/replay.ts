@@ -6,7 +6,7 @@ import type { ReconFinding } from "../../core/recon/finding.js";
 export interface ReplayCase { readonly caseId: string; readonly records: readonly unknown[]; readonly expectedFindings: readonly string[] }
 export interface Confusion { readonly tp: number; readonly fp: number; readonly fn: number; readonly tn: number }
 export interface ReplayMetrics { readonly precision: number | null; readonly recall: number | null; readonly confusion: Confusion; readonly criticalMisses: number; readonly exceptionDelta: number }
-export interface ReplayReport { readonly pack: "transport" | "billing"; readonly before: ReplayMetrics; readonly after: ReplayMetrics; readonly reportHash: string; readonly holdoutId: string }
+export interface ReplayReport { readonly pack: "transport" | "billing"; readonly before: ReplayMetrics; readonly after: ReplayMetrics; readonly reportHash: string; readonly holdoutId: string; readonly beforeRuleVersion: number | null; readonly afterRuleVersion: number | null }
 
 const criticalCodes = new Set(["DUPLICATE_TRACE", "DOUBLE_BILLED_STOP"]);
 
@@ -55,7 +55,7 @@ function metrics(cases: readonly ReplayCase[], pack: "transport" | "billing", ru
 export function replayRecon(input: { readonly pack: "transport" | "billing"; readonly cases: readonly ReplayCase[]; readonly before?: ReconRule; readonly after?: ReconRule; readonly holdoutId: string }): ReplayReport {
   const before = metrics(input.cases, input.pack, input.before);
   const after = metrics(input.cases, input.pack, input.after);
-  const report = { pack: input.pack, before, after, holdoutId: input.holdoutId };
+  const report = { pack: input.pack, before, after, holdoutId: input.holdoutId, beforeRuleVersion: input.before?.version ?? null, afterRuleVersion: input.after?.version ?? null };
   return { ...report, reportHash: hash(report) };
 }
 
