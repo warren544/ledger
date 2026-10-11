@@ -23,5 +23,10 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
     }
     const set = await readFrozenRuleSet(input.pack);
     return Response.json(await withConnectedRuleService((service) => service.evaluate(actor, id, set)));
-  } catch (error) { return errorResponse(error); }
+  } catch (error) {
+    const response = errorResponse(error);
+    const body = await response.json() as Record<string, unknown>;
+    const details = error instanceof Error ? error.message : String(error);
+    return Response.json({ ...body, details }, { status: response.status });
+  }
 }
