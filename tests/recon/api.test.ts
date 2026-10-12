@@ -132,8 +132,10 @@ test("capabilities deny unauthenticated or wrong-role mutations and workspace wr
   assert.throws(() => verifyDemoSession("not-a-session", secret), /invalid demo session/);
 });
 
-test("route boundary rejects unauthenticated and oversized requests without details", async () => {
-  assert.equal(errorResponse(new Error("authentication required")).status, 401);
+test("route boundary returns status and caught error details", async () => {
+  const response = errorResponse(new Error("authentication required"));
+  assert.equal(response.status, 401);
+  assert.deepEqual(await response.json(), { error: "unauthenticated", details: "authentication required" });
   const oversized = new Request("http://ledger.test/api/ingest/transport", { method: "POST", body: "x".repeat(256 * 1024 + 1) });
   await assert.rejects(readJsonBody(oversized), /too large/);
 });

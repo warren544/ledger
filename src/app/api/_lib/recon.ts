@@ -16,7 +16,7 @@ export async function readJsonBody(request: Request): Promise<unknown> {
 export const errorResponse = (error: unknown): Response => {
   const message = error instanceof Error ? error.message : "request failed";
   const status = message === "authentication required" || message === "invalid demo session" ? 401 : message === "capability denied" ? 403 : message === "case not found" ? 404 : message.includes("Mongo") ? 503 : 400;
-  return Response.json({ error: status === 401 ? "unauthenticated" : status === 403 ? "capability denied" : status === 404 ? "not found" : "request failed" }, { status });
+  return Response.json({ error: status === 401 ? "unauthenticated" : status === 403 ? "capability denied" : status === 404 ? "not found" : "request failed", details: message }, { status });
 };
 
 export async function withReconService<T>(request: Request, work: (service: ReturnType<typeof createReconService>, actor: ReturnType<typeof actorFromRequest>) => Promise<T>): Promise<Response> {
